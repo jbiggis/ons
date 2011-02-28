@@ -1,0 +1,94 @@
+<div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<%= javascript_include_tag 'facebook-init' %>
+<script>
+function concatObject(obj) {
+  str='';
+  for(prop in obj)
+  {
+    str+=prop + " value :"+ obj[prop]+"\n";
+  }
+  return(str);
+}
+	/*
+	FB.api('/me', function(user) {
+		if(user != null) {
+			alert(concatObject(user))
+             /* var image = document.getElementById('image');
+              image.src = 'http://graph.facebook.com/' + user.id + '/picture';
+              var name = document.getElementById('name');
+              name.innerHTML = user.name
+           }
+	   });   
+	   */
+
+	FB.getLoginStatus(function(response) {
+	  if (response.session) {
+	
+	/*	   var xmlhttp;
+		   xmlhttp = new XMLHttpRequest();
+		   params = "hunter_id=" + 
+		  
+		   xmlhttp.open("GET", "/sessions/create", true);
+		   xmlhttp.send();		
+	*/
+	    /*document.getElementById('namer').innerHTML= "Logged in via Facebook"*/
+
+	  } else {
+  		
+
+	    /*document.getElementById('namer').innerHTML= "Not logged in via facebook" */
+	  }
+	});
+
+	   function logout () {
+   	   	window.location="/sign_out";
+	        FB.logout();
+	   };
+
+
+	   FB.Event.subscribe('edge.create', function() {
+
+
+
+	   });
+	   FB.Event.subscribe('edge.remove', function() {
+		   
+		   var xmlhttp;
+		   xmlhttp = new XMLHttpRequest();
+
+		  
+		   xmlhttp.open("GET", "/public/unlike_album?id=14", true);
+		   xmlhttp.send();
+
+	   });
+
+	   FB.getLoginStatus(function(response) {
+	/*	   alert(concatObject(response));
+		   	alert(concatObject(response.session));*/
+	   });
+   	   FB.Event.subscribe('auth.login', function() {
+
+
+FB.api('/me', function(user) {
+		if(user != null) {
+			/*	   	alert(concatObject(user));*/
+	         window.location="/sign_in?hunter_id="+user.id+"&email="+ user.email+"&first_name="+user.first_name+"&last_name="+user.last_name+"&gender="+user.gender+"&dob="+user.birthday
+           }
+	   });   
+
+	   });
+
+
+
+
+
+
+   
+
+
+ 
+
+
+ </script>
+
