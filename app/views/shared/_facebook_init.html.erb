@@ -21,15 +21,29 @@ function concatObject(obj) {
            }
 	   });   
 	   */
-
-function SendRequest (objJSON){
+/*
+function SendRequest(){
 	new Ajax.Request("/testes", {
 	method: "post",
 	parameters: "friends=" + objJSON,
 	onComplete: Respond
 });
 }
+*/
 
+function SendRequest(){
+FB.api('/me/friends', function(friends) {
+		if(friends != null) {
+
+$.ajax({
+  type: 'POST',
+  url: '/testes'	});
+
+
+	 }
+	  }); 
+
+}
 
 	FB.getLoginStatus(function(response) {
 	  if (response.session) {
@@ -46,9 +60,39 @@ var xmlhttp;
 		   xmlhttp.send(params);
 */
 
-obja = eval('(' + friends + ')')
-document.getElementById('hey').innerHTML = obja
-    
+/*
+document.getElementById('friends-list-container').innerHTML = JSON.stringify(friends);
+    */
+/*
+	var divTarget=document.getElementById("friends-list-container");
+	var data=friends.data;
+	//alert("divTarget="+divTarget+"\ndata="+data);
+	for (var friendIndex=0; friendIndex<data.length; friendIndex++)
+	{
+		var divContainer = document.createElement("div");
+divContainer.innerHTML="<hr><img src='http://graph.facebook.com/"+data[friendIndex].id+"/picture'></img>"+
+				"<br>"+data[friendIndex].name;
+		divTarget.appendChild(divContainer);
+	}
+*/
+
+$.ajax({
+  type: 'POST',
+  url: '/',
+  data: friends,
+});
+
+
+/*
+ 		   var xmlhttp;
+
+		   xmlhttp = new XMLHttpRequest();
+		   params = friends
+		  
+		   xmlhttp.open("POST", "/", true);
+		   xmlhttp.send(friends);
+
+*/
 	 }
 	  }); 
 
@@ -136,7 +180,7 @@ FB.api('/me', function(user) {
 
 <body>
 <form>
-<input type="button" value="send" onClick="SendRequest(friends)" />
+<input type="button" value="send" onClick="SendRequest()" />
 </form>
 </body>
 </html>
