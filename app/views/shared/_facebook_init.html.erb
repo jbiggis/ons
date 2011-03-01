@@ -49,7 +49,35 @@ $.ajax({
 )
 */
 
-$("a.friend").live('click', function() {  name = $(this).attr("name");  first_name = $(this).attr("first-name");  username = $(this).attr("username");  gender = $(this).attr("gender");  relationship_status = $(this).attr("relationship-status");  if ($(this).hasClass('selected')) {    mpq.push(["track", "uncrush", {"gender": gender, "relationship-status": relationship_status}]);    $(this).removeClass("selected");    crush_count--;    crushes_available++;    $.post("/ajax/unwatch-friend", { id: $(this).attr('value') }, function(data) {      if (data.status === "failure") {        alert(data.message);        window.location.reload(false);      }    });  }  else {    mpq.push(["track", "crush", {"gender": gender, "relationship-status": relationship_status}]);    if (crushes_available <= 0) {      email = prompt("Enter " + first_name + "'s email address to send them a notification that they've been crushed! If they crush you back, we will let you both know! Click cancel if you would rather use Facebook Credits.", ""); 
+$("a.friend").live('click', function() {  
+
+	$.post("/targets", { 
+			id: $(this).attr('value'), 
+			email: email, 
+			first_name: first_name 
+			}, 
+			alert('success');			
+			/*			
+			function(data) {      
+				if (data.status === "failure") {       
+					alert(data.message);      
+	
+				} else {        
+					crush_count++;        
+					crushes_available--;        
+					elem.addClass("selected");        
+		
+					if (email != "") {          
+						alert("We sent a crush notification to " + email + ". Sit back and wait to see if they crush 						you back!");        
+					} else { 
+						 alert("You've just crushed " + first + ". Sit back and wait to see if they crush you 					back!");       
+					 }      
+				}    
+			});  
+			*/
+		}
+
+}
 
 var crush_count = 3;
 var crushes_available = 0;
@@ -107,25 +135,26 @@ if ($(this).hasClass('selected')) {
 	elem = $(this);    
 	
 	$.post("/ajax/watch-friend", { 
-	id: $(this).attr('value'), 
-	email: email, first_name: first_name }, 
-	function(data) {      
-		if (data.status === "failure") {       
-			alert(data.message);      
+		id: $(this).attr('value'), 
+		email: email, first_name: first_name }, 
+		function(data) {      
+			if (data.status === "failure") {       
+				alert(data.message);      
 	
-		} else {        
-			crush_count++;        
-			crushes_available--;        
-			elem.addClass("selected");        
+			} else {        
+				crush_count++;        
+				crushes_available--;        
+				elem.addClass("selected");        
 		
-			if (email != "") {          
-				alert("We sent a crush notification to " + email + ". Sit back and wait to see if they crush you 					back!");        
-			} else { 
-			         alert("You've just crushed " + first + ". Sit back and wait to see if they crush you 					back!");       
-			 }      
-		}    
-	});  
-}});
+				if (email != "") {          
+					alert("We sent a crush notification to " + email + ". Sit back and wait to see if they crush you 					back!");        
+				} else { 
+					 alert("You've just crushed " + first + ". Sit back and wait to see if they crush you 					back!");       
+				 }      
+			}    
+		});  
+	}
+});
 
 var free_to_search = false;
 

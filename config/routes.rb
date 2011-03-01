@@ -1,5 +1,9 @@
 Ons::Application.routes.draw do
 
+  get "target/create"
+
+  get "target/destroy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
