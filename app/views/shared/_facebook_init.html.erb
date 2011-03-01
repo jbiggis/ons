@@ -288,6 +288,7 @@ $("#open_relationship").click(function() {
 
 	elem = $("a.friend.open_relationship");  
 
+<<<<<<< HEAD
 	hide_if_necessary(elem, checked);}
 
 );
@@ -338,7 +339,7 @@ $("#married").click(function() {
 
 
 
-<<<<<<< HEAD
+
 function SendRequest(){
 /*FB.api('/me/friends', function(friends) {
 		if(friends != null) {
@@ -353,7 +354,7 @@ $.post('/', function() {
   $('.result').html('hey');
 });
 
-=======
+
 function SendRequest(msg){
 
 	$.ajax({
@@ -373,7 +374,7 @@ function SendRequest(msg){
 			});
 		}
 	});*/ 
->>>>>>> 1115f658f2970f725913ffdc2be0cacdbc37c571
+
 
 /*
 	 } 
@@ -384,7 +385,7 @@ function SendRequest(msg){
 FB.getLoginStatus(function(response) {
   if (response.session) {
 	
-<<<<<<< HEAD
+
 FB.api('/me/friends', function(friends) {
 		if(friends != null) {
 /*				   	alert(concatObject(friends.data));
@@ -434,7 +435,6 @@ $.ajax({
 	  }); 
 
 	 
-=======
 		FB.api('/me/friends', function(friends) {
 			if(friends != null) {
 
@@ -452,7 +452,7 @@ $.ajax({
 
 			}
 		}); 
->>>>>>> 1115f658f2970f725913ffdc2be0cacdbc37c571
+
 	   
 /*
 FB.api('/me', function(user) {
@@ -492,6 +492,7 @@ FB.Event.subscribe('auth.login', function() {
 		}
 	});   
 
+
 });
 
 $('a.friend').live('click', function(){
@@ -503,5 +504,17 @@ $('a.friend').live('click', function(){
 
 </script>
 
+
+});
+
+
+$('a.friend').live('click', function(){
+	//$(this).parent().hide();
+	//alert($(this).attr("name"));
+	var objJSON={"fb_id" : $(this).attr("fb_id")}; 
+	SendRequest(objJSON);
+});
+
+</script>
 
 
