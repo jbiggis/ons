@@ -29,7 +29,7 @@ Ons::Application.routes.draw do
 match 'sign_in' => 'sessions#create'
 match 'sign_out' => 'sessions#destroy'
 
-match '/create' => 'home#create'
+match '/testes' => 'home#testes'
 match '/check' => 'home#check'
 
 root :to => "home#show"

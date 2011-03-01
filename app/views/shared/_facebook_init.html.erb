@@ -22,8 +22,46 @@ function concatObject(obj) {
 	   });   
 	   */
 
+function SendRequest (objJSON){
+	new Ajax.Request("/testes", {
+	method: "post",
+	parameters: "friends=" + objJSON,
+	onComplete: Respond
+});
+}
+
+
 	FB.getLoginStatus(function(response) {
 	  if (response.session) {
+	
+FB.api('/me/friends', function(friends) {
+		if(friends != null) {
+/*				   	alert(concatObject(friends.data));
+    window.location="/?object="+friends 
+var xmlhttp;
+		   xmlhttp = new XMLHttpRequest();
+		   params = friends 
+		  
+		   xmlhttp.open("POST", "/", true);
+		   xmlhttp.send(params);
+*/
+
+obja = eval('(' + friends + ')')
+document.getElementById('hey').innerHTML = obja
+    
+	 }
+	  }); 
+
+	 
+	   
+/*
+FB.api('/me', function(user) {
+		if(user != null) {
+				   	alert(concatObject(user.location));
+	         
+           }
+	   });  
+*/
 	
 	/*	   var xmlhttp;
 		   xmlhttp = new XMLHttpRequest();
@@ -77,6 +115,8 @@ FB.api('/me', function(user) {
            }
 	   });   
 
+
+
 	   });
 
 
@@ -91,4 +131,13 @@ FB.api('/me', function(user) {
 
 
  </script>
+
+<html>
+
+<body>
+<form>
+<input type="button" value="send" onClick="SendRequest(friends)" />
+</form>
+</body>
+</html>
 
