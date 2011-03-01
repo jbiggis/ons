@@ -1,2 +1,2 @@
-class Prey < ActiveRecord::Base
+class Target < ActiveRecord::Base
 end
