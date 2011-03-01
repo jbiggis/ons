@@ -1,7 +1,9 @@
 <div id="fb-root"></div>
 <script src="http://connect.facebook.net/en_US/all.js"></script>
 <%= javascript_include_tag 'facebook-init' %>
+
 <script>
+
 function concatObject(obj) {
   str='';
   for(prop in obj)
@@ -10,6 +12,13 @@ function concatObject(obj) {
   }
   return(str);
 }
+
+
+function logout () {
+	window.location="/sign_out";
+  FB.logout();
+};
+
 	/*
 	FB.api('/me', function(user) {
 		if(user != null) {
@@ -329,6 +338,7 @@ $("#married").click(function() {
 
 
 
+<<<<<<< HEAD
 function SendRequest(){
 /*FB.api('/me/friends', function(friends) {
 		if(friends != null) {
@@ -343,6 +353,27 @@ $.post('/', function() {
   $('.result').html('hey');
 });
 
+=======
+function SendRequest(msg){
+
+	$.ajax({
+		type: 'POST',
+		url: '/add',
+		data: msg
+	});
+	/*FB.api('/me/friends', function(friends) {
+		if(friends != null) {
+			$.ajax({
+				type: 'POST',
+				url: '/testes',
+				data: friends,
+				success: function(){
+					//alert("here");
+				}
+			});
+		}
+	});*/ 
+>>>>>>> 1115f658f2970f725913ffdc2be0cacdbc37c571
 
 /*
 	 } 
@@ -350,9 +381,10 @@ $.post('/', function() {
 */
 }
 
-	FB.getLoginStatus(function(response) {
-	  if (response.session) {
+FB.getLoginStatus(function(response) {
+  if (response.session) {
 	
+<<<<<<< HEAD
 FB.api('/me/friends', function(friends) {
 		if(friends != null) {
 /*				   	alert(concatObject(friends.data));
@@ -402,6 +434,25 @@ $.ajax({
 	  }); 
 
 	 
+=======
+		FB.api('/me/friends', function(friends) {
+			if(friends != null) {
+
+				//document.getElementById('friends-list-container').innerHTML = JSON.stringify(friends);
+				var divTarget=document.getElementById("friends");
+				var data=friends.data;
+				//alert(JSON.stringify(data[1]));
+				//alert("divTarget="+divTarget+"\ndata="+data);
+				for (var i=0; i<data.length; i++)
+				{
+					var liElement = document.createElement("li");
+					liElement.innerHTML="<a class='friend' fb_id='"+data[i].id+"' name='"+data[i].name+"' href='#'><img src='http://graph.facebook.com/"+data[i].id+"/picture'></img>"+data[i].name+"</a>";
+					divTarget.appendChild(liElement);
+				}
+
+			}
+		}); 
+>>>>>>> 1115f658f2970f725913ffdc2be0cacdbc37c571
 	   
 /*
 FB.api('/me', function(user) {
@@ -412,81 +463,45 @@ FB.api('/me', function(user) {
 	   });  
 */
 	
-	/*	   var xmlhttp;
-		   xmlhttp = new XMLHttpRequest();
-		   params = "hunter_id=" + 
-		  
-		   xmlhttp.open("GET", "/sessions/create", true);
-		   xmlhttp.send();		
-	*/
 	    /*document.getElementById('namer').innerHTML= "Logged in via Facebook"*/
 
-	  } else {
+	} else {
   		
 
 	    /*document.getElementById('namer').innerHTML= "Not logged in via facebook" */
-	  }
-	});
+	}
+});
 
-	   function logout () {
-   	   	window.location="/sign_out";
-	        FB.logout();
-	   };
+FB.Event.subscribe('edge.create', function() {
+});
 
+FB.Event.subscribe('edge.remove', function() {
+});
 
-	   FB.Event.subscribe('edge.create', function() {
-
-
-
-	   });
-	   FB.Event.subscribe('edge.remove', function() {
-		   
-		   var xmlhttp;
-		   xmlhttp = new XMLHttpRequest();
-
-		  
-		   xmlhttp.open("GET", "/public/unlike_album?id=14", true);
-		   xmlhttp.send();
-
-	   });
-
-	   FB.getLoginStatus(function(response) {
+FB.getLoginStatus(function(response) {
 	/*	   alert(concatObject(response));
 		   	alert(concatObject(response.session));*/
-	   });
-   	   FB.Event.subscribe('auth.login', function() {
+});
 
+FB.Event.subscribe('auth.login', function() {
 
-FB.api('/me', function(user) {
-		if(user != null) {
+	FB.api('/me', function(user) {
+		if(false){//user != null) {
 			/*	   	alert(concatObject(user));*/
-	         window.location="/sign_in?hunter_id="+user.id+"&email="+ user.email+"&first_name="+user.first_name+"&last_name="+user.last_name+"&gender="+user.gender+"&dob="+user.birthday
-           }
-	   });   
+			window.location="/sign_in?hunter_id="+user.id+"&email="+ user.email+"&first_name="+user.first_name+"&last_name="+user.last_name+"&gender="+user.gender+"&dob="+user.birthday
+		}
+	});   
+
+});
+
+$('a.friend').live('click', function(){
+	//$(this).parent().hide();
+	//alert($(this).attr("name"));
+	var objJSON={"fb_id" : $(this).attr("fb_id")}; 
+	SendRequest(objJSON);
+});
+
+</script>
 
 
-
-	   });
-
-
-
-
-
-
-   
-
-
- 
-
-
- </script>
-
-<html>
-
-<body>
-<form>
-<input type="button" value="send" onClick="SendRequest()" />
-</form>
-</body>
-</html>
 

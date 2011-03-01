@@ -34,6 +34,7 @@ match 'sign_in' => 'sessions#create'
 match 'sign_out' => 'sessions#destroy'
 
 match '/testes' => 'home#testes'
+match '/add' => 'home#add'
 match '/check' => 'home#check'
 
 root :to => "home#show"
