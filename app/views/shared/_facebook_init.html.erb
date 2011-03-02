@@ -67,15 +67,24 @@ var liElement = document.createElement("li");
 
 						divTarget.appendChild(liElement);
 					}
-
+				
+				$('.highlight').load('targets/highlight');
 				}
 			}); 
 	
 	}
+/*
+	$.ajax({
+		type: 'GET',
+		url: '/targets/highlight'
+		success: 		
+		
+	});
+*/
 
-
-	
-
+//setTimeout(function(){
+ 
+//},3000);
 });
 
 
@@ -86,7 +95,6 @@ $('a.friend').live('click', function(){
 	var objJSON={"id" : $(this).attr("id")}; 
 	SendRequest(objJSON);
 	$(this).addClass("selected")
-
 
 });
 

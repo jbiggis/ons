@@ -20,6 +20,13 @@ class TargetsController < ApplicationController
 	render :partial => 'shared/preys'
   end
 
+def highlight
+
+	@targets = current_hunter.targets
+	render :partial => 'shared/highlight'
+
+end
+
   def destroy
   end
 
