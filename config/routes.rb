@@ -1,5 +1,8 @@
 Ons::Application.routes.draw do
 
+  post "/targets" => "targets#create"
+  get "/targets/get" => "targets#get"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
