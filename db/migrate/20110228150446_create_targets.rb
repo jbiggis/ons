@@ -7,7 +7,8 @@ class CreateTargets < ActiveRecord::Migration
 	t.datetime :notified_at
       t.timestamps
     end
-    add_index :targets, :hunter_id, :unique => true
+    add_index :targets, :hunter_id
+    add_index :targets, [:hunter_id, :target_id], :unique => true
   end
 
   def self.down

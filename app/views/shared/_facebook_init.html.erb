@@ -4,14 +4,6 @@
 
 <script>
 
-function concatObject(obj) {
-  str='';
-  for(prop in obj)
-  {
-    str+=prop + " value :"+ obj[prop]+"\n";
-  }
-  return(str);
-}
 
 
 function logout () {
@@ -19,339 +11,83 @@ function logout () {
   FB.logout();
 };
 
-	/*
-	FB.api('/me', function(user) {
-		if(user != null) {
-			alert(concatObject(user))
-             /* var image = document.getElementById('image');
-              image.src = 'http://graph.facebook.com/' + user.id + '/picture';
-              var name = document.getElementById('name');
-              name.innerHTML = user.name
-           }
-	   });   
-	   */
+
+
+
 /*
-function SendRequest(){
-	new Ajax.Request("/testes", {
-	method: "post",
-	parameters: "friends=" + objJSON,
-	onComplete: Respond
-});
-}
-*/
-/*
-$('a.friends').live('click', function(){
+$('.result').ajaxSuccess(function () {
 
-if (crushes_available <= 0) {
+	$(this).html('yo?');
 
 
-}
-
-$.ajax({
-  type: 'POST',
-  url: '/testes'	});
-
-/* go to new controller (target) and add relationship 
-
-}
-
-)
-*/
-
-$("a.friend").live('click', function() {  
-
-	$.post("/targets", { 
-			id: $(this).attr('value'), 
-			email: email, 
-			first_name: first_name 
-			}, 
-			alert('success');			
-			/*			
-			function(data) {      
-				if (data.status === "failure") {       
-					alert(data.message);      
-	
-				} else {        
-					crush_count++;        
-					crushes_available--;        
-					elem.addClass("selected");        
-		
-					if (email != "") {          
-						alert("We sent a crush notification to " + email + ". Sit back and wait to see if they crush 						you back!");        
-					} else { 
-						 alert("You've just crushed " + first + ". Sit back and wait to see if they crush you 					back!");       
-					 }      
-				}    
-			});  
-			*/
-		}
-
-}
-
-var crush_count = 3;
-var crushes_available = 0;
-var name;
-var alert_shown=false;
-var email, elem, username; 
-
-$("a.friend").live('click', function() {  
-name = $(this).attr("name");  
-first_name = $(this).attr("first-name");  
-username = $(this).attr("username");  
-gender = $(this).attr("gender");  
-relationship_status = $(this).attr("relationship-status");  
-
-if ($(this).hasClass('selected')) {    
- 
-	$(this).removeClass("selected");    
-	crush_count--;    
-	crushes_available++;    
-
-	$.post("/ajax/unwatch-friend", 
-	{ id: $(this).attr('value') }, 
-	function(data) {  
-		if (data.status === "failure") {        
-			alert(data.message);        
-			window.location.reload(false);      
-		}    
-	});  
-
-}  else {   
-
-	if (crushes_available <= 0) {      
-
-		email = prompt("Enter " + first_name + "'s email address to send them a notification that they've been crushed! If they crush 			you back, we will let you both know! Click cancel if you would rather use Facebook Credits.", "");      
-		
-		if (!email || email=='') {        
-		
-			alert("You've run out of Crushes! To crush " + first_name + ", buy more Crushes or specify " + first_name + "'s 			email.");        
-			return;      
-		
-		} else {   
-		
-	        	email_regex = new RegExp(/[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/);        
-		
-			if (!email.match(email_regex)) {          
-				
-				alert("You provided an improperly formatted email address. Please try again.");
-		                return;        
-			}      
-		}    
-	} else {
-	      email = "";    
-	}    
-
-	elem = $(this);    
-	
-	$.post("/ajax/watch-friend", { 
-		id: $(this).attr('value'), 
-		email: email, first_name: first_name }, 
-		function(data) {      
-			if (data.status === "failure") {       
-				alert(data.message);      
-	
-			} else {        
-				crush_count++;        
-				crushes_available--;        
-				elem.addClass("selected");        
-		
-				if (email != "") {          
-					alert("We sent a crush notification to " + email + ". Sit back and wait to see if they crush you 					back!");        
-				} else { 
-					 alert("You've just crushed " + first + ". Sit back and wait to see if they crush you 					back!");       
-				 }      
-			}    
-		});  
-	}
 });
 
-var free_to_search = false;
+*/
+$(document).ready(function () {
+FB.getLoginStatus(function(response) {
+  if (response.session) {
 
-function allow_search() { 
+$('.result').load('targets/get');
 
-	free_to_search = true; 
-}
+//$('.result').load('targets/get', function(response) {
+//  alert(response);
+//});
 
-setInterval("allow_search()", 500);
-
-$("input").keyup(function() {  
-
-	var q=$(this).attr("value");  
-
-	if (q === "") {    
-		$("a.friend").parent().show();    
-		return;  
-	}  
-
-	if (!free_to_search) {    
-		return;  
-	}  
-	
-	free_to_search = false;  
-
-	var re=new RegExp(q, "gi");  
-
-	$("a.friend").each(function(index, value) {    
-	
-		elem = $(value).parent();    
+/*
+	$.ajax({
+		type: 'GET',
+		url: '/targets/get'
 		
-		if (!re.test($(value).attr("name"))) {      
-			elem.hide();    
-		} else {      
-			elem.show();    
-		}  
+		
 	});
-});
+*/
 
-$("#male").click(function() {  
 
-	$("a.friend.female").parent().hide();  
+/*
+	alert(escape(<%= @yo %>));
 
-	$("a.friend.unknown").parent().hide();  
+
+var liElement = document.createElement("li");
+						liElement.innerHTML="<a class='selected friend' id='"+data[i].id+"' name='"+data[i].name+"' href='#'><img src='http://graph.facebook.com/"+data[i].id+"/picture'></img>"+data[i].name+"</a>";
+
+*/
+
+
+	FB.api('/me/friends', function(friends) {
+				if(friends != null) {
+
+					//document.getElementById('friends-list-container').innerHTML = JSON.stringify(friends);
+					var divTarget=document.getElementById("friends");
+					var data=friends.data;
+
+					for (var i=0; i<data.length; i++)
+					{
+						var liElement = document.createElement("li");
+						liElement.innerHTML="<a class='friend " +data[i].id+"' id='"+data[i].id+"' name='"+data[i].name+"' href='#'><img src='http://graph.facebook.com/"+data[i].id+"/picture'></img>"+data[i].name+"</a>";
+
+						divTarget.appendChild(liElement);
+					}
+
+				}
+			}); 
 	
-	$("a.friend.male").parent().show();  
-
-	$("input[name=relationship_status]").attr("checked", true);
-
-});
-	
-$("#female").click(function() {  
-	
-	$("a.friend.female").parent().show();  
-		
-	$("a.friend.male").parent().hide();  
-
-	$("a.friend.unknown").parent().hide();  
-
-	$("input[name=relationship_status]").attr("checked", true);
-
-});
-
-$("#all").click(function() {  
-
-	$("a.friend").parent().show();  
-	
-	$("input[name=relationship_status]").attr("checked", true);
-
-});
-
-function hide_if_necessary(elem, checked) {  
-
-	all = $("#all").attr("checked");  
-	
-	if (!all) {    
-	
-		male = $("#male").attr("checked");    
-		
-		if (male) {      
-			
-			elem = elem.filter(".male");    
-		
-		} else { 
-		
-			elem = elem.filter(".female");
-		} 
-	}  
-
-	if (checked) { 
-	
-		elem.parent().show(); 
-	
-	} else { 
-		
-		elem.parent().hide(); 
 	}
 
-}
 
-$("#omitted").click(function() {  
-
-	checked = $(this).attr('checked');  
-
-	elem = $("a.friend[relationship-status='']");  
-
-	hide_if_necessary(elem, checked);
-});
-
-$("#single").click(function() {  
 	
-	checked = $(this).attr('checked');  
-	
-	elem = $("a.friend.single");  
-	
-	hide_if_necessary(elem, checked);
-});
-
-$("#open_relationship").click(function() {  
-	
-	checked = $(this).attr('checked');  
-
-	elem = $("a.friend.open_relationship");  
-
-<<<<<<< HEAD
-	hide_if_necessary(elem, checked);}
-
-);
-
-$("#its_complicated").click(function() {  
-
-	checked = $(this).attr('checked');  
-
-	elem = $("a.friend.complicated");  
-
-	hide_if_necessary(elem, checked);
-
-});
-
-$("#in_a_relationship").click(function() {  
-	
-	checked = $(this).attr('checked');  
-
-	elem = $("a.friend.relationship");  
-
-	hide_if_necessary(elem, checked);
-
-});
-
-$("#engaged").click(function() {  
-
-	checked = $(this).attr('checked');  
-
-	elem = $("a.friend.engaged");  
-	
-	hide_if_necessary(elem, checked);
-
-});
-
-$("#married").click(function() {  
-
-	checked = $(this).attr('checked');  
-
-	elem = $("a.friend.married");  
-	
-	hide_if_necessary(elem, checked);
 
 });
 
 
 
+$('a.friend').live('click', function(){
+	//$(this).parent().hide();
+	//alert($(this).attr("name"));
+	var objJSON={"id" : $(this).attr("id")}; 
+	SendRequest(objJSON);
+	$(this).addClass("selected")
 
 
-
-
-
-function SendRequest(){
-/*FB.api('/me/friends', function(friends) {
-		if(friends != null) {
-*/
-/*
-$.ajax({
-  type: 'POST',
-  url: '/testes'	});
-*/
-
-$.post('/', function() {
-  $('.result').html('hey');
 });
 
 
@@ -359,160 +95,14 @@ function SendRequest(msg){
 
 	$.ajax({
 		type: 'POST',
-		url: '/add',
+		url: '/targets',
 		data: msg
 	});
-	/*FB.api('/me/friends', function(friends) {
-		if(friends != null) {
-			$.ajax({
-				type: 'POST',
-				url: '/testes',
-				data: friends,
-				success: function(){
-					//alert("here");
-				}
-			});
-		}
-	});*/ 
-
-
-/*
-	 } 
-	  }); 
-*/
+	
 }
 
-FB.getLoginStatus(function(response) {
-  if (response.session) {
-	
-
-FB.api('/me/friends', function(friends) {
-		if(friends != null) {
-/*				   	alert(concatObject(friends.data));
-    window.location="/?object="+friends 
-var xmlhttp;
-		   xmlhttp = new XMLHttpRequest();
-		   params = friends 
-		  
-		   xmlhttp.open("POST", "/", true);
-		   xmlhttp.send(params);
-*/
-
-/*
-document.getElementById('friends-list-container').innerHTML = JSON.stringify(friends);
-    */
-
-	var divTarget=document.getElementById("friends-list-container");
-	var data=friends.data;
-	//alert("divTarget="+divTarget+"\ndata="+data);
-	for (var friendIndex=0; friendIndex<data.length; friendIndex++)
-	{
-		var divContainer = document.createElement("div");
-divContainer.innerHTML="<a href='#' class='friend' ><img src='http://graph.facebook.com/"+data[friendIndex].id+"/picture'></img>"+
-				"<br>"+data[friendIndex].name+"</a>" ;
-		divTarget.appendChild(divContainer);
-	}
-
-/*
-$.ajax({
-  type: 'POST',
-  url: '/',
-  data: friends,
-});
-*/
-
-/*
- 		   var xmlhttp;
-
-		   xmlhttp = new XMLHttpRequest();
-		   params = friends
-		  
-		   xmlhttp.open("POST", "/", true);
-		   xmlhttp.send(friends);
-
-*/
-	 }
-	  }); 
-
-	 
-		FB.api('/me/friends', function(friends) {
-			if(friends != null) {
-
-				//document.getElementById('friends-list-container').innerHTML = JSON.stringify(friends);
-				var divTarget=document.getElementById("friends");
-				var data=friends.data;
-				//alert(JSON.stringify(data[1]));
-				//alert("divTarget="+divTarget+"\ndata="+data);
-				for (var i=0; i<data.length; i++)
-				{
-					var liElement = document.createElement("li");
-					liElement.innerHTML="<a class='friend' fb_id='"+data[i].id+"' name='"+data[i].name+"' href='#'><img src='http://graph.facebook.com/"+data[i].id+"/picture'></img>"+data[i].name+"</a>";
-					divTarget.appendChild(liElement);
-				}
-
-			}
-		}); 
-
-	   
-/*
-FB.api('/me', function(user) {
-		if(user != null) {
-				   	alert(concatObject(user.location));
-	         
-           }
-	   });  
-*/
-	
-	    /*document.getElementById('namer').innerHTML= "Logged in via Facebook"*/
-
-	} else {
-  		
-
-	    /*document.getElementById('namer').innerHTML= "Not logged in via facebook" */
-	}
-});
-
-FB.Event.subscribe('edge.create', function() {
-});
-
-FB.Event.subscribe('edge.remove', function() {
-});
-
-FB.getLoginStatus(function(response) {
-	/*	   alert(concatObject(response));
-		   	alert(concatObject(response.session));*/
-});
-
-FB.Event.subscribe('auth.login', function() {
-
-	FB.api('/me', function(user) {
-		if(false){//user != null) {
-			/*	   	alert(concatObject(user));*/
-			window.location="/sign_in?hunter_id="+user.id+"&email="+ user.email+"&first_name="+user.first_name+"&last_name="+user.last_name+"&gender="+user.gender+"&dob="+user.birthday
-		}
-	});   
 
 
-});
-
-$('a.friend').live('click', function(){
-	//$(this).parent().hide();
-	//alert($(this).attr("name"));
-	var objJSON={"fb_id" : $(this).attr("fb_id")}; 
-	SendRequest(objJSON);
-});
-
-</script>
-
-
-});
-
-
-$('a.friend').live('click', function(){
-	//$(this).parent().hide();
-	//alert($(this).attr("name"));
-	var objJSON={"fb_id" : $(this).attr("fb_id")}; 
-	SendRequest(objJSON);
 });
 
 </script>

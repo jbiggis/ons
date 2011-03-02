@@ -1,0 +1,19 @@
+
+
+<h4>Friends you targetted:</h4>
+
+ <% @targets.each do |target| %> 
+	<%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %>
+
+	<% end %>
+
+<script>
+
+
+window.onload = function(){
+alert("yo");
+<%# @targets.each do |target| %>
+	$("a.friend").addClass("selected");
+<%# end %>
+}
+</script>

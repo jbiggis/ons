@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20110228150446) do
     t.datetime "updated_at"
   end
 
-  add_index "targets", ["hunter_id"], :name => "index_targets_on_hunter_id", :unique => true
+  add_index "targets", ["hunter_id", "target_id"], :name => "index_targets_on_hunter_id_and_target_id", :unique => true
+  add_index "targets", ["hunter_id"], :name => "index_targets_on_hunter_id"
 
 end
