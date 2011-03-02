@@ -28,7 +28,7 @@ Ons::Application.routes.draw do
 
 match 'sign_in' => 'sessions#create'
 match 'sign_out' => 'sessions#destroy'
-
+match '/show' => 'home#show'
 match '/testes' => 'home#testes'
 match '/add' => 'home#add'
 match '/check' => 'home#check'
