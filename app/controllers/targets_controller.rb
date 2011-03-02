@@ -1,10 +1,18 @@
 class TargetsController < ApplicationController
   def create
 	#logger.debug current_hunter
-	Hunter.find(session[:hunter_id]).targets.create!(:target_id => params[:id])
-	redirect_to root_url
-  end
+	if current_hunter.credits > 0
 
+		current_hunter.targets.create!(:target_id => params[:id])
+		current_hunter.credits -= 1
+		current_hunter.save
+		redirect_to root_url
+	
+	else
+		raise 'Failure' 
+	end
+
+end
   def get
 
 #	@array = []
@@ -28,6 +36,10 @@ def highlight
 end
 
   def destroy
+	current_hunter.targets.find_by_target_id(params[:id]).destroy
+	redirect_to root_url
+	
+
   end
 
 end

@@ -10,10 +10,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110228150446) do
+ActiveRecord::Schema.define(:version => 20110302072157) do
 
   create_table "hunters", :id => false, :force => true do |t|
-    t.integer  "hunter_id",  :limit => 8, :null => false
+    t.integer  "hunter_id",  :limit => 8,                :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20110228150446) do
     t.date     "DOB"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "credits",                 :default => 2, :null => false
   end
 
   add_index "hunters", ["hunter_id"], :name => "index_hunters_on_hunter_id", :unique => true
@@ -32,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20110228150446) do
     t.datetime "notified_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "targets", ["hunter_id", "target_id"], :name => "index_targets_on_hunter_id_and_target_id", :unique => true

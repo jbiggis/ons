@@ -4,7 +4,8 @@
 
 <div id='preyed'>
  <% @targets.each do |target| %> 
-	<%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %>
+
+	<a href = '#' class='target <%= target.target_id %>' id = '<%= target.target_id %>'><%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %></a>
 </div>
 	<% end %>
 
