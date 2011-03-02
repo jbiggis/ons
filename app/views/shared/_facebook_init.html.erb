@@ -88,23 +88,67 @@ var liElement = document.createElement("li");
 });
 
 
+$('a.target').live('click', function(e) {
 
-$('a.friend').live('click', function(){
+var objJSON={"id" : $(this).attr("id")}; 
+	removeTarget(objJSON);
+	$(this).remove();
+
+
+e.preventDefault();
+});
+
+
+function removeTarget(msg){
+
+	$.ajax({
+		type: 'POST',
+		url: '/targets/destroy',
+		data: msg
+	});
+	
+}
+
+
+$('a.friend').live('click', function(e){
 	//$(this).parent().hide();
 	//alert($(this).attr("name"));
 	var objJSON={"id" : $(this).attr("id")}; 
-	SendRequest(objJSON);
-	$(this).addClass("selected")
+	if (addTarget(objJSON) == true){
+alert("true");	
+	$(this).addClass("selected");
+	id = $(this).attr("id");
+	
+
+var liElement = document.createElement("li");
+						liElement.innerHTML="<a class='target "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'></a>";
+
+$(".result").append(liElement);
+}
+e.preventDefault();
+//return false;
+					//	divTarget.appendChild(liElement);
+
 
 });
 
 
-function SendRequest(msg){
+function addTarget(msg){
 
 	$.ajax({
 		type: 'POST',
 		url: '/targets',
-		data: msg
+		data: msg,
+		complete: function(response){
+			if (response.statusText == 'error') {
+				alert('Not enough credits');
+				return false;
+			}
+			 
+		}
+//alert(JSON.stringify(response.statusText))}
+		
+		
 	});
 	
 }

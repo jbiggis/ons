@@ -2,6 +2,7 @@ Ons::Application.routes.draw do
 
   post "/targets" => "targets#create"
   get "/targets/get" => "targets#get"
+  post "/targets/destroy" => 'targets#destroy'
   get "/targets/highlight" => "targets#highlight"
 
   # The priority is based upon order of creation:
