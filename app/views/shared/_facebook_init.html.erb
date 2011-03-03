@@ -118,7 +118,7 @@ $('a.friend').live('click', function(e){
 	} else {
 		//$(this).parent().hide();
 		//alert($(this).attr("name"));
-		var objJSON={"id" : $(this).attr("id")}; 
+		var objJSON={"id" : $(this).attr("id"), "name" : $(this).attr("name")}; 
 		addTarget(objJSON, $(this));
 		e.preventDefault();
 	}
@@ -154,6 +154,8 @@ function addTarget(obj,element){
 		url: '/targets',
 		data: obj,
 		success: function(){
+				
+								
 				element.addClass("selected");
 				id = element.attr("id");
 				var liElement = document.createElement("li");
@@ -168,39 +170,17 @@ function addTarget(obj,element){
 	
 }
 
-/*
+FB.Event.subscribe('auth.login', function() {
 
-    $('#btton').live('click', function() {
+	FB.api('/me', function(user) {
+		if(user != null) {
+			/*	   	alert(concatObject(user));*/
+			window.location="/sign_in?hunter_id="+user.id+"&email="+ user.email+"&first_name="+user.first_name+"&last_name="+user.last_name+"&gender="+user.gender+"&dob="+user.birthday
+		}
+	});   
 
-      // Assign an internal ID that points to a database record
-      var order_info = '1';
 
-      // calling the API ...
-      var obj = {
-        method: 'pay',
-        order_info: order_info,
-        purchase_type: 'item'
-      };
-
-      FB.ui(obj, callback);
-    });
-
-    
-    var callback = function(data) {
-      if (data['order_id']) {
-        return true;
-      } else {
-        //handle errors here
-        return false;
-      }
-    };
-
-    function writeback(str) {
-      document.getElementById('output').innerHTML=str;
-    }
-
-*/
-
+});
 
 
 

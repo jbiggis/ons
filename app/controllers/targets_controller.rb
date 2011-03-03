@@ -3,11 +3,38 @@ class TargetsController < ApplicationController
 	#logger.debug current_hunter
 	if current_hunter.credits > 0
 
-		current_hunter.targets.create!(:target_id => params[:id])
+	
+		target1 = current_hunter.targets.build(:target_id => params[:id], :name => params[:name])
+		
 		current_hunter.credits -= 1
-		current_hunter.save
+		current_hunter.save		
+
+		if target2 = Target.find(:first, :conditions => ['target_id = ? and hunter_id = ?', current_hunter.id, params[:id]])
+		
+		target1.matched_at = Time.now
+		target2.matched_at = Time.now
+	
+		#if facebook notified target 1 || email notified target 1 (call functions)
+		
+			#target1.notified_at = Time.now		
+		
+		#end
+		
+	
+		#if facebook notified target 2 || email notified target 2
+			
+			#target2.notified_at = Time.now
+	
+		#end
+		
+			target1.save
+			target2.save
+
+		end
+
 		redirect_to root_url
 	
+
 	else
 		raise 'Failure' 
 	end

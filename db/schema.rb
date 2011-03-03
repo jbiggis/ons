@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110302164105) do
+ActiveRecord::Schema.define(:version => 20110303163844) do
 
   create_table "hunters", :id => false, :force => true do |t|
     t.integer  "hunter_id",  :limit => 8,                :null => false
@@ -52,8 +52,7 @@ ActiveRecord::Schema.define(:version => 20110302164105) do
     t.datetime "notified_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
   end
 
   add_index "targets", ["hunter_id", "target_id"], :name => "index_targets_on_hunter_id_and_target_id", :unique => true

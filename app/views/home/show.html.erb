@@ -4,7 +4,7 @@
 
 
 <% if !signed_in? %>
-<fb:login-button perms=read_friendlists>Connect with Facebook</fb:login-button>
+<fb:login-button perms="email, user_birthday" >Connect with Facebook</fb:login-button>
 <% else %>
 
 <div class='how-it-works'>
