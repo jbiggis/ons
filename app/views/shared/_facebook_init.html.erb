@@ -89,46 +89,39 @@ var liElement = document.createElement("li");
 
 $('a.target').live('click', function(e) {
 
-var objJSON={"id" : $(this).attr("id")}; 
+	var objJSON={"id" : $(this).attr("id")}; 
 	removeTarget(objJSON);
 	$(this).remove();
-
+	id = $(this).attr("id");
+	elem = 'a.friend.'+id;	
+	$(elem).removeClass('selected');
 
 e.preventDefault();
 });
 
 
-function removeTarget(msg){
+function removeTarget(obj){
 
 	$.ajax({
 		type: 'POST',
 		url: '/targets/destroy',
-		data: msg
+		data: obj
 	});
 	
 }
 
 
 $('a.friend').live('click', function(e){
-	//$(this).parent().hide();
-	//alert($(this).attr("name"));
-	var objJSON={"id" : $(this).attr("id")}; 
-	if (addTarget(objJSON) == true){
-alert("true");	
-	$(this).addClass("selected");
-	id = $(this).attr("id");
-	
 
-var liElement = document.createElement("li");
-						liElement.innerHTML="<a class='target "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'></a>";
-
-$(".result").append(liElement);
-}
-e.preventDefault();
-//return false;
-					//	divTarget.appendChild(liElement);
-
-
+	if ($(this).hasClass('selected')) {
+		alert('Already stalking');
+	} else {
+		//$(this).parent().hide();
+		//alert($(this).attr("name"));
+		var objJSON={"id" : $(this).attr("id")}; 
+		addTarget(objJSON, $(this));
+		e.preventDefault();
+	}
 });
 
 /*
@@ -154,25 +147,60 @@ function addTargets(id){
 
 */
 
-function addTarget(msg){
+function addTarget(obj,element){
 
 	$.ajax({
 		type: 'POST',
 		url: '/targets',
-		data: msg,
-		complete: function(response){
-			if (response.statusText == 'error') {
+		data: obj,
+		success: function(){
+				element.addClass("selected");
+				id = element.attr("id");
+				var liElement = document.createElement("li");
+				liElement.innerHTML="<a class='target "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'></a>";
+				$(".result").append(liElement);
+			},
+		error: function() {
 				alert('Not enough credits');
-				return false;
 			}
-			 
-		}
-//alert(JSON.stringify(response.statusText))}
-		
 		
 	});
 	
 }
+
+/*
+
+    $('#btton').live('click', function() {
+
+      // Assign an internal ID that points to a database record
+      var order_info = '1';
+
+      // calling the API ...
+      var obj = {
+        method: 'pay',
+        order_info: order_info,
+        purchase_type: 'item'
+      };
+
+      FB.ui(obj, callback);
+    });
+
+    
+    var callback = function(data) {
+      if (data['order_id']) {
+        return true;
+      } else {
+        //handle errors here
+        return false;
+      }
+    };
+
+    function writeback(str) {
+      document.getElementById('output').innerHTML=str;
+    }
+
+*/
+
 
 
 

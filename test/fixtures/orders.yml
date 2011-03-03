@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  hunter_id: 1
+  product_id: 1
+  status: MyString
+  message: MyString
+  refund_funding_source: false
+  refund_reason: MyString
+
+two:
+  hunter_id: 1
+  product_id: 1
+  status: MyString
+  message: MyString
+  refund_funding_source: false
+  refund_reason: MyString

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110302072157) do
+ActiveRecord::Schema.define(:version => 20110302164105) do
 
   create_table "hunters", :id => false, :force => true do |t|
     t.integer  "hunter_id",  :limit => 8,                :null => false
@@ -25,6 +25,25 @@ ActiveRecord::Schema.define(:version => 20110302072157) do
   end
 
   add_index "hunters", ["hunter_id"], :name => "index_hunters_on_hunter_id", :unique => true
+
+  create_table "orders", :force => true do |t|
+    t.integer  "hunter_id"
+    t.integer  "product_id"
+    t.string   "status"
+    t.string   "message"
+    t.boolean  "refund_funding_source"
+    t.string   "refund_reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "targets", :id => false, :force => true do |t|
     t.integer  "hunter_id",   :limit => 8, :null => false
