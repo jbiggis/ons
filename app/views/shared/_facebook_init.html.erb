@@ -5,7 +5,6 @@
 <script>
 
 
-
 function logout () {
 	window.location="/sign_out";
   FB.logout();
@@ -125,6 +124,28 @@ $('a.friend').live('click', function(e){
 	}
 });
 
+/*
+	var objJSON2={"fb_id" : "565445939"}; 
+	$.ajax({
+		type: 'POST',
+		url: '/testes',
+		data: objJSON2,
+		success: function(data){
+			addTargets(data);
+		},
+		error: function(data){
+			alert(JSON.stringify(data));
+		}
+	});
+
+function addTargets(id){
+	var divTarget=document.getElementById("targets");
+	var liElement = document.createElement("li");
+	liElement.innerHTML="<a class='target' fb_id='"+id+"' name='BLANK' href='#'><img src='http://graph.facebook.com/"+id+"/picture'></img>BLANK</a>";
+	divTarget.appendChild(liElement);
+};
+
+*/
 
 function addTarget(obj,element){
 
