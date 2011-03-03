@@ -1,10 +1,13 @@
 Ons::Application.routes.draw do
 
+  get "fb/callback"
+
   post "/targets" => "targets#create"
   get "/targets/get" => "targets#get"
   post "/targets/destroy" => 'targets#destroy'
   get "/targets/highlight" => "targets#highlight"
 
+  match "/fb/callback" => "fb#callback"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
