@@ -8,6 +8,9 @@ Ons::Application.routes.draw do
   get "/targets/highlight" => "targets#highlight"
 
   match "/fb/callback" => "fb#callback"
+	
+  match "/fb/test" => "fb#test"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

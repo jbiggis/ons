@@ -1,6 +1,17 @@
 require 'openssl'
 
 class FbController < ApplicationController
+
+def test
+
+#{"order_info"=>"1", "signed_request"=>"C_ZKmqzBpI6T-lkMiNcLJGxVC9EKep-dx9Z9q1ky6UA.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImNyZWRpdHMiOnsiYnV5ZXIiOjI4MTE4ODYzLCJyZWNlaXZlciI6MjgxMTg4NjMsIm9yZGVyX2lkIjoxNzUwMjk5MDU4NzYzNTIsIm9yZGVyX2luZm8iOiIxIiwidGVzdF9tb2RlIjoxfSwiZXhwaXJlcyI6MTI5OTE1MDAwMCwiaXNzdWVkX2F0IjoxMjk5MTQzNDU1LCJvYXV0aF90b2tlbiI6IjE5NTAzOTA3NzE4Mzk1OXwyLmk4N0M2Yk9acWY0V0toQUpySGg4clFfXy4zNjAwLjEyOTkxNTAwMDAtMjgxMTg4NjN8NTJYcWV6dXYtVldrR051OEtYU05CWVFLYWEwIiwidXNlciI6eyJjb3VudHJ5IjoiaGsiLCJsb2NhbGUiOiJlbl9VUyIsImFnZSI6eyJtaW4iOjIxfX0sInVzZXJfaWQiOiIyODExODg2MyJ9", "method"=>"payments_get_items", "order_id"=>"175029905876352", "buyer"=>"28118863", "test_mode"=>"1", "receiver"=>"28118863"}
+
+
+	redirect_to fb_callback_url("order_info"=>"1", "signed_request"=>"C_ZKmqzBpI6T-lkMiNcLJGxVC9EKep-dx9Z9q1ky6UA.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImNyZWRpdHMiOnsiYnV5ZXIiOjI4MTE4ODYzLCJyZWNlaXZlciI6MjgxMTg4NjMsIm9yZGVyX2lkIjoxNzUwMjk5MDU4NzYzNTIsIm9yZGVyX2luZm8iOiIxIiwidGVzdF9tb2RlIjoxfSwiZXhwaXJlcyI6MTI5OTE1MDAwMCwiaXNzdWVkX2F0IjoxMjk5MTQzNDU1LCJvYXV0aF90b2tlbiI6IjE5NTAzOTA3NzE4Mzk1OXwyLmk4N0M2Yk9acWY0V0toQUpySGg4clFfXy4zNjAwLjEyOTkxNTAwMDAtMjgxMTg4NjN8NTJYcWV6dXYtVldrR051OEtYU05CWVFLYWEwIiwidXNlciI6eyJjb3VudHJ5IjoiaGsiLCJsb2NhbGUiOiJlbl9VUyIsImFnZSI6eyJtaW4iOjIxfX0sInVzZXJfaWQiOiIyODExODg2MyJ9", "method"=>"payments_get_items", "order_id"=>"175029905876352", "buyer"=>"28118863", "test_mode"=>"1", "receiver"=>"28118863")
+
+
+end
+
   def callback
 
 	logger.debug "debug"+params.inspect
@@ -109,7 +120,7 @@ private
 
 
 	def base64_url_decode(input)
-		input += '=' * (4 - str.length.modulo(4))
+		input += '=' * (4 - input.length.modulo(4))
 		return input.tr('-_','+/').unpack('m')[0] 
 	end
 
