@@ -65,7 +65,7 @@ class FbController < ApplicationController
 			item["title"] = "[Test Mode] " + item["title"]
 			item["description"] = "[Test Mode] " + item["description"]
 			
-		}
+		end
 
 		data["content"] = Array.new
 		data['content'][0] = item
