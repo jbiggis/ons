@@ -1,19 +1,20 @@
+<div class='matched'>
+
+</div>
+
 <div class='result'>
 
 </div>
 
 
 <% if !signed_in? %>
-<fb:login-button perms="email, user_birthday" >Connect with Facebook</fb:login-button>
+<fb:login-button perms="email, user_birthday, publish_stream" >Connect with Facebook</fb:login-button>
 <% else %>
 
 <div class='how-it-works'>
 
 You have ** One Night Stands left left out of ** total.
 
-<p>Buy 5 One Night Stands with 50 Facebook Credits</P>
-
-<p>Buy 15 One Night Stands with 105 Facebook Credits, Save 30%</p>
 
 </div>
 
@@ -21,14 +22,10 @@ You have ** One Night Stands left left out of ** total.
 <div id='output'>
 
 </div>
-asdfffffffffffffffffffffff
-<a href='#'>HEEEEY</a>
-<div> yo? </div>
 
-
-<%= link_to "TEESTT", fb_test_path %>
-
-<a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=1' id='button'>Buy</a>
+<a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=1' id='button'>Buy 5 credits for 50 facebook credits</a>
+<a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=2' id='button'>Buy 15 credits for 100 facebook credits - save 30%</a>
+<a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=3' id='button'>Buy 30 credits for 150 facebook credits - save 50%</a>
 
 
 <div class='highlight'>

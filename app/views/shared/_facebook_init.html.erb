@@ -26,7 +26,8 @@ $(document).ready(function () {
 FB.getLoginStatus(function(response) {
   if (response.session) {
 
-$('.result').load('targets/get');
+$('.result').load('targets/get_targets');
+$('.matched').load('targets/get_matched');
 
 //$('.result').load('targets/get', function(response) {
 //  alert(response);
@@ -153,17 +154,39 @@ function addTarget(obj,element){
 		type: 'POST',
 		url: '/targets',
 		data: obj,
-		success: function(){
+		success: function(data){
 				
-								
-				element.addClass("selected");
-				id = element.attr("id");
-				var liElement = document.createElement("li");
-				liElement.innerHTML="<a class='target "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'></a>";
-				$(".result").append(liElement);
+				switch(data) {
+				
+				case 'target_added':				
+					element.addClass("selected");
+					id = element.attr("id");
+					var liElement = document.createElement("li");
+					liElement.innerHTML="<a class='target "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'></a>";
+					$(".result").append(liElement);
+					break;
+
+				case 'matched':
+					element.addClass("selected");
+					id = element.attr("id");
+					var liElement = document.createElement("li");
+					liElement.innerHTML="<a class='matched "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'></a>";
+					$(".matched").append(liElement);
+									
+					break;
+
+				case 'no_credits':
+					alert('Not enough credits. \nPlease purchase more using the link above.');
+
+					break;
+				default:
+
+					alert("Please email the administrator.");
+				
+				}
 			},
 		error: function() {
-				alert('Not enough credits');
+				alert("Failed to add. Please email the administrator.");
 			}
 		
 	});

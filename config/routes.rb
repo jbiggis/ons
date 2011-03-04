@@ -3,7 +3,8 @@ Ons::Application.routes.draw do
   get "fb/callback"
 
   post "/targets" => "targets#create"
-  get "/targets/get" => "targets#get"
+  get "/targets/get_targets" => "targets#get_targets"
+  get "/targets/get_matched" => "targets#get_matched"
   post "/targets/destroy" => 'targets#destroy'
   get "/targets/highlight" => "targets#highlight"
 

@@ -11,36 +11,39 @@ class TargetsController < ApplicationController
 
 		if target2 = Target.find(:first, :conditions => ['target_id = ? and hunter_id = ?', current_hunter.id, params[:id]])
 		
-		target1.matched_at = Time.now
-		target2.matched_at = Time.now
+			target1.matched_at = Time.now
+			target2.matched_at = Time.now
 	
-		#if facebook notified target 1 || email notified target 1 (call functions)
-		
-			#target1.notified_at = Time.now		
-		
-		#end
-		
-	
-		#if facebook notified target 2 || email notified target 2
 			
-			#target2.notified_at = Time.now
+			if MatchMailer.match_email('jscchiu@gmail.com').send_later(:deliver)
+				target1.notified_at = Time.now		
+			end
+			
+			if MatchMailer.match_email('jscchiu@gmail.com').send_later(:deliver)
+				target2.notified_at = Time.now		
+			end
 	
-		#end
-		
 			target1.save
 			target2.save
 
+			render :text => 'matched'
+		
+		else
+		
+			render :text => 'target_added'
+
 		end
 
-		redirect_to root_url
+
 	
 
 	else
-		raise 'Failure' 
+		render :text => 'no_credits' 
+		
 	end
 
 end
-  def get
+  def get_targets
 
 #	@array = []
 #	@targets = current_hunter.targets
@@ -49,10 +52,16 @@ end
 #	end 
 
 #	render :text => @array
-
-	@targets = current_hunter.targets
+	@title = 'Targets'
+	@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NULL')
 	
-	render :partial => 'shared/preys'
+	render :partial => 'shared/targets'
+  end
+
+  def get_matched
+	@title = 'Matched'
+	@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL')
+	render :partial => 'shared/targets'
   end
 
 def highlight
