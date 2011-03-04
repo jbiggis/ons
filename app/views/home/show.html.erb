@@ -1,8 +1,9 @@
-<div class='matched'>
+<div id='content'>
+<div id='matches'>
 
 </div>
 
-<div class='result'>
+<div id='targets'>
 
 </div>
 
@@ -13,20 +14,19 @@
 
 <div class='how-it-works'>
 
-You have ** One Night Stands left left out of ** total.
-
 
 </div>
 
 <% end %>
-<div id='output'>
+
+<div id='credits'>
+<h4>You have <%= @credits %> One Night Stands left out of ** total.</h4>
+
+<div class='purchase'><a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=1' id='button'>Buy 5 with 50 facebook credits</a></div>
+<div class='purchase'><a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=2' id='button'>Buy 15 with 100 facebook credits - save 30%</a></div>
+<div class='purchase'><a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=3' id='button'>Buy 30 with 150 facebook credits - save 50%</a></div>
 
 </div>
-
-<a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=1' id='button'>Buy 5 credits for 50 facebook credits</a>
-<a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=2' id='button'>Buy 15 credits for 100 facebook credits - save 30%</a>
-<a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=3' id='button'>Buy 30 credits for 150 facebook credits - save 50%</a>
-
 
 <div class='highlight'>
 
@@ -35,14 +35,11 @@ You have ** One Night Stands left left out of ** total.
 
 
 
-<div id='friends-list-container'>
-	<ul id='friends'>
+<div id='friends'>
+<h4>Friends</h4>
 
-	</ul>
+
 </div>
 
 
-<form>
-<input type="button" value="send" onClick="SendRequest()" />
-</form>
-
+</div>

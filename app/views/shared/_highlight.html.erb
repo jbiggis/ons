@@ -2,7 +2,7 @@
 <script>
 
 <% @targets.each do |target|%>
-	$("a.friend.<%= target.target_id%>").addClass("selected");
+	$("a.friend.<%= target.target_id%>").parent().addClass("selected");
 <% end %>
 
 </script>

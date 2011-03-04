@@ -1,7 +1,138 @@
+body {
+margin:0;
+}
+
+#header{
+
+height:50px;
+background:black;
+color:white;
+
+}
+
+#header a, #header a:visited {
+color:white;
+}
+
+#account-nav{
+width:960px;
+margin:0 auto 0 auto;
+}
+
+#logout {
+
+float:right;
+margin-right:20px;
+}
+
+#content {
+width:960px;
+margin:0 auto 0 auto;
+}
+
 .selected {
 
-background:red;
-height:150px;
+background:black;
+color:white;
+}
+
+.selected a, .selected a:visited {
+color:white;
+
+}
+
+
+
+#matches {
+clear:both;
+background:#AF4444;
+}
+
+#targets {
+clear:both;
+background:black;
+}
+
+.clearfix {
+height:1px;
+}
+
+
+#friends {
+clear:both;
+
+}
+
+
+div.match {
+float:left;
+width:220px;
+height:60px;
+margin:10px;
+
+}
+
+div.target {
+float:left;
+width:220px;
+height:60px;
+margin:10px;
+}
+
+div.friend {
+float:left;
+width:220px;
+height:60px;
+margin:10px;
+position:relative;
+}
+
+div img {
+float:left;
+margin:5px;
+}
+
+.name {
+margin-top:10px;
+
+float:left;
+}
+
+
+#credits {
+
+clear:both;
+}
+
+#credits a {
+color:blue;
+}
+
+a.purchase {
+clear:both;
+}
+
+
+a {
+text-decoration:none;
+color:black;
+}
+
+a.visited {
+color:black;
+}
+
+
+.spacer {
+height:100px;
+clear:both;
+}
+
+#footer {
+clear:both;
+background:black;
+color:white;
+height:100px;
 
 }
 

@@ -2,11 +2,11 @@
 
 <h4><%= @title if @targets%></h4>
 
-<div id='preyed'>
  <% @targets.each do |target| %> 
 
-	<a href = '#' class='<%= @class %> <%= target.target_id %>' id = '<%= target.target_id %>'><%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %></a>
-</div>
-	<% end %>
+	<div class='<%= @class %>'><a href = '#' class='<%= @class %> <%= target.target_id %>' id = '<%= target.target_id %>'><%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %><%= target.name %></a></div>
+
+
+<% end %>
 
 

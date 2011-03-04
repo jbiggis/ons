@@ -4,7 +4,7 @@ Ons::Application.routes.draw do
 
   post "/targets" => "targets#create"
   get "/targets/get_targets" => "targets#get_targets"
-  get "/targets/get_matched" => "targets#get_matched"
+  get "/targets/get_matches" => "targets#get_matches"
   post "/targets/destroy" => 'targets#destroy'
   get "/targets/highlight" => "targets#highlight"
 

@@ -7,6 +7,7 @@ class HomeController < ApplicationController
 			
 
 		end
+	@credits = current_hunter.credits
 
 	end
 

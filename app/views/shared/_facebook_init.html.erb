@@ -32,8 +32,9 @@ $(document).ready(function () {
 FB.getLoginStatus(function(response) {
   if (response.session) {
 
-$('.result').load('targets/get_targets');
-$('.matched').load('targets/get_matched');
+$('#matches').load('targets/get_matches');
+$('#targets').load('targets/get_targets');
+
 
 //$('.result').load('targets/get', function(response) {
 //  alert(response);
@@ -59,19 +60,36 @@ var liElement = document.createElement("li");
 */
 
 
-	FB.api('/me/friends', function(friends) {
-				if(friends != null) {
+	FB.api('/me/friends', function(friends_obj) {
+				if(friends_obj != null) {
 
 					//document.getElementById('friends-list-container').innerHTML = JSON.stringify(friends);
-					var divTarget=document.getElementById("friends");
-					var data=friends.data;
+					var divFriends = document.getElementById("friends");
+					var friends = friends_obj.data;
+					var friends = friends.sort(function(a,b) { return a.name > b.name } );
+				
 
-					for (var i=0; i<data.length; i++)
+					for (var i=0; i < friends.length; i++)
 					{
-						var liElement = document.createElement("li");
-						liElement.innerHTML="<a class='friend " +data[i].id+"' id='"+data[i].id+"' name='"+data[i].name+"' href='#'><img src='http://graph.facebook.com/"+data[i].id+"/picture'></img>"+data[i].name+"</a>";
+/*					
+						var element = document.createElement("a");
+						element.addClass(function() {
+							return 'friend ' + friends[i].id; 
+						});
+						element.attr('id', friends[i].id);
+						element.attr('name', friends[i].name);
+						
+						element.html('yo');
+						divFriends.appendChild(element);						
+*/
+							
+						var divFriend = document.createElement("div");
+						divFriend.className = 'friend';
+						divFriend.innerHTML="<a class='friend " + friends[i].id+"' id='"+friends[i].id+"' name='"+friends[i].name+"' href='#'><img src='http://graph.facebook.com/"+friends[i].id+"/picture'></img><span class='name'>"+friends[i].name+"</span></a>";
 
-						divTarget.appendChild(liElement);
+						divFriends.appendChild(divFriend);
+
+
 					}
 				
 				$('.highlight').load('targets/highlight');
@@ -164,23 +182,27 @@ function addTarget(obj,element){
 				
 				switch(data) {
 				
-				case 'target_added':				
-					element.addClass("selected");
-					id = element.attr("id");
-					var liElement = document.createElement("li");
-					liElement.innerHTML="<a class='target "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'></a>";
-					$(".result").append(liElement);
-					break;
-
 				case 'matched':
-					element.addClass("selected");
+					element.parent().addClass("selected");
 					id = element.attr("id");
-					var liElement = document.createElement("li");
-					liElement.innerHTML="<a class='matched "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'></a>";
-					$(".matched").append(liElement);
+					var divMatch = document.createElement("div");
+					divMatch.className = 'match';
+					divMatch.innerHTML="<a class='match "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
+	
+					$("#matches").append(divMatch);
 					
 					alert('We have a match!');						
 					break;
+
+				case 'target_added':				
+					element.parent().addClass("selected");
+					id = element.attr("id");
+					var divTarget = document.createElement("div");
+					divTarget.className = 'target';
+					divTarget.innerHTML="<a class='target "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
+					$("#targets").append(divTarget);
+					break;
+
 
 				case 'no_credits':
 					alert('Not enough credits. \nPlease purchase more using the link above.');

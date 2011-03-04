@@ -10,9 +10,14 @@
   <%= render 'shared/facebook_init' %>
 </head>
 <body>
+<div id='header'>
 <%= render 'shared/account_nav' %>
-
+</div>
 <%= yield %>
-
+<div class='spacer'>
+</div>
+<div id='footer'>
+<%= render 'shared/footer'%>
+</div>
 </body>
 </html>

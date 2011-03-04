@@ -63,9 +63,9 @@ end
 	render :partial => 'shared/targets'
   end
 
-  def get_matched
-	@title = 'Matched'
-	@class = 'matched'
+  def get_matches
+	@title = 'Matches'
+	@class = 'match'
 	@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL')
 	render :partial => 'shared/targets'
   end
