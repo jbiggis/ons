@@ -4,11 +4,14 @@
 
 <script>
 
-
-function logout () {
+function logout(){
+	
+	FB.logout(function() {
 	window.location="/sign_out";
-  FB.logout();
+
+	});
 };
+
 
 
 
@@ -23,6 +26,9 @@ $('.result').ajaxSuccess(function () {
 
 */
 $(document).ready(function () {
+
+
+
 FB.getLoginStatus(function(response) {
   if (response.session) {
 
@@ -172,7 +178,8 @@ function addTarget(obj,element){
 					var liElement = document.createElement("li");
 					liElement.innerHTML="<a class='matched "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'></a>";
 					$(".matched").append(liElement);
-									
+					
+					alert('We have a match!');						
 					break;
 
 				case 'no_credits':

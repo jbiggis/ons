@@ -15,21 +15,24 @@ class TargetsController < ApplicationController
 			target2.matched_at = Time.now
 	
 			
-			if MatchMailer.match_email('jscchiu@gmail.com').send_later(:deliver)
+			if MatchMailer.delay.match_email('jscchiu@gmail.com')
+			
 				target1.notified_at = Time.now		
 			end
 			
-			if MatchMailer.match_email('jscchiu@gmail.com').send_later(:deliver)
+			if MatchMailer.delay.match_email('jscchiu@gmail.com')
 				target2.notified_at = Time.now		
 			end
 	
 			target1.save
 			target2.save
 
+
 			render :text => 'matched'
 		
 		else
 		
+
 			render :text => 'target_added'
 
 		end
@@ -52,7 +55,9 @@ end
 #	end 
 
 #	render :text => @array
+
 	@title = 'Targets'
+	@class = 'target'
 	@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NULL')
 	
 	render :partial => 'shared/targets'
@@ -60,6 +65,7 @@ end
 
   def get_matched
 	@title = 'Matched'
+	@class = 'matched'
 	@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL')
 	render :partial => 'shared/targets'
   end

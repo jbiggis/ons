@@ -2,6 +2,12 @@ class HomeController < ApplicationController
 
 	def show
 
+		if signed_in?
+		
+			
+
+		end
+
 	end
 
 	def testes

@@ -2,7 +2,7 @@ module ApplicationHelper
 
 def signed_in(hunter)
 
-	session[:hunter_id]= hunter.id
+	session[:hunter_id]= hunter.hunter_id
 
 end
 
