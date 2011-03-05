@@ -1,3 +1,6 @@
+require "net/http"
+require 'uri'
+
 class TargetsController < ApplicationController
   def create
 	
@@ -17,26 +20,40 @@ class TargetsController < ApplicationController
 			target1.matched_at = Time.now
 			target2.matched_at = Time.now
 	
+			#if Net::HTTP.get(URI.parse('https://api.facebook.com/method/notifications.sendEmail'))
+			#if MatchMailer.delay.match_email('jscchiu@gmail.com')
 			
-			if MatchMailer.delay.match_email('jscchiu@gmail.com')
+			#	target1.notified_at = Time.now		
+			#end
 			
-				target1.notified_at = Time.now		
-			end
+			#if MatchMailer.delay.match_email('jscchiu@gmail.com')
+			#	target2.notified_at = Time.now		
 			
-			if MatchMailer.delay.match_email('jscchiu@gmail.com')
-				target2.notified_at = Time.now		
-			end
-	
+			#end
+#			end
+		
 			target1.save
 			target2.save
+	
+			hunter2 = Hunter.find(target2.hunter_id)
+
+			token1 = current_hunter.access_token
+			token2 = hunter2.access_token
 
 
-			render :text => 'matched'
+			subject = 'There\'s a One Night Stand waiting for you'
+			text = 'You have a match. Log in to see who it is.' 
+
+			uri1 = 'https://api.facebook.com/method/notifications.sendEmail?recipients='+current_hunter.hunter_id.to_s+'&subject='+subject+'&text='+text+'&access_token='+token1+'&format=json'
+			uri2 = 'https://api.facebook.com/method/notifications.sendEmail?recipients='+hunter2.hunter_id.to_s+'&subject='+subject+'&text='+text+'&access_token='+token2+'&format=json'
+
+			render :text => ActiveSupport::JSON.encode({'statusText'=>'matched', 'uri_1'=> uri1, 'uri_2'=> uri2}) 
+			
 		
 		else
 		
 
-			render :text => 'target_added'
+			render :text => ActiveSupport::JSON.encode({'statusText'=>'target_added'})
 
 		end
 
@@ -44,7 +61,7 @@ class TargetsController < ApplicationController
 	
 
 	else
-		render :text => 'no_credits' 
+		render :text => ActiveSupport::JSON.encode({'statusText'=>'no_credits'}) 
 		
 	end
 

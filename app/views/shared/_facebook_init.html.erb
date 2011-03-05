@@ -178,8 +178,10 @@ function addTarget(obj,element){
 		url: '/targets',
 		data: obj,
 		success: function(data){
-				
-				switch(data) {
+			objJSON = JSON.parse(data);
+			alert(objJSON.statusText);
+
+				switch(objJSON.statusText) {
 				
 				case 'matched':
 					element.parent().addClass("selected");
@@ -191,13 +193,21 @@ function addTarget(obj,element){
 					$("#matches").append(divMatch);
 					
 					alert('We have a match!');						
-					/*
+					
 					$.ajax({
 						type: 'GET',
-						url: 'https://api.facebook.com/method/notifications.sendEmail?recipients=28118863&subject=YOYODUDE&text=MAMA&access_token=195039077183959|6bc9364873ac90c495d4b87f-28118863|ERuUmDuRIAaM5zWI2jPsQ3KLnJo&format=json',
+						url: objJSON.uri_1,
+						//url: 'https://api.facebook.com/method/notifications.sendEmail?recipients=28118863&subject=YOYODUDE&text=MAMA&access_token=195039077183959|6bc9364873ac90c495d4b87f-28118863|ERuUmDuRIAaM5zWI2jPsQ3KLnJo&format=json',
 						dataType: "script"	
 					});
-*/
+
+					$.ajax({
+						type: 'GET',
+						url: objJSON.uri_2,
+						//url: 'https://api.facebook.com/method/notifications.sendEmail?recipients=28118863&subject=YOYODUDE&text=MAMA&access_token=195039077183959|6bc9364873ac90c495d4b87f-28118863|ERuUmDuRIAaM5zWI2jPsQ3KLnJo&format=json',
+						dataType: "script"	
+					});
+
 				break;
 
 				case 'target_added':				
@@ -235,18 +245,26 @@ FB.Event.subscribe('auth.login', function(response) {
  if (response) {
 	
 	//alert(JSON.stringify(response));
-/*
+
 		FB.api('/me', function(user) {
 			if(user != null) {
-//				user_info = response.concat(user);
+
 				$.ajax({
 					type: 'POST',
 					url: '/sign_in',
-					data: { session:response.session, user:user}
+					data: { session:response.session, user:user},
+					success: function() {
+						
+						location.reload();
+						} ,
+					error:  function() {
+						
+						alert('error');
+						} 
 				});
 			}
 		});   	
-*/
+
 /*
 		$.ajax({
 			type: 'POST',
