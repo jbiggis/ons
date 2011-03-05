@@ -191,13 +191,13 @@ function addTarget(obj,element){
 					$("#matches").append(divMatch);
 					
 					alert('We have a match!');						
-					
+					/*
 					$.ajax({
 						type: 'GET',
 						url: 'https://api.facebook.com/method/notifications.sendEmail?recipients=28118863&subject=YOYODUDE&text=MAMA&access_token=195039077183959|6bc9364873ac90c495d4b87f-28118863|ERuUmDuRIAaM5zWI2jPsQ3KLnJo&format=json',
 						dataType: "script"	
 					});
-
+*/
 				break;
 
 				case 'target_added':				
@@ -235,7 +235,7 @@ FB.Event.subscribe('auth.login', function(response) {
  if (response) {
 	
 	//alert(JSON.stringify(response));
-
+/*
 		FB.api('/me', function(user) {
 			if(user != null) {
 //				user_info = response.concat(user);
@@ -246,6 +246,7 @@ FB.Event.subscribe('auth.login', function(response) {
 				});
 			}
 		});   	
+*/
 /*
 		$.ajax({
 			type: 'POST',
