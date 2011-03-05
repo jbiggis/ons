@@ -55,6 +55,7 @@ background:black;
 
 .clearfix {
 height:1px;
+clear:both;
 }
 
 

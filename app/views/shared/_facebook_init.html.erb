@@ -15,19 +15,38 @@ function logout(){
 
 
 
-
-/*
-$('.result').ajaxSuccess(function () {
-
-	$(this).html('yo?');
-
-
-});
-
-*/
 $(document).ready(function () {
 
 
+var sort_by = function(field, reverse, primer){
+
+   reverse = (reverse) ? -1 : 1;
+
+   return function(a,b){
+
+       a = a[field];
+       b = b[field];
+
+       if (typeof(primer) != 'undefined'){
+           a = primer(a);
+           b = primer(b);
+       }
+
+       if (a<b) return reverse * -1;
+       if (a>b) return reverse * 1;
+       return 0;
+
+   }
+}
+/*
+FB.getLoginStatus(function(response) {
+  if (response.session) {
+	
+	alert(JSON.stringify(response));
+	
+	}
+});
+*/
 
 FB.getLoginStatus(function(response) {
   if (response.session) {
@@ -40,24 +59,8 @@ $('#targets').load('targets/get_targets');
 //  alert(response);
 //});
 
-/*
-	$.ajax({
-		type: 'GET',
-		url: '/targets/get'
-		
-		
-	});
-*/
 
 
-/*
-	alert(escape(<%= @yo %>));
-
-
-var liElement = document.createElement("li");
-						liElement.innerHTML="<a class='selected friend' id='"+data[i].id+"' name='"+data[i].name+"' href='#'><img src='http://graph.facebook.com/"+data[i].id+"/picture'></img>"+data[i].name+"</a>";
-
-*/
 
 
 	FB.api('/me/friends', function(friends_obj) {
@@ -66,8 +69,8 @@ var liElement = document.createElement("li");
 					//document.getElementById('friends-list-container').innerHTML = JSON.stringify(friends);
 					var divFriends = document.getElementById("friends");
 					var friends = friends_obj.data;
-					var friends = friends.sort(function(a,b) { return a.name > b.name } );
-				
+					//var friends = friends.sort(function(a,b) { return a.name > b.name } );
+					friends.sort(sort_by('name', false));
 
 					for (var i=0; i < friends.length; i++)
 					{
@@ -97,19 +100,15 @@ var liElement = document.createElement("li");
 			}); 
 	
 	}
-/*
-	$.ajax({
-		type: 'GET',
-		url: '/targets/highlight'
-		success: 		
-		
-	});
-*/
 
-//setTimeout(function(){
- 
-//},3000);
+
+
+
+
 });
+
+
+
 
 
 $('a.target').live('click', function(e) {
@@ -192,7 +191,14 @@ function addTarget(obj,element){
 					$("#matches").append(divMatch);
 					
 					alert('We have a match!');						
-					break;
+					
+					$.ajax({
+						type: 'GET',
+						url: 'https://api.facebook.com/method/notifications.sendEmail?recipients=28118863&subject=YOYODUDE&text=MAMA&access_token=195039077183959|6bc9364873ac90c495d4b87f-28118863|ERuUmDuRIAaM5zWI2jPsQ3KLnJo&format=json',
+						dataType: "script"	
+					});
+
+				break;
 
 				case 'target_added':				
 					element.parent().addClass("selected");
@@ -201,6 +207,8 @@ function addTarget(obj,element){
 					divTarget.className = 'target';
 					divTarget.innerHTML="<a class='target "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
 					$("#targets").append(divTarget);
+
+					 	
 					break;
 
 
@@ -222,18 +230,50 @@ function addTarget(obj,element){
 	
 }
 
+
+FB.Event.subscribe('auth.login', function(response) {
+ if (response) {
+	
+	//alert(JSON.stringify(response));
+
+		FB.api('/me', function(user) {
+			if(user != null) {
+//				user_info = response.concat(user);
+				$.ajax({
+					type: 'POST',
+					url: '/sign_in',
+					data: { session:response.session, user:user}
+				});
+			}
+		});   	
+/*
+		$.ajax({
+			type: 'POST',
+			url: '/sign_in',
+			data: response
+		});
+*/
+	}
+
+
+
+
+});
+/*
 FB.Event.subscribe('auth.login', function() {
+
+
 
 	FB.api('/me', function(user) {
 		if(user != null) {
-			/*	   	alert(concatObject(user));*/
+			
 			window.location="/sign_in?hunter_id="+user.id+"&email="+ user.email+"&first_name="+user.first_name+"&last_name="+user.last_name+"&gender="+user.gender+"&dob="+user.birthday
 		}
 	});   
 
 
 });
-
+*/
 
 
 });

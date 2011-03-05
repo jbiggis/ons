@@ -4,7 +4,7 @@
 
  <% @targets.each do |target| %> 
 
-	<div class='<%= @class %>'><a href = '#' class='<%= @class %> <%= target.target_id %>' id = '<%= target.target_id %>'><%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %><%= target.name %></a></div>
+	<div class='<%= @class %>'><a href = '#' class='<%= @class %> <%= target.target_id %>' id = '<%= target.target_id %>'><%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %><span class='name'><%= target.name %></a></span></div>
 
 
 <% end %>
