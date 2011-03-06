@@ -5,12 +5,12 @@ class FbController < ApplicationController
 
   def callback
 
-	if params[:signed_request].nil? && params[:status] == 'settled'
-		redirect_to root_url
-		return
-	end
+		if params[:signed_request].nil? && params[:status] == 'settled'
+			redirect_to root_url
+			return
+		end
 
-	puts "DEBUG-params:"+params.inspect
+puts "DEBUG-params:"+params.inspect
 
 		# prepare the return data array
 		#$data = array('content' => array());
@@ -29,22 +29,22 @@ class FbController < ApplicationController
 		#retrieve all params passed in
 		func = params[:method]
 		order_id = payload['order_id']
-	puts "DEBUG-func:"+func
-	puts "DEBUG-orderid:"+order_id.to_s
-	puts "DEBUG-payload"+payload.inspect
+puts "DEBUG-func:"+func
+puts "DEBUG-orderid:"+order_id.to_s
+puts "DEBUG-payload"+payload.inspect
 
 		if func == 'payments_status_update'
 			data["content"] = Hash.new
 			status = payload['status']		
 			order_details=ActiveSupport::JSON.decode(payload['order_details'])
-	puts "DEBUG-order_details:"+order_details.inspect
+puts "DEBUG-order_details:"+order_details.inspect
 			hunter = Hunter.find(order_details['buyer'].to_s) 
 	 		
 			#write your logic here, determine the state you wanna move to
 			if status == 'placed'
 
 				item = order_details['items'][0]
-	puts "DEBUG-order_details['items'][0]:"+order_details['items'][0].inspect
+puts "DEBUG-order_details['items'][0]:"+order_details['items'][0].inspect
 
 				hunter.orders.create!(:order_id => order_id.to_s, :product_id=>item['item_id'], :status => status)
 
@@ -108,7 +108,7 @@ class FbController < ApplicationController
 
 	# send data back
 	render :text => ActiveSupport::JSON.encode(data)
-	
+
 end
 
 private

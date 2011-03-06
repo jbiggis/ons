@@ -1,301 +1,214 @@
 <div id="fb-root"></div>
 <script src="http://connect.facebook.net/en_US/all.js"></script>
 <%= javascript_include_tag 'facebook-init' %>
+<%= javascript_include_tag 'helper' %>
 
 <script>
 
-function logout(){
+	function logout(){
 	
-	FB.logout(function() {
-	window.location="/sign_out";
-
-	});
+		FB.logout(function() {
+		window.location="/sign_out";
+	
+});
 };
 
+	$(document).ready(function () {
 
+		function removeTarget(element){
 
+			var objJSON_info={"id" : element.attr("id")}; 
 
-$(document).ready(function () {
-
-
-var sort_by = function(field, reverse, primer){
-
-   reverse = (reverse) ? -1 : 1;
-
-   return function(a,b){
-
-       a = a[field];
-       b = b[field];
-
-       if (typeof(primer) != 'undefined'){
-           a = primer(a);
-           b = primer(b);
-       }
-
-       if (a<b) return reverse * -1;
-       if (a>b) return reverse * 1;
-       return 0;
-
-   }
-}
-/*
-FB.getLoginStatus(function(response) {
-  if (response.session) {
-	
-	alert(JSON.stringify(response));
-	
-	}
-});
-*/
-
-FB.getLoginStatus(function(response) {
-  if (response.session) {
-
-$('#matches').load('targets/get_matches');
-$('#targets').load('targets/get_targets');
-
-
-//$('.result').load('targets/get', function(response) {
-//  alert(response);
-//});
-
-
-
-
-
-	FB.api('/me/friends', function(friends_obj) {
-				if(friends_obj != null) {
-
-					//document.getElementById('friends-list-container').innerHTML = JSON.stringify(friends);
-					var divFriends = document.getElementById("friends");
-					var friends = friends_obj.data;
-					//var friends = friends.sort(function(a,b) { return a.name > b.name } );
-					friends.sort(sort_by('name', false));
-
-					for (var i=0; i < friends.length; i++)
-					{
-/*					
-						var element = document.createElement("a");
-						element.addClass(function() {
-							return 'friend ' + friends[i].id; 
-						});
-						element.attr('id', friends[i].id);
-						element.attr('name', friends[i].name);
-						
-						element.html('yo');
-						divFriends.appendChild(element);						
-*/
-							
-						var divFriend = document.createElement("div");
-						divFriend.className = 'friend';
-						divFriend.innerHTML="<a class='friend " + friends[i].id+"' id='"+friends[i].id+"' name='"+friends[i].name+"' href='#'><img src='http://graph.facebook.com/"+friends[i].id+"/picture'></img><span class='name'>"+friends[i].name+"</span></a>";
-
-						divFriends.appendChild(divFriend);
-
-
-					}
-				
-				$('.highlight').load('targets/highlight');
+			$.ajax({
+				type: 'POST',
+				url: '/targets/destroy',
+				data: objJSON_info,
+				success: function(data){
+					id = element.attr("id");			
+					element.remove();
+					elem = 'a.friend.'+id;	
+					$(elem).parent().removeClass('selected');
+				},
+				error: function(){
+					alert("ERROR: Failed to remove!");
 				}
-			}); 
+			});
 	
-	}
-
-
-
-
-
-});
-
-
-
-
-
-$('a.target').live('click', function(e) {
-
-	var objJSON={"id" : $(this).attr("id")}; 
-	removeTarget(objJSON);
-	$(this).remove();
-	id = $(this).attr("id");
-	elem = 'a.friend.'+id;	
-	$(elem).parent().removeClass('selected');
-
-e.preventDefault();
-});
-
-
-function removeTarget(obj){
-
-	$.ajax({
-		type: 'POST',
-		url: '/targets/destroy',
-		data: obj
-	});
-	
-}
-
-
-$('a.friend').live('click', function(e){
-
-	if ($(this).hasClass('selected')) {
-		alert('Already stalking');
-	} else {
-		//$(this).parent().hide();
-		//alert($(this).attr("name"));
-		var objJSON={"id" : $(this).attr("id"), "name" : $(this).attr("name")}; 
-		addTarget(objJSON, $(this));
-		e.preventDefault();
-	}
-});
-
-/*
-	var objJSON2={"fb_id" : "565445939"}; 
-	$.ajax({
-		type: 'POST',
-		url: '/testes',
-		data: objJSON2,
-		success: function(data){
-			addTargets(data);
-		},
-		error: function(data){
-			alert(JSON.stringify(data));
 		}
-	});
 
-function addTargets(id){
-	var divTarget=document.getElementById("targets");
-	var liElement = document.createElement("li");
-	liElement.innerHTML="<a class='target' fb_id='"+id+"' name='BLANK' href='#'><img src='http://graph.facebook.com/"+id+"/picture'></img>BLANK</a>";
-	divTarget.appendChild(liElement);
-};
+		function addTarget(element){
 
-*/
+			var objJSON_info={"id" : element.attr("id"), "name" : element.attr("name")}; 
 
-function addTarget(obj,element){
+			$.ajax({
+				type: 'POST',
+				url: '/targets',
+				data: objJSON_info,
+				success: function(data){
+					objJSON = JSON.parse(data);
 
-	$.ajax({
-		type: 'POST',
-		url: '/targets',
-		data: obj,
-		success: function(data){
-			objJSON = JSON.parse(data);
-			alert(objJSON.statusText);
-
-				switch(objJSON.statusText) {
-				
-				case 'matched':
-					element.parent().addClass("selected");
-					id = element.attr("id");
-					var divMatch = document.createElement("div");
-					divMatch.className = 'match';
-					divMatch.innerHTML="<a class='match "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
-	
-					$("#matches").append(divMatch);
-					
-					alert('We have a match!');						
-					
-					$.ajax({
-						type: 'GET',
-						url: objJSON.uri_1,
-						//url: 'https://api.facebook.com/method/notifications.sendEmail?recipients=28118863&subject=YOYODUDE&text=MAMA&access_token=195039077183959|6bc9364873ac90c495d4b87f-28118863|ERuUmDuRIAaM5zWI2jPsQ3KLnJo&format=json',
-						dataType: "script"	
-					});
-
-					$.ajax({
-						type: 'GET',
-						url: objJSON.uri_,
-						//url: 'https://api.facebook.com/method/notifications.sendEmail?recipients=28118863&subject=YOYODUDE&text=MAMA&access_token=195039077183959|6bc9364873ac90c495d4b87f-28118863|ERuUmDuRIAaM5zWI2jPsQ3KLnJo&format=json',
-						dataType: "script"	
-					});
-
-				break;
-
-				case 'target_added':				
-					element.parent().addClass("selected");
-					id = element.attr("id");
-					var divTarget = document.createElement("div");
-					divTarget.className = 'target';
-					divTarget.innerHTML="<a class='target "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
-					$("#targets").append(divTarget);
-
-					 	
-					break;
-
-
-				case 'no_credits':
-					alert('Not enough credits. \nPlease purchase more using the link above.');
-
-					break;
-				default:
-
-					alert("Please email the administrator.");
-				
-				}
-			},
-		error: function() {
-				alert("Failed to add. Please email the administrator.");
-			}
-		
-	});
-	
-}
-
-
-FB.Event.subscribe('auth.login', function(response) {
- if (response) {
-	
-	//alert(JSON.stringify(response));
-
-		FB.api('/me', function(user) {
-			if(user != null) {
-
-				$.ajax({
-					type: 'POST',
-					url: '/sign_in',
-					data: { session:response.session, user:user},
-					success: function() {
-						
-						location.reload();
-						} ,
-					error:  function() {
-						
-						alert('There\'s an error signing in');
-						} 
-				});
-			}
-		});   	
-
-/*
-		$.ajax({
-			type: 'POST',
-			url: '/sign_in',
-			data: response
-		});
-*/
-	}
-
-
-
-
-});
-/*
-FB.Event.subscribe('auth.login', function() {
-
-
-
-	FB.api('/me', function(user) {
-		if(user != null) {
+					switch(objJSON.statusText) {
 			
-			window.location="/sign_in?hunter_id="+user.id+"&email="+ user.email+"&first_name="+user.first_name+"&last_name="+user.last_name+"&gender="+user.gender+"&dob="+user.birthday
+					case 'matched':
+						element.parent().addClass("selected");
+						id = element.attr("id");
+						var divMatch = document.createElement("div");
+						divMatch.className = 'match';
+						divMatch.innerHTML="<a class='match "+id+"' id='"+id+"' href='javascript;'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
+
+						$("#matches").append(divMatch);
+				
+						alert('We have a match!');						
+				
+						$.ajax({
+							type: 'GET',
+							url: objJSON.uri_1,
+							dataType: "script"	
+						});
+
+						$.ajax({
+							type: 'GET',
+							url: objJSON.uri_2,
+							dataType: "script"	
+						});
+
+					break;
+
+					case 'target_added':				
+						element.parent().addClass("selected");
+						id = element.attr("id");
+						var divTarget = document.createElement("div");
+						divTarget.className = 'target';
+						divTarget.innerHTML="<a class='target "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
+						$("#targets").append(divTarget);
+
+						 	
+						break;
+
+
+					case 'no_credits':
+						alert('Not enough credits. \nPlease purchase more using the link above.');
+
+						break;
+					default:
+
+						alert("Please email the administrator.");
+			
+					}
+				},
+				error: function() {
+						alert("Failed to add. Please email the administrator.");
+				}
+		
+			});
+	
 		}
-	});   
 
 
-});
-*/
+		$('a.target').live('click', function(e) {
+
+//			var objJSON={"id" : $(this).attr("id")}; 
+//			removeTarget(objJSON, $(this));
+			removeTarget($(this));
+			e.preventDefault();
+		});
 
 
-});
+
+
+		$('a.friend').live('click', function(e){
+
+			if ($(this).hasClass('selected')) {
+				e.preventDefault();
+			} else {
+				addTarget($(this));
+				e.preventDefault();
+			}
+		});
+
+
+		FB.getLoginStatus(function(response) {
+
+			if (response.session) {
+
+				FB.api('/me', function(user) {
+					if(user != null) {
+
+						$.ajax({
+							type: 'POST',
+							url: '/sign_in',
+							data: response,
+							success: function() {},
+							error:  function() {
+								alert('ERROR: Invalid session!');
+							} 
+						});
+					}
+				});   	
+
+				$('#matches').load('targets/get_matches');
+				$('#targets').load('targets/get_targets');
+
+
+				FB.api('/me/friends', function(friends_obj) {
+					if(friends_obj != null) {
+
+							var divFriends = document.getElementById("friends");
+							var friends = friends_obj.data;
+							friends.sort(sort_by('name', false));
+
+							for (var i=0; i < friends.length; i++)
+							{
+							
+								var divFriend = document.createElement("div");
+								divFriend.className = 'friend';
+								divFriend.innerHTML="<a class='friend " + friends[i].id+"' id='"+friends[i].id+"' name='"+friends[i].name+"' href='javascript;'><img src='http://graph.facebook.com/"+friends[i].id+"/picture'></img><span class='name'>"+friends[i].name+"</span></a>";
+
+								divFriends.appendChild(divFriend);
+
+
+							}
+				
+						$('.highlight').load('targets/highlight');
+						}
+					}); 
+	
+			} else {
+				window.location.href("/sign_out");
+			}
+
+		});
+
+
+		FB.Event.subscribe('auth.login', function(response) {
+			if (response) {
+	
+				FB.api('/me', function(user) {
+					if(user != null) {
+
+						$.ajax({
+							type: 'POST',
+							url: '/sign_in',
+							data: { session:response.session, user:user},
+							success: function() {
+								location.reload();
+								} ,
+							error:  function() {
+								alert('There\'s an error signing in');
+							} 
+						});
+					}
+				});   	
+			}
+		});
+
+	/*	FB.Event.subscribe('auth.logout', function(response) {
+  		if (response){
+				window.location("/sign_out");				
+			}
+		});
+	*/	
+	});
 
 </script>
 
