@@ -52,9 +52,13 @@ puts "DEBUG-order_details['items'][0]:"+order_details['items'][0].inspect
 			order.update_attributes(:status => 'settled')
 			
 			product = Product.find(order.product_id)	
-			credits = hunter.credits_left 
-			credits += product.credits_to_add
-			hunter.update_attributes(:credits_left => credits)		
+			credits_left = hunter.credits_left 
+			total_credits = hunter.total_credits	
+			credits_left += product.credits_to_add
+			total_credits += product.credits_to_add
+		
+
+			hunter.update_attributes(:credits_left => credits, :total_credits => total_credits)		
 		
 		end
   
