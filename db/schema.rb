@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110306040030) do
+ActiveRecord::Schema.define(:version => 20110303181303) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -28,25 +28,25 @@ ActiveRecord::Schema.define(:version => 20110306040030) do
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "hunters", :id => false, :force => true do |t|
-    t.integer  "hunter_id",     :limit => 8,                :null => false
+    t.string   "hunter_id",                    :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.string   "gender"
     t.date     "DOB"
+    t.integer  "credits_left",  :default => 2, :null => false
+    t.integer  "total_credits", :default => 2, :null => false
+    t.string   "access_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "credits_left",               :default => 2, :null => false
-    t.string   "access_token"
-    t.integer  "total_credits"
   end
 
   add_index "hunters", ["hunter_id"], :name => "index_hunters_on_hunter_id", :unique => true
 
   create_table "orders", :id => false, :force => true do |t|
-    t.integer  "order_id",              :limit => 8, :null => false
-    t.integer  "hunter_id",                          :null => false
-    t.integer  "product_id",                         :null => false
+    t.string   "order_id",              :null => false
+    t.string   "hunter_id",             :null => false
+    t.string   "product_id",            :null => false
     t.string   "status"
     t.string   "message"
     t.boolean  "refund_funding_source"
@@ -55,23 +55,26 @@ ActiveRecord::Schema.define(:version => 20110306040030) do
     t.datetime "updated_at"
   end
 
+  add_index "orders", ["order_id"], :name => "index_orders_on_order_id", :unique => true
+  add_index "orders", ["product_id"], :name => "index_orders_on_product_id", :unique => true
+
   create_table "products", :force => true do |t|
     t.string   "title"
     t.string   "description"
     t.integer  "price"
+    t.integer  "credits_to_add"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "credits_to_add"
   end
 
   create_table "targets", :id => false, :force => true do |t|
-    t.integer  "hunter_id",   :limit => 8, :null => false
-    t.integer  "target_id",   :limit => 8, :null => false
+    t.string   "hunter_id",   :null => false
+    t.string   "target_id",   :null => false
+    t.string   "name"
     t.datetime "matched_at"
     t.datetime "notified_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
   end
 
   add_index "targets", ["hunter_id", "target_id"], :name => "index_targets_on_hunter_id_and_target_id", :unique => true

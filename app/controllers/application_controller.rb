@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  helper_method :signed_in?, :current_hunter
 
 def sign_in(hunter)
 

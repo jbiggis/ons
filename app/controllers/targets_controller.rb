@@ -9,13 +9,13 @@ class TargetsController < ApplicationController
 	if current_hunter.credits_left > 0
 
 	
-		target1 = current_hunter.targets.build(:target_id => params[:id], :name => params[:name])
+		target1 = current_hunter.targets.build(:target_id => params[:id].to_s, :name => params[:name])
 		#195039077183959|6bc9364873ac90c495d4b87f-28118863|ERuUmDuRIAaM5zWI2jPsQ3KLnJo
 
 		current_hunter.credits_left -= 1
 		current_hunter.save		
 
-		if target2 = Target.find(:first, :conditions => ['target_id = ? and hunter_id = ?', current_hunter.id, params[:id]])
+		if target2 = Target.find(:first, :conditions => ['target_id = ? and hunter_id = ?', current_hunter.id, params[:id].to_s])
 		
 			target1.matched_at = Time.now
 			target2.matched_at = Time.now
@@ -44,8 +44,8 @@ class TargetsController < ApplicationController
 			subject = 'There\'s a One Night Stand waiting for you'
 			text = 'You have a match. Log in to see who it is.' 
 
-			uri1 = 'https://api.facebook.com/method/notifications.sendEmail?recipients='+current_hunter.hunter_id.to_s+'&subject='+subject+'&text='+text+'&access_token='+token1+'&format=json'
-			uri2 = 'https://api.facebook.com/method/notifications.sendEmail?recipients='+hunter2.hunter_id.to_s+'&subject='+subject+'&text='+text+'&access_token='+token2+'&format=json'
+			uri1 = 'https://api.facebook.com/method/notifications.sendEmail?recipients='+current_hunter.hunter_id+'&subject='+subject+'&text='+text+'&access_token='+token1+'&format=json'
+			uri2 = 'https://api.facebook.com/method/notifications.sendEmail?recipients='+hunter2.hunter_id+'&subject='+subject+'&text='+text+'&access_token='+token2+'&format=json'
 
 			render :text => ActiveSupport::JSON.encode({'statusText'=>'matched', 'uri_1'=> uri1, 'uri_2'=> uri2}) 
 			
@@ -98,7 +98,7 @@ def highlight
 end
 
   def destroy
-	current_hunter.targets.find_by_target_id(params[:id]).destroy
+	current_hunter.targets.find_by_target_id(params[:id].to_s).destroy
 	redirect_to root_url
 	
 
