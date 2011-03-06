@@ -52,7 +52,7 @@ puts "DEBUG-order_details:"+order_details.inspect
 
 puts "DEBUG-order_details['items']:"+order_details['items'].inspect
 			item = order_details['items'][0]
-puts "DEBUG-order_details['items'][0]:"+order_details['items'][0]
+puts "DEBUG-order_details['items'][0]:"+order_details['items'][0].inspect
 
 			current_hunter.orders.create!(:order_id => order_details['order_id'], :product_id=>item['item_id'], :status => status)
 
