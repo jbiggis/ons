@@ -12,7 +12,7 @@ puts "DEBUG-params:"+params.inspect
 	data = Hash.new	
 
 	# parse signed data
-	request = parse_signed_request(params[:signed_request], secret);
+	request = parse_signed_request(params[:signed_request], SECRET);
 
 	if request.nil?
   		#handle an unauthenticated request here
