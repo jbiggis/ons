@@ -36,13 +36,16 @@ end
 	#retrieve all params passed in
 	func = params[:method]
 	order_id = payload['order_id']
+logger.debug func
+logger.debug order_id
 
 	if func == 'payments_status_update'
 		data["content"] = Hash.new
 		status = payload['status']
 		
 		order_details=ActiveSupport::JSON.decode(payload['order_details'])
- 		#write your logic here, determine the state you wanna move to
+ 		
+		#write your logic here, determine the state you wanna move to
 		if status == 'placed'
 
 
