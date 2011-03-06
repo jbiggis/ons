@@ -49,7 +49,7 @@ logger.debug order_id
 		if status == 'placed'
 
 
-			item = order_details['item'][0]
+			item = order_details['items'][0]
 
 			current_hunter.orders.create!(:order_id => order_details['order_id'], :product_id=>item['item_id'], :status => status)
 
