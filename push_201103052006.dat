@@ -1,0 +1,1 @@
+{"stream_state":{},"completed_tables":["schema_migrations"],"remote_url":"http://heroku:osui59a24am79x@taps3.heroku.com","table_filter":null,"session_uri":"/sessions/5612401021","local_tables_info":{"targets":22,"delayed_jobs":1,"orders":0,"hunters":2,"schema_migrations":11,"products":3},"klass":"Taps::Push","database_url":"sqlite://db/development.sqlite3"}

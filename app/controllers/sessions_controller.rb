@@ -38,7 +38,7 @@ def create
 			redirect_to root_url
 			
 		else	
-			hunter = Hunter.create(:hunter_id => params[:hunter_id], :email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name], :gender => params[:gender], :DOB => params[:dob], :access_token => params[:session][:access_token])
+			hunter = Hunter.create(:hunter_id => params[:user][:id], :email => params[:user][:email], :first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :gender => params[:user][:gender], :DOB => params[:user][:dob], :access_token => params[:session][:access_token])
 			sign_in(hunter)
 			redirect_to root_url
 		
