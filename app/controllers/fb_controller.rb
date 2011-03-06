@@ -36,8 +36,8 @@ end
 	#retrieve all params passed in
 	func = params[:method]
 	order_id = payload['order_id']
-puts "DEBUG-func"+func
-puts "DEBUG-orderid:"+order_id
+puts "DEBUG-func:"+func
+puts "DEBUG-orderid:"+order_id.to_s
 puts "DEBUG-payload"+payload.inspect
 
 	if func == 'payments_status_update'
