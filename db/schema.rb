@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110305060356) do
+ActiveRecord::Schema.define(:version => 20110306040030) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20110305060356) do
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "hunters", :id => false, :force => true do |t|
-    t.integer  "hunter_id",    :limit => 8,                :null => false
+    t.integer  "hunter_id",     :limit => 8,                :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
@@ -36,13 +36,15 @@ ActiveRecord::Schema.define(:version => 20110305060356) do
     t.date     "DOB"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "credits",                   :default => 2, :null => false
+    t.integer  "credits_left",               :default => 2, :null => false
     t.string   "access_token"
+    t.integer  "total_credits"
   end
 
   add_index "hunters", ["hunter_id"], :name => "index_hunters_on_hunter_id", :unique => true
 
-  create_table "orders", :force => true do |t|
+  create_table "orders", :id => false, :force => true do |t|
+    t.integer  "order_id"
     t.integer  "hunter_id"
     t.integer  "product_id"
     t.string   "status"
@@ -59,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20110305060356) do
     t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "credits_to_add"
   end
 
   create_table "targets", :id => false, :force => true do |t|

@@ -1,6 +1,7 @@
 class CreateOrders < ActiveRecord::Migration
   def self.up
-    create_table :orders do |t|
+    create_table :orders, :id => false do |t|
+      t.integer :order_id
       t.integer :hunter_id
       t.integer :product_id
       t.string :status

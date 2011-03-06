@@ -40,15 +40,29 @@ end
 	if func == 'payments_status_update'
 		data["content"] = Hash.new
 		status = payload['status']
-
-		flash[:notice]=params.inspect
-		redirect_to root_url
-		return
-
+		
+		order_details=ActiveSupport::JSON.decode(payload['order_details'])
  		#write your logic here, determine the state you wanna move to
 		if status == 'placed'
+
+
+			item = order_details['item'][0]
+
+			current_hunter.orders.create!(:order_id => order_details['order_id'], :product_id=>item['item_id'], :status => status)
+
 			next_state = 'settled'
 	 		data['content']['status'] = next_state
+		end
+
+		if status == 'settled'
+			order = Order.find(order_details['order_id'])
+			order.update_attributes(:status => 'settled')
+			
+			product = Product.find(order.product_id)	
+			credits = current_hunter.credits_left 
+			credits += product.credits_to_add
+			current_hunter.update_attributes(:credits_left => credits)		
+		
 		end
   
 	#compose returning data array_change_key_case
@@ -70,7 +84,8 @@ end
 		#}
 		item["product_url"] = "http://ons.heroku.com"
 		item["image_url"] = "http://"
-   
+   		item["item_id"] = order_id
+
   	# prefix test-mode
   	if payload['test_mode'] != nil
 			#$update_keys = array('title', 'description');
