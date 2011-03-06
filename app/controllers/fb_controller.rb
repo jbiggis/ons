@@ -45,13 +45,14 @@ puts "DEBUG-payload"+payload.inspect
 		status = payload['status']
 puts "DEBUG-payload[order_details]:"+payload['order_details']		
 		order_details=ActiveSupport::JSON.decode(payload['order_details'])
-puts "DEBUG-order_details:"+order_details
+puts "DEBUG-order_details:"+order_details.inspect
  		
 		#write your logic here, determine the state you wanna move to
 		if status == 'placed'
 
-puts "DEBUG-order_details['items']:"+order_details['items']
+puts "DEBUG-order_details['items']:"+order_details['items'].inspect
 			item = order_details['items'][0]
+puts "DEBUG-order_details['items'][0]:"+order_details['items'][0]
 
 			current_hunter.orders.create!(:order_id => order_details['order_id'], :product_id=>item['item_id'], :status => status)
 
