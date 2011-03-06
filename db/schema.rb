@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(:version => 20110303181303) do
   end
 
   add_index "orders", ["order_id"], :name => "index_orders_on_order_id", :unique => true
-  add_index "orders", ["product_id"], :name => "index_orders_on_product_id", :unique => true
 
   create_table "products", :force => true do |t|
     t.string   "title"

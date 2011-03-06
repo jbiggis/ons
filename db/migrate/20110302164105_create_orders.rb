@@ -13,7 +13,6 @@ class CreateOrders < ActiveRecord::Migration
     end
 
     add_index :orders, :order_id, :unique => true
-    add_index :orders, :product_id, :unique => true
 	
   end
 
