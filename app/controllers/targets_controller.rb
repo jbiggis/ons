@@ -6,13 +6,13 @@ class TargetsController < ApplicationController
 	
 
 	#logger.debug current_hunter
-	if current_hunter.credits > 0
+	if current_hunter.credits_left > 0
 
 	
 		target1 = current_hunter.targets.build(:target_id => params[:id], :name => params[:name])
 		#195039077183959|6bc9364873ac90c495d4b87f-28118863|ERuUmDuRIAaM5zWI2jPsQ3KLnJo
 
-		current_hunter.credits -= 1
+		current_hunter.credits_left -= 1
 		current_hunter.save		
 
 		if target2 = Target.find(:first, :conditions => ['target_id = ? and hunter_id = ?', current_hunter.id, params[:id]])
