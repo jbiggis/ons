@@ -41,6 +41,10 @@ end
 		data["content"] = Hash.new
 		status = payload['status']
 
+		flash[:notice]=params.inspect
+		redirect_to root_url
+		return
+
  		#write your logic here, determine the state you wanna move to
 		if status == 'placed'
 			next_state = 'settled'
