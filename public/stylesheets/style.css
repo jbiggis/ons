@@ -30,13 +30,14 @@ margin:0 auto 0 auto;
 }
 
 .selected {
+color:black;
+background: url('../images/ons-icon.png') no-repeat;
+background-position: 180px 30px;
 
-background:black;
-color:white;
 }
 
 .selected a, .selected a:visited {
-color:white;
+
 
 }
 

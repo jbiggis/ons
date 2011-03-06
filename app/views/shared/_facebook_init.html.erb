@@ -118,7 +118,7 @@ $('a.target').live('click', function(e) {
 	$(this).remove();
 	id = $(this).attr("id");
 	elem = 'a.friend.'+id;	
-	$(elem).removeClass('selected');
+	$(elem).parent().removeClass('selected');
 
 e.preventDefault();
 });
@@ -203,7 +203,7 @@ function addTarget(obj,element){
 
 					$.ajax({
 						type: 'GET',
-						url: objJSON.uri_2,
+						url: objJSON.uri_,
 						//url: 'https://api.facebook.com/method/notifications.sendEmail?recipients=28118863&subject=YOYODUDE&text=MAMA&access_token=195039077183959|6bc9364873ac90c495d4b87f-28118863|ERuUmDuRIAaM5zWI2jPsQ3KLnJo&format=json',
 						dataType: "script"	
 					});
