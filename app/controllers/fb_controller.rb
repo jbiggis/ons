@@ -63,7 +63,7 @@ class FbController < ApplicationController
 				total_credits += product.credits_to_add
 	
 
-				hunter.update_attributes(:credits_left => credits, :total_credits => total_credits)		
+				hunter.update_attributes(:credits_left => credits_left, :total_credits => total_credits)		
 	
 			end
 	  
