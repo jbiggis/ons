@@ -54,7 +54,9 @@ puts "DEBUG-order_details['items']:"+order_details['items'].inspect
 			item = order_details['items'][0]
 puts "DEBUG-order_details['items'][0]:"+order_details['items'][0].inspect
 
-			current_hunter.orders.create!(:order_id => order_details['order_id'], :product_id=>item['item_id'], :status => status)
+
+			hunter = Hunter.find(order_details['buyer'].to_i) 
+			hunter.orders.create!(:order_id => order_details['order_id'], :product_id=>item['item_id'], :status => status)
 
 			next_state = 'settled'
 	 		data['content']['status'] = next_state
@@ -65,9 +67,9 @@ puts "DEBUG-order_details['items'][0]:"+order_details['items'][0].inspect
 			order.update_attributes(:status => 'settled')
 			
 			product = Product.find(order.product_id)	
-			credits = current_hunter.credits_left 
+			credits = hunter.credits_left 
 			credits += product.credits_to_add
-			current_hunter.update_attributes(:credits_left => credits)		
+			hunter.update_attributes(:credits_left => credits)		
 		
 		end
   
