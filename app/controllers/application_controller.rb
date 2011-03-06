@@ -11,7 +11,7 @@ end
 
 def current_hunter
 
-	@current_hunter ||= Hunter.find(session[:hunter_id]) if session[:hunter_id]
+	@current_hunter ||= Hunter.find_by_hunter_id(session[:hunter_id]) if session[:hunter_id]
 
 end
 

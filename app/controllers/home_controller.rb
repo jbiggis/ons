@@ -10,15 +10,15 @@ class HomeController < ApplicationController
 
 		end
 	end
-
+=begin	
 	def testes
 		##logger.debug "debugger" + params[:data]["31"][:name]	
-=begin		debugstring = ""
+	debugstring = ""
 		params[:data].each do |person|
 			debugstring += person[1][:name]
 		end
 		logger.debug debugstring
-=end
+
 		logger.debug params.inspect
 		@targets = Target.find_by_hunter_id(params[:fb_id].to_i)
 		logger.debug @targets.inspect
@@ -31,5 +31,5 @@ class HomeController < ApplicationController
 	def add
 		logger.debug params.inspect
 	end
-
+=end
 end
