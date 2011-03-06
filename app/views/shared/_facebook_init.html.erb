@@ -4,7 +4,7 @@
 <%= javascript_include_tag 'helper' %>
 
 <script>
-
+/*
 	function logout(){
 	
 		FB.logout(function() {
@@ -12,7 +12,7 @@
 	
 });
 };
-
+*/
 	$(document).ready(function () {
 
 		function removeTarget(element){
@@ -104,26 +104,23 @@
 	
 		}
 
-
+		// Remove Target
 		$('a.target').live('click', function(e) {
 
-//			var objJSON={"id" : $(this).attr("id")}; 
-//			removeTarget(objJSON, $(this));
+			//if (FB.getSession() != null){
 			removeTarget($(this));
+			//}
 			e.preventDefault();
 		});
 
-
-
-
+		// Add Target
 		$('a.friend').live('click', function(e){
-
-			if ($(this).hasClass('selected')) {
-				e.preventDefault();
-			} else {
-				addTarget($(this));
-				e.preventDefault();
-			}
+			//if (FB.getSession() != null){
+				if (!($(this).parent().hasClass('selected'))) {
+					addTarget($(this));
+				}
+			//}
+			e.preventDefault();
 		});
 
 
@@ -166,7 +163,6 @@
 
 								divFriends.appendChild(divFriend);
 
-
 							}
 				
 						$('.highlight').load('targets/highlight');
@@ -174,7 +170,7 @@
 					}); 
 	
 			} else {
-				window.location.href("/sign_out");
+				$.load("/sign_out");
 			}
 
 		});
@@ -202,13 +198,15 @@
 			}
 		});
 
-	/*	FB.Event.subscribe('auth.logout', function(response) {
+		FB.Event.subscribe('auth.logout', function(response) {
   		if (response){
-				window.location("/sign_out");				
+				window.location="/sign_out";				
 			}
 		});
-	*/	
+
+		
 	});
+
 
 </script>
 
