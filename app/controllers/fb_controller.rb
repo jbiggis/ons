@@ -36,8 +36,9 @@ end
 	#retrieve all params passed in
 	func = params[:method]
 	order_id = payload['order_id']
-logger.debug func
-logger.debug order_id
+puts "DEBUG-func"+func
+puts "DEBUG-orderid:"+order_id
+puts "DEBUG-payload"+payload.inspect
 
 	if func == 'payments_status_update'
 		data["content"] = Hash.new
