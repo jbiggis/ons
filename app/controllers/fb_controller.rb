@@ -92,7 +92,7 @@ puts "DEBUG-order_details['items'][0]:"+order_details['items'][0].inspect
 		#}
 		item["product_url"] = "http://ons.heroku.com"
 		item["image_url"] = "http://"
-   		item["item_id"] = order_id
+   		item["item_id"] = payload['order_info']
 
   	# prefix test-mode
   	if payload['test_mode'] != nil
