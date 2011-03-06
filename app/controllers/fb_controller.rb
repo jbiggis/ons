@@ -45,6 +45,7 @@ puts "DEBUG-payload"+payload.inspect
 		status = payload['status']		
 		order_details=ActiveSupport::JSON.decode(payload['order_details'])
 puts "DEBUG-order_details:"+order_details.inspect
+		hunter = Hunter.find(order_details['buyer'].to_i) 
  		
 		#write your logic here, determine the state you wanna move to
 		if status == 'placed'
@@ -53,7 +54,7 @@ puts "DEBUG-order_details:"+order_details.inspect
 puts "DEBUG-order_details['items'][0]:"+order_details['items'][0].inspect
 
 
-			hunter = Hunter.find(order_details['buyer'].to_i) 
+			
 			hunter.orders.create!(:order_id => order_details['order_id'], :product_id=>item['item_id'], :status => status)
 
 			next_state = 'settled'
