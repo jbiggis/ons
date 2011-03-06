@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 		if signed_in?
 		
 			
-		@credits = current_hunter.credits
+		@credits = current_hunter.credits_left
 
 		end
 	end
