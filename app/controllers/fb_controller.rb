@@ -58,7 +58,7 @@ end
 			order = Order.find(order_details['order_id'])
 			order.update_attributes(:status => 'settled')
 			
-			product = Product.find(order.product_id)	
+			product = Product.find_by_product_id(order.product_id)	
 			credits = current_hunter.credits_left 
 			credits += product.credits_to_add
 			current_hunter.update_attributes(:credits_left => credits)		
