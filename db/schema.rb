@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(:version => 20110306040030) do
   add_index "hunters", ["hunter_id"], :name => "index_hunters_on_hunter_id", :unique => true
 
   create_table "orders", :id => false, :force => true do |t|
-    t.integer  "order_id"
-    t.integer  "hunter_id"
-    t.integer  "product_id"
+    t.integer  "order_id",              :limit => 8, :null => false
+    t.integer  "hunter_id",                          :null => false
+    t.integer  "product_id",                         :null => false
     t.string   "status"
     t.string   "message"
     t.boolean  "refund_funding_source"

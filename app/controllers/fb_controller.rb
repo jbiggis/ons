@@ -42,15 +42,13 @@ puts "DEBUG-payload"+payload.inspect
 
 	if func == 'payments_status_update'
 		data["content"] = Hash.new
-		status = payload['status']
-puts "DEBUG-payload[order_details]:"+payload['order_details']		
+		status = payload['status']		
 		order_details=ActiveSupport::JSON.decode(payload['order_details'])
 puts "DEBUG-order_details:"+order_details.inspect
  		
 		#write your logic here, determine the state you wanna move to
 		if status == 'placed'
 
-puts "DEBUG-order_details['items']:"+order_details['items'].inspect
 			item = order_details['items'][0]
 puts "DEBUG-order_details['items'][0]:"+order_details['items'][0].inspect
 
