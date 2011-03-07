@@ -1,6 +1,4 @@
-<div id="fb-root"></div>
-<script src="http://connect.facebook.net/en_US/all.js"></script>
-<%= javascript_include_tag 'facebook-init' %>
+<div id="fb-root"><script src="http://connect.facebook.net/en_US/all.js"></script></div>
 <%= javascript_include_tag 'helper' %>
 
 <script>
@@ -49,55 +47,71 @@
 
 					switch(objJSON.statusText) {
 			
-					case 'matched':
-						element.parent().addClass("selected");
-						id = element.attr("id");
-						var divMatch = document.createElement("div");
-						divMatch.className = 'match';
-						divMatch.innerHTML="<a class='match "+id+"' id='"+id+"' href='javascript;'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
+						case 'matched':
+							element.parent().addClass("selected");
+							id = element.attr("id");
+							var divMatch = document.createElement("div");
+							divMatch.className = 'match';
+							divMatch.innerHTML="<a class='match "+id+"' id='"+id+"' href='javascript;'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
 
-						$("#matches").append(divMatch);
+							$("#matches").append(divMatch);
 				
-						alert('We have a match!');						
+							alert('Congratulations!! We have a match!');						
 				
-						$.ajax({
-							type: 'GET',
-							url: objJSON.uri_1,
-							dataType: "script"	
-						});
+							$.ajax({
+								type: 'GET',
+								url: objJSON.uri_1,
+								dataType: "script"	
+							});
 
-						$.ajax({
-							type: 'GET',
-							url: objJSON.uri_2,
-							dataType: "script"	
-						});
+							$.ajax({
+								type: 'GET',
+								url: objJSON.uri_2,
+								dataType: "script"	
+							});
 
-					break;
-
-					case 'target_added':				
-						element.parent().addClass("selected");
-						id = element.attr("id");
-						var divTarget = document.createElement("div");
-						divTarget.className = 'target';
-						divTarget.innerHTML="<a class='target "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
-						$("#targets").append(divTarget);
-
-						 	
-						break;
+							break;
 
 
-					case 'no_credits':
-						alert('Not enough credits. \nPlease purchase more using the link above.');
+						case 'target_added':				
+							element.parent().addClass("selected");
+							id = element.attr("id");
+							var divTarget = document.createElement("div");
+							divTarget.className = 'target';
+							divTarget.innerHTML="<a class='target "+id+"' id='"+id+"' href='#'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
+							$("#targets").append(divTarget);
+							 	
+							break;
 
-						break;
-					default:
 
-						alert("Please email the administrator.");
+						case 'no_credits':
+							alert('Get more credits to use the One Night Stand Notifier!');
+							break;
+
+
+						case 'fail_duplicated_target':
+							//alert("Already targeted");
+							break;
+
+
+						case 'fail_create_target':
+							alert("ERROR: An error has occurred! (#21322)");
+							break;
+
+
+						case 'fail_create_match':
+							alert("ERROR: An error has occurred! (#21323)");
+							break;
+
+
+						default:
+
+							alert("ERROR: An error has occurred! (#35635)");
 			
 					}
 				},
 				error: function() {
-						alert("Failed to add. Please email the administrator.");
+						alert("ERROR: An error has occurred! (#65233)");
 				}
 		
 			});
@@ -123,6 +137,10 @@
 			e.preventDefault();
 		});
 
+		// User clicks on a match
+		$('a.match').live('click', function(e) {
+			e.preventDefault();
+		});
 
 		FB.getLoginStatus(function(response) {
 
@@ -134,11 +152,7 @@
 						$.ajax({
 							type: 'POST',
 							url: '/sign_in',
-							data: response,
-							success: function() {},
-							error:  function() {
-								alert('ERROR: Invalid session!');
-							} 
+							data: response
 						});
 					}
 				});   	
@@ -170,7 +184,7 @@
 					}); 
 	
 			} else {
-				$.load("/sign_out");
+				//$.load("/sign_out");
 			}
 
 		});
@@ -198,9 +212,10 @@
 			}
 		});
 
+
 		FB.Event.subscribe('auth.logout', function(response) {
   		if (response){
-				window.location="/sign_out";				
+				location.reload();				
 			}
 		});
 

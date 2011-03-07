@@ -10,8 +10,6 @@ class FbController < ApplicationController
 			return
 		end
 
-puts "DEBUG-params:"+params.inspect
-
 		# prepare the return data array
 		#$data = array('content' => array());
 		data = Hash.new	
@@ -21,7 +19,7 @@ puts "DEBUG-params:"+params.inspect
 
 		if request.nil?
 	  		#handle an unauthenticated request here
-			logger.error "Unauthenticated Request!"
+			puts "DEBUG-ERROR:Unauthenticated Request!"
 		end
 
 		payload = request['credits']
@@ -29,24 +27,20 @@ puts "DEBUG-params:"+params.inspect
 		#retrieve all params passed in
 		func = params[:method]
 		order_id = payload['order_id']
-puts "DEBUG-func:"+func
-puts "DEBUG-orderid:"+order_id.to_s
-puts "DEBUG-payload"+payload.inspect
 
 		if func == 'payments_status_update'
 			data["content"] = Hash.new
 			status = payload['status']		
 			order_details=ActiveSupport::JSON.decode(payload['order_details'])
-puts "DEBUG-order_details:"+order_details.inspect
 			hunter = Hunter.find(order_details['buyer'].to_s) 
 	 		
 			#write your logic here, determine the state you wanna move to
 			if status == 'placed'
-
 				item = order_details['items'][0]
-puts "DEBUG-order_details['items'][0]:"+order_details['items'][0].inspect
 
-				hunter.orders.create!(:order_id => order_id.to_s, :product_id=>item['item_id'], :status => status)
+				unless hunter.orders.create!(:order_id => order_id.to_s, :product_id=>item['item_id'], :status => status)
+					puts "DEBUG-ERROR create order:"+hunter.orders.inspect
+				end
 
 				next_state = 'settled'
 		 		data['content']['status'] = next_state
@@ -54,17 +48,21 @@ puts "DEBUG-order_details['items'][0]:"+order_details['items'][0].inspect
 
 			if status == 'settled'
 				order = Order.find(order_id.to_s)
-				order.update_attributes(:status => status)
-		
+
+				unless order.update_attributes(:status => status)
+					puts "DEBUG-ERROR update order:"+order.inspect
+				end		
+
 				product = Product.find(order.product_id)	
 				credits_left = hunter.credits_left 
 				total_credits = hunter.total_credits	
 				credits_left += product.credits_to_add
 				total_credits += product.credits_to_add
 	
+				unless hunter.update_attributes(:credits_left => credits_left, :total_credits => total_credits)		
+					puts "DEBUG-ERROR update hunter:"+hunter.inspect
+				end
 
-				hunter.update_attributes(:credits_left => credits_left, :total_credits => total_credits)		
-	
 			end
 	  
 		#compose returning data array_change_key_case

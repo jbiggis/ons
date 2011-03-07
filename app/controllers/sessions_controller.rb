@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
 		##### Verify valid facebook session
 		if (sess = params[:session]) == nil
-			raise "ERROR: Invalid Session!"
+			#raise "ERROR: Invalid Session!"
 			return
 		end
 
@@ -38,21 +38,21 @@ class SessionsController < ApplicationController
 		if hunter = Hunter.find_by_hunter_id(user_id.to_s)
 			hunter.update_attributes(:access_token => sess[:access_token])
 	
-			sign_in(hunter)
+			#sign_in(hunter)
 			redirect_to root_url
 
 		## First time user
 		else	
 			hunter = Hunter.create(:hunter_id => user_id.to_s, :email => user[:email], :first_name => user[:first_name], :last_name => user[:last_name], :gender => user[:gender], :DOB => user[:dob], :access_token => sess[:access_token])
-			sign_in(hunter)
+			#sign_in(hunter)
 			redirect_to root_url
 		end
 
 	end
 
 	def destroy
-		session[:hunter_id] = nil
-		redirect_to root_url
+		#session[:hunter_id] = nil
+		#redirect_to root_url
 	end
 
 end

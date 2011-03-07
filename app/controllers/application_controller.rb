@@ -3,21 +3,21 @@ class ApplicationController < ActionController::Base
 
   helper_method :signed_in?, :current_hunter
 
-	def sign_in(hunter)
-
-		session[:hunter_id]= hunter.hunter_id
-
-	end
+	## deprecated (only uses facebook's cookie)
+	#def sign_in(hunter)
+	#	session[:hunter_id]= hunter.hunter_id
+	#end
 
 	def current_hunter
 
-		@current_hunter ||= Hunter.find_by_hunter_id(session[:hunter_id]) if session[:hunter_id]
-
+		if @current_hunter == nil
+			if cookies[:fbs_195039077183959]
+				cookie=Hash[cookies[:fbs_195039077183959].gsub('"','').split("&").map{|s| s.split("=")}]
+				@current_hunter = Hunter.find_by_hunter_id(cookie["uid"].to_s)
+			end
+		end
+		@current_hunter
+		#@current_hunter ||= Hunter.find_by_hunter_id(session[:hunter_id]) if session[:hunter_id]
 	end
 
-	def signed_in?
-
-		session[:hunter_id]
-
-	end
 end
