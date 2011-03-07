@@ -62,10 +62,15 @@ width:960px;
 margin:0 auto 0 auto;
 }
 
+#how-it-works-landing {
+
+height:300px;
+}
+
 .selected {
 color:black;
-background: url('../images/ons-icon.png') no-repeat;
-background-position: 180px 30px;
+background: url('../images/favicon.png') no-repeat;
+background-position: 180px 26px;
 
 }
 
@@ -74,16 +79,28 @@ background-position: 180px 30px;
 
 }
 
+#how-it-works {
+width:960px;
+clear:both;
+background:#f2f2f2;
+height:140px;
+border-radius: 15px;
+padding-top:2px;
+}
 
+#how-it-works .content {
+margin:10px 40px;
+height:100px;
+}
 
 #matches {
 clear:both;
-background:#AF4444;
+
 }
 
 #targets {
 clear:both;
-background:black;
+
 }
 
 .clearfix {
@@ -138,7 +155,13 @@ width:960px;
 clear:both;
 background:#f2f2f2;
 height:100px;
+border-radius: 15px;#credits {
+width:960px;
+clear:both;
+background:#f2f2f2;
+height:100px;
 border-radius: 15px;
+}
 }
 
 #credits a {

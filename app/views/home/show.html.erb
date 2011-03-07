@@ -3,7 +3,7 @@
 
 
 <% if !signed_in? %>
-<div class = 'how-it-works-landing'>
+<div id = 'how-it-works-landing'>
 	
 <h4>1) <fb:login-button perms="email, user_birthday, offline_access" autologoutlink="true" ></fb:login-button> with facebook.</h4>
 
@@ -14,11 +14,21 @@
 </div>
 	<% else %>
 
-		<div class='how-it-works'>
+		<div id='how-it-works'>
+
+<div class='content'>
 		<h4>How It Works</h4>
-1) Choose the friends in your network that you'd like to share benefits with.
+1) Pick a friend that you'd like to be 'friends with benefits' with.
 <br/>
-2) Notifications are only sent when you and another friend wants to be each other's friend with benefits.  Otherwise, everything is private and nothing will be shared with anyone.
+2) If your friend picks you back, an email notification will be sent to the both of you.  Otherwise, nothing is shared - all picks will remain private. 
+</div>		
+</div>
+
+
+		<div id='matches'>
+		</div>
+
+		<div id='targets'>
 		</div>
 
 		<div id='credits'>
@@ -47,11 +57,7 @@
 		</div>
 
 
-		<div id='matches'>
-		</div>
 
-		<div id='targets'>
-		</div>
 
 
 		<div class='highlight'>
