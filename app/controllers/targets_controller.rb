@@ -65,7 +65,7 @@ class TargetsController < ApplicationController
 
 
   def get_targets
-		@title = 'Targets'
+	
 		@class = 'target'
 		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NULL')
 		render :partial => 'shared/targets'
@@ -73,7 +73,7 @@ class TargetsController < ApplicationController
 
 
   def get_matches
-		@title = 'Matches'
+
 		@class = 'match'
 		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL')
 		render :partial => 'shared/targets'

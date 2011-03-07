@@ -1,8 +1,10 @@
 <div id="account-nav">  
 <%= image_tag 'ons-logo.png'%>
 	
+<fb:like href="one.com" layout="button_count" show_faces="true" width="450"></fb:like>
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://one.com" data-text="Check out the new facebook app: One Night Stand Notifier" data-count="none" data-via="onsnotifier">Tweet</a>
 
-	        <%= link_to_function 'Logout', "logout()", :id => 'logout' %>
+	<fb:login-button id='logout' perms="email, user_birthday, offline_access" autologoutlink="true" ></fb:login-button>
 
 
 </div>  

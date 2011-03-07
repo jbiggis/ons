@@ -1,20 +1,32 @@
 <div id='content'>
 
-	<fb:login-button perms="email, user_birthday, offline_access" autologoutlink="true" ></fb:login-button>
 
-	<% if !signed_in? %>
+
+<% if !signed_in? %>
+<div class = 'how-it-works-landing'>
 	
+<h4>1) <fb:login-button perms="email, user_birthday, offline_access" autologoutlink="true" ></fb:login-button> with facebook.</h4>
+
+<h4>2) Choose friends in your network that you'd like to share benefits with.</h4>
+
+<h4>3) Get notified when your friend also wants to share benefits with you.  Everything is private, and no one will know you're thinking.</h4>
+
+</div>
 	<% else %>
 
 		<div class='how-it-works'>
+		<h4>How It Works</h4>
+1) Choose the friends in your network that you'd like to share benefits with.
+<br/>
+2) Notifications are only sent when you and another friend wants to be each other's friend with benefits.  Otherwise, everything is private and nothing will be shared with anyone.
 		</div>
 
 		<div id='credits'>
-			<h4>You have <%= @credits %> One Night Stands left out of ** total.</h4>
+			<h4>You have <%= @credits %> tokens left.</h4>
 
-			<div class='purchase'><a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=1' id='button'>Buy 5 with 40 facebook credits</a></div>
-			<div class='purchase'><a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=2' id='button'>Buy 15 with 90 facebook credits - save 30%</a></div>
-			<div class='purchase'><a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=3' id='button'>Buy 30 with 150 facebook credits - save 50%</a></div>
+			<div class='purchase'><a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=1' id='button'>Get 5 more tokens</a></div>
+			<div class='purchase'><a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=2' id='button'>Get 15 more tokens - save 30%</a></div>
+
 
 		</div>
 
