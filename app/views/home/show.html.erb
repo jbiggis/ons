@@ -22,10 +22,26 @@
 		</div>
 
 		<div id='credits'>
-			<h4>You have <%= @credits %> tokens left.</h4>
+			<div class='picks-count'>You can pick <%= pluralize(@credits, 'more friend') %>.</div>
 
-			<div class='purchase'><a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=1' id='button'>Get 5 more tokens</a></div>
-			<div class='purchase'><a href='http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=2' id='button'>Get 15 more tokens - save 30%</a></div>
+			
+
+<% image5 = image_tag '5-picks-btn.png'%>
+<% image10 = image_tag '10-picks-btn.png'%>
+
+<div class='purchase'>
+
+<div class='5'>
+<%= link_to image5, 'http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=1' %>
+</div>
+
+<div class='10'>
+<%= link_to image10, 'http://www.facebook.com/dialog/pay?app_id=195039077183959&redirect_uri=http://ons.heroku.com/fb/callback&credits_purchase=false&order_info=2' %>
+
+</div>
+
+
+</div>
 
 
 		</div>
