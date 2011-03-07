@@ -6,7 +6,7 @@ margin:0;
 
 height:50px;
 color:black;
-
+background:#e63028 ;
 }
 
 #header a, #header a:visited {
@@ -15,10 +15,42 @@ color:black;
 
 #account-nav{
 width:960px;
+height:50px;
 margin:0 auto 0 auto;
+
 }
 
-#logout {
+#fwb-word-logo {
+float:left;
+}
+
+#fwb-logo {
+float:left;
+margin-top:-2px;
+}
+
+#fwb-logo2 {
+float:left;
+margin-top:-5px;
+margin-left: -8px;
+}
+
+#share {
+padding-top:12px;
+padding-left:20px;
+
+}
+
+#fb-like {
+float:left
+
+}
+
+#twit-share {
+float:left;
+}
+
+#fb-login {
 
 float:right;
 margin-right:20px;
@@ -131,7 +163,7 @@ clear:both;
 
 #footer {
 clear:both;
-background:black;
+background:#e63028 ;
 color:white;
 height:100px;
 
