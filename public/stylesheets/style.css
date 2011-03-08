@@ -111,19 +111,16 @@ height:100px;
 
 #matches {
 clear:both;
-width:960px;
-background:#f2f2f2;
+width:920px;
+background:#e63028 url('../images/fwb-logo-l.png') no-repeat;
 border-radius: 15px;
-padding-top:2px;
-
+padding:20px;
+overflow:hidden;
+color:white;
 
 }
 
-#matches.space {
-clear:both;
-width:960px;
-height:200px;
-}
+
 
 #targets {
 clear:both;
@@ -148,7 +145,7 @@ width:220px;
 height:60px;
 margin:6px;
 padding:4px;
-background:#f7f7f7;
+background:white;
 border-radius:5px;
 
 }
@@ -159,8 +156,17 @@ width:220px;
 height:60px;
 margin:6px;
 padding:4px;
-background:#f7f7f7;
+/*background:#f7f7f7;*/
 border-radius:5px;
+background:#e63028 url('../images/fwb-logo.png') no-repeat !important;
+background-position: 150px 20px !important;
+
+font-weight:bold;
+}
+
+div.target .name {
+color:white;
+width:100px;
 }
 
 div.friend {
@@ -197,7 +203,7 @@ background-position: 150px 20px !important;
 .selected .name {
 color:white;
 font-weight:bold;
-width:10ma0px;
+width:100px;
 }
 
 .selected img {
@@ -258,6 +264,9 @@ a.visited {
 color:black;
 }
 
+#friends-selected{
+display:none;
+}
 
 .spacer {
 height:100px;

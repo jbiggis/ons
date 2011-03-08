@@ -23,7 +23,7 @@
 		<div id='how-it-works'>
 
 <div class='content'>
-		<h4>How It Works</h4>
+<h4>How It Works</h4>
 1) Pick a friend that you'd like to be 'friends with benefits' with.
 <br/>
 2) If your friend picks you back, an email notification will be sent to the both of you.  Otherwise, nothing is shared - all picks will remain private. 
@@ -35,9 +35,9 @@
 <div class='space'></div>
 		</div>
 
-		<div id='targets'>
+<!--		<div id='targets'>
 		</div>
-
+-->
 		<div id='credits'>
 			<div class='picks-count'>You can pick <%= pluralize(@credits, 'more friend') %>.</div>
 
@@ -70,9 +70,16 @@
 		<div class='highlight'>
 		</div>
 
-		<div id='friends'>
-		<h4>Friends</h4>
-		</div>
+		<h4>My Friends</h4>	
+<a href='#' class='show-all-btn'>Show All</a>
+		<a href='#' class='show-selected-btn'>Show Picks/a>		
+
+<div id='friends'>
+
+</div>
+
+<div id='friends-selected'>
+</div>
 
 	<% end %>
 </div>

@@ -142,6 +142,8 @@
 			e.preventDefault();
 		});
 
+
+
 		FB.getLoginStatus(function(response) {
 
 			if (response.session) {
@@ -158,31 +160,34 @@
 				});   	
 
 				$('#matches').load('targets/get_matches');
-				$('#targets').load('targets/get_targets');
-
+				//$('#targets').load('targets/get_targets');
+			$('#friends-selected').load('targets/get_targets');
 
 				FB.api('/me/friends', function(friends_obj) {
 					if(friends_obj != null) {
 
 							var divFriends = document.getElementById("friends");
+						
 							var friends = friends_obj.data;
 							friends.sort(sort_by('name', false));
-
+							
 							for (var i=0; i < friends.length; i++)
 							{
 							
 								var divFriend = document.createElement("div");
 								divFriend.className = 'friend';
-								divFriend.innerHTML="<a class='friend " + friends[i].id+"' id='"+friends[i].id+"' name='"+friends[i].name+"' href='javascript;'><img src='http://graph.facebook.com/"+friends[i].id+"/picture'></img><div class='name'>"+friends[i].name+"<span class='mark'></div></span></a>";
+								divFriend.innerHTML="<a class='friend " + friends[i].id+"' id='"+friends[i].id+"' name='"+friends[i].name+"' href='javascript;'><img src='http://graph.facebook.com/"+friends[i].id+"/picture'></img><div class='name'>"+friends[i].name+"</div></a>";
 
 								divFriends.appendChild(divFriend);
 
 							}
 				
 						$('.highlight').load('targets/highlight');
+
 						}
+
 					}); 
-	
+
 			} else {
 				//$.load("/sign_out");
 			}
@@ -210,6 +215,7 @@
 					}
 				});   	
 			}
+
 		});
 
 
@@ -219,8 +225,36 @@
 			}
 		});
 
+$('#button').live('click', function (){
+
+$('div.friend').not('.selected').animate({width:'toggle'},800);
+//slideUp();
+//$('#friends').find("a:contains(.selected)").parent().slideDown();
+//	$('.friends').filter('a.selected').parent().hide();//.parent().slideDown();
+
+
+});
+
 		
+$('.show-selected-btn').live('click', function(e) {
+$('#friends-selected').show();
+$('#friends').hide();
+e.preventDefault();
+});
+
+$('.show-all-btn').live('click', function(e) {
+$('#friends').show();
+$('#friends-selected').hide();
+
+e.preventDefault();
+});
+
+
 	});
+
+
+
+
 
 
 </script>
