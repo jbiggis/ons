@@ -3,14 +3,20 @@
 
 
 <% if !signed_in? %>
+
+<div id='tagline'>Discover friends who'd like to be more than just friends.</div>
+
 <div id = 'how-it-works-landing'>
-	
-<h4>1) <fb:login-button perms="email, user_birthday, offline_access" autologoutlink="true" ></fb:login-button> with facebook.</h4>
+<h3>How It Works:</h3>	
 
-<h4>2) Choose friends in your network that you'd like to share benefits with.</h4>
-
-<h4>3) Get notified when your friend also wants to share benefits with you.  Everything is private, and no one will know you're thinking.</h4>
-
+<ol>
+<li> <fb:login-button perms="email, user_birthday, offline_access" autologoutlink="true" ></fb:login-button> with facebook.
+</li>
+<li> Pick friends in your network whom you'd like to be 'friends with benefits' with.  
+</li>
+<li> Get notified if your friend thinks the same about you.  Otherwise, no information is published.
+</li>
+</ol>
 </div>
 	<% else %>
 
@@ -26,6 +32,7 @@
 
 
 		<div id='matches'>
+<div class='space'></div>
 		</div>
 
 		<div id='targets'>

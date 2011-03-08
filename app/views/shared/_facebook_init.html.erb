@@ -173,7 +173,7 @@
 							
 								var divFriend = document.createElement("div");
 								divFriend.className = 'friend';
-								divFriend.innerHTML="<a class='friend " + friends[i].id+"' id='"+friends[i].id+"' name='"+friends[i].name+"' href='javascript;'><img src='http://graph.facebook.com/"+friends[i].id+"/picture'></img><span class='name'>"+friends[i].name+"</span></a>";
+								divFriend.innerHTML="<a class='friend " + friends[i].id+"' id='"+friends[i].id+"' name='"+friends[i].name+"' href='javascript;'><img src='http://graph.facebook.com/"+friends[i].id+"/picture'></img><div class='name'>"+friends[i].name+"<span class='mark'></div></span></a>";
 
 								divFriends.appendChild(divFriend);
 
