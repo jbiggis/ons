@@ -8,6 +8,7 @@ font-family:arial, sans-serif;
 height:50px;
 color:black;
 background:#e63028 ;
+margin-bottom:20px;
 }
 
 #header a, #header a:visited {
@@ -102,6 +103,7 @@ background:#f2f2f2;
 height:140px;
 border-radius: 15px;
 padding-top:2px;
+
 }
 
 #how-it-works .content {
@@ -112,19 +114,31 @@ height:100px;
 #matches {
 clear:both;
 width:920px;
-background:#e63028 url('../images/fwb-logo-l.png') no-repeat;
+background:#e63028;
+background-position:830px 10px;
 border-radius: 15px;
 padding:20px;
 overflow:hidden;
 color:white;
-
+min-height:100px;
+position:relative;
+margin-top:20px;
 }
 
+#matches-logo {
+position:absolute;
+bottom:-10px;
+right:10px;
+}
+
+#matches .no-match {
+font-style:italic;
+}
 
 
 #targets {
 clear:both;
-
+display:none;
 }
 
 .clearfix {
@@ -194,6 +208,8 @@ float:left;
 
 }
 
+
+
 .selected {
 background:#e63028 url('../images/fwb-logo.png') no-repeat !important;
 background-position: 150px 20px !important;
@@ -226,6 +242,7 @@ clear:both;
 background:#f2f2f2;
 height:100px;
 border-radius: 15px;
+margin-top:20px;
 }
 
 
@@ -264,8 +281,18 @@ a.visited {
 color:black;
 }
 
-#friends-selected{
-display:none;
+
+
+.show-all-btn {
+background:#f2f2f2;
+border-radius:10px;
+padding:6px;
+}
+
+.show-selected-btn {
+background:#f2f2f2;
+border-radius:10px;
+padding:6px;
 }
 
 .spacer {

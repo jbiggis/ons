@@ -12,6 +12,12 @@
 
 <% end %>
 
+<% if @targets.empty? && @class == 'match' %>
+
+<div class='no-match'>You currently do not have any friends with benefits.</div>
+<%= image_tag 'fwb-logo-l.png', :id => 'matches-logo' %>
+<% end %>
+
  <% @targets.each do |target| %> 
 
 	<div class='<%= @class %>'><a href = '#' class='<%= @class %> <%= target.target_id %>' id = '<%= target.target_id %>'><%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %><span class='name'><%= target.name %><span class='mark'></span></span></a></div>

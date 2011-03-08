@@ -161,7 +161,7 @@
 
 				$('#matches').load('targets/get_matches');
 				//$('#targets').load('targets/get_targets');
-			$('#friends-selected').load('targets/get_targets');
+			$('#targets').load('targets/get_targets');
 
 				FB.api('/me/friends', function(friends_obj) {
 					if(friends_obj != null) {
@@ -237,14 +237,14 @@ $('div.friend').not('.selected').animate({width:'toggle'},800);
 
 		
 $('.show-selected-btn').live('click', function(e) {
-$('#friends-selected').show();
+$('#targets').show();
 $('#friends').hide();
 e.preventDefault();
 });
 
 $('.show-all-btn').live('click', function(e) {
 $('#friends').show();
-$('#friends-selected').hide();
+$('#targets').hide();
 
 e.preventDefault();
 });
