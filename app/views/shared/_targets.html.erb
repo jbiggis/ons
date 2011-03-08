@@ -8,14 +8,14 @@
 
 <% else %>
 
-<h4>My Friends with Benefits</h4>
+<div class='title'>My Friends with Benefits</div>
 
 <% end %>
 
 <% if @targets.empty? && @class == 'match' %>
 
 <div class='no-match'>You currently do not have any friends with benefits.</div>
-<%= image_tag 'fwb-logo-l.png', :id => 'matches-logo' %>
+
 <% end %>
 
  <% @targets.each do |target| %> 

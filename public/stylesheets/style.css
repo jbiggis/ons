@@ -97,18 +97,29 @@ margin-bottom:40px;
 }
 
 #how-it-works {
-width:960px;
+width:880px;
 clear:both;
 background:#f2f2f2;
 height:140px;
 border-radius: 15px;
-padding-top:2px;
+padding:2px 40px 0 40px;
+
 
 }
 
 #how-it-works .content {
-margin:10px 40px;
+margin-top:10px;
 height:100px;
+}
+
+#how-it-works ol {
+padding-left: 20px;
+
+}
+
+#how-it-works .title {
+font-weight:bold;
+margin-top:20px;
 }
 
 #matches {
@@ -117,7 +128,7 @@ width:920px;
 background:#e63028;
 background-position:830px 10px;
 border-radius: 15px;
-padding:20px;
+padding:20px 0 30px 40px;
 overflow:hidden;
 color:white;
 min-height:100px;
@@ -131,10 +142,20 @@ bottom:-10px;
 right:10px;
 }
 
+#matches .title {
+font-size:14pt;
+font-weight:bold;
+margin-bottom:16px;
+
+}
+
 #matches .no-match {
 font-style:italic;
 }
 
+#matches .content {
+margin:10px 0 0 0px;
+}
 
 #targets {
 clear:both;
@@ -163,6 +184,8 @@ background:white;
 border-radius:5px;
 
 }
+
+
 
 div.target {
 float:left;
@@ -198,6 +221,8 @@ div img {
 float:left;
 margin:5px;
 margin-right:9px;
+
+
 }
 
 .name {
@@ -282,17 +307,19 @@ color:black;
 }
 
 
+.friends-header {
+margin:20px 0 16px 14px;
+}
 
+.friends-header .title {
+font-weight:bold;
+}
 .show-all-btn {
-background:#f2f2f2;
-border-radius:10px;
-padding:6px;
+
 }
 
 .show-selected-btn {
-background:#f2f2f2;
-border-radius:10px;
-padding:6px;
+
 }
 
 .spacer {
