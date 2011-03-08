@@ -14,4 +14,7 @@ Ons::Application.routes.draw do
 	match 'sign_in' => 'sessions#create'
 	match 'sign_out' => 'sessions#destroy'
 
+get '/tos' => 'home#tos'
+get '/privacy_policy' => 'home#pp', :as => :pp
+
 end

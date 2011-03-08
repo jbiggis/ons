@@ -1,6 +1,8 @@
 <div id="account-nav">  
-<%= image_tag 'fwb-word-logo.png', :id => 'fwb-word-logo'%>
-<%= image_tag 'fwb-logo.png', :height => 50, :id => 'fwb-logo'%> 
+<% logo1 = image_tag 'fwb-word-logo.png', :id => 'fwb-word-logo'%>
+<% logo2 = image_tag 'fwb-logo.png', :height => 50, :id => 'fwb-logo'%> 
+<%= link_to logo1+logo2, root_url %>
+
 <% image_tag 'fwb-logo.png', :id => 'fwb-logo2'%>
 
 <div id='share'>

@@ -6,11 +6,13 @@
 
 <div id='tagline'>Discover friends who'd like to be more than just friends.</div>
 
+<%= image_tag 'fwb-log-big.png'%>
+
 <div id = 'how-it-works-landing'>
-<h3>How It Works:</h3>	
+<div class='title'>How It Works:</div>	
 
 <ol>
-<li> <fb:login-button perms="email, user_birthday, offline_access" autologoutlink="true" ></fb:login-button> with facebook.
+<li> <fb:login-button perms="email, user_birthday, offline_access">Connect To Facebook</fb:login-button>
 </li>
 <li> Pick friends in your network whom you'd like to be 'friends with benefits' with.  
 </li>
@@ -37,6 +39,7 @@ Pick a friend that you'd like to be 'friends with benefits' with.
 
 
 		<div id='matches'>
+			<div class='title'>My Friends-With-Benefits</div>
 			<div class='content'></div>
 
 			<%= image_tag 'fwb-logo-l.png', :id => 'matches-logo' %>

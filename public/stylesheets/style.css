@@ -73,19 +73,24 @@ font-size:18pt;
 }
 
 #how-it-works-landing {
-float:left;
-height:300px;
 clear:both;
+width:960px;
+margin:0 auto 0 auto;
+background:#f2f2f2;
+border-radius: 15px;
+padding:40px;
+
 }
 
-#how-it-works-landing h3 {
-font-size:24pt;
+#how-it-works-landing .title {
+font-size:18pt;
 margin-bottom:40px;
+font-weight:bold;
 }
 
 #how-it-works-landing li {
-font-size:16pt;
-margin-bottom:40px;
+font-size:14pt;
+margin-bottom:20px;
 }
 
 
@@ -115,6 +120,10 @@ height:100px;
 #how-it-works ol {
 padding-left: 20px;
 
+}
+
+#how-it-works li {
+margin-bottom:2px;
 }
 
 #how-it-works .title {
@@ -154,7 +163,7 @@ font-style:italic;
 }
 
 #matches .content {
-margin:10px 0 0 0px;
+margin:10px 0 0 -10px;
 }
 
 #targets {
@@ -331,8 +340,34 @@ clear:both;
 clear:both;
 background:#e63028 ;
 color:white;
-height:100px;
+overflow:auto;
+padding:10px;
+min-height:50px;
+}
+
+#footer .content {
+margin: 0 auto 0 auto;
+width:960px;
+}
+
+#footer .title {
+
+font-weight:bold;
+}
+
+#footer ul {
+list-style:none;
+margin:0 auto 0 auto;
+width:500px;
 
 }
 
+#footer li {
+float:left;
+margin:4px;
+}
+
+#footer a {
+color:white;
+}
 
