@@ -9,6 +9,14 @@ class HomeController < ApplicationController
 		end
 	end
 
+	def tos
+
+	end
+
+	def pp
+
+	end
+
 private
 
 	def signed_in?

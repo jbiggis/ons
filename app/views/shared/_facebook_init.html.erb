@@ -23,7 +23,7 @@
 				data: objJSON_info,
 				success: function(data){
 					id = element.attr("id");			
-					element.remove();
+					element.parent().remove();
 					elem = 'a.friend.'+id;	
 					$(elem).parent().removeClass('selected');
 				},
@@ -48,16 +48,23 @@
 					switch(objJSON.statusText) {
 			
 						case 'matched':
+
+// if parent div has element div.no-match
+// element.remove
+
+$('div.no-match').remove();
+
+
 							element.parent().addClass("selected");
 							id = element.attr("id");
 							var divMatch = document.createElement("div");
 							divMatch.className = 'match';
 							divMatch.innerHTML="<a class='match "+id+"' id='"+id+"' href='javascript;'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
 
-							$("#matches").append(divMatch);
+							$("#matches .content").append(divMatch);
 				
 							alert('Congratulations!! We have a match!');						
-				
+			/*	
 							$.ajax({
 								type: 'GET',
 								url: objJSON.uri_1,
@@ -69,7 +76,7 @@
 								url: objJSON.uri_2,
 								dataType: "script"	
 							});
-
+*/
 							break;
 
 
@@ -160,9 +167,9 @@
 					}
 				});   	
 
-				$('#matches').load('targets/get_matches');
+				$('#matches .content').load('targets/get_matches');
 				//$('#targets').load('targets/get_targets');
-			$('#friends-selected').load('targets/get_targets');
+			$('#targets').load('targets/get_targets');
 
 				FB.api('/me/friends', function(friends_obj) {
 					if(friends_obj != null) {
@@ -226,28 +233,18 @@
 			}
 		});
 
-		$('#button').live('click', function (){
 
-		$('div.friend').not('.selected').animate({width:'toggle'},800);
-		//slideUp();
-		//$('#friends').find("a:contains(.selected)").parent().slideDown();
-		//	$('.friends').filter('a.selected').parent().hide();//.parent().slideDown();
-
-
-		});
-
-		
 		$('.show-selected-btn').live('click', function(e) {
-		$('#friends-selected').show();
-		$('#friends').hide();
-		e.preventDefault();
+			$('#targets').show();
+			$('#friends').hide();
+			e.preventDefault();
 		});
+
 
 		$('.show-all-btn').live('click', function(e) {
-		$('#friends').show();
-		$('#friends-selected').hide();
-
-		e.preventDefault();
+			$('#friends').show();
+			$('#targets').hide();
+			e.preventDefault();
 		});
 
 

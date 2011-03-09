@@ -6,9 +6,12 @@
 <h4> My Wait List: (<a href='http://www.facebook.com/dialog/feed?app_id=195039077183959&link=http://localhost:3000&picture=http://fbrell.com/f8.jpg&name=Facebook%20Dialogs&caption=Reference%20Documentation&description=Dialogs%20provide%20a%20simple,%20consistent%20interface%20for%20applications%20to%20interact%20with%20users.&redirect_uri=http://localhost:3000'>Share</a> this app with them to find out if they think the same about you!) </h4>
 -->
 
-<% else %>
 
-<h4>My Friends with Benefits</h4>
+<% end %>
+
+<% if @targets.empty? && @class == 'match' %>
+
+<div class='no-match'>You currently do not have any friends with benefits.</div>
 
 <% end %>
 

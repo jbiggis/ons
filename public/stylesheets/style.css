@@ -8,6 +8,7 @@ font-family:arial, sans-serif;
 height:50px;
 color:black;
 background:#e63028 ;
+margin-bottom:20px;
 }
 
 #header a, #header a:visited {
@@ -72,19 +73,24 @@ font-size:18pt;
 }
 
 #how-it-works-landing {
-float:left;
-height:300px;
 clear:both;
+width:960px;
+margin:0 auto 0 auto;
+background:#f2f2f2;
+border-radius: 15px;
+padding:40px;
+
 }
 
-#how-it-works-landing h3 {
-font-size:24pt;
+#how-it-works-landing .title {
+font-size:18pt;
 margin-bottom:40px;
+font-weight:bold;
 }
 
 #how-it-works-landing li {
-font-size:16pt;
-margin-bottom:40px;
+font-size:14pt;
+margin-bottom:20px;
 }
 
 
@@ -96,35 +102,73 @@ margin-bottom:40px;
 }
 
 #how-it-works {
-width:960px;
+width:880px;
 clear:both;
 background:#f2f2f2;
 height:140px;
 border-radius: 15px;
-padding-top:2px;
+padding:2px 40px 0 40px;
+
+
 }
 
 #how-it-works .content {
-margin:10px 40px;
+margin-top:10px;
 height:100px;
+}
+
+#how-it-works ol {
+padding-left: 20px;
+
+}
+
+#how-it-works li {
+margin-bottom:2px;
+}
+
+#how-it-works .title {
+font-weight:bold;
+margin-top:20px;
 }
 
 #matches {
 clear:both;
 width:920px;
-background:#e63028 url('../images/fwb-logo-l.png') no-repeat;
+background:#e63028;
+background-position:830px 10px;
 border-radius: 15px;
-padding:20px;
+padding:20px 0 30px 40px;
 overflow:hidden;
 color:white;
+min-height:100px;
+position:relative;
+margin-top:20px;
+}
+
+#matches-logo {
+position:absolute;
+bottom:-10px;
+right:10px;
+}
+
+#matches .title {
+font-size:14pt;
+font-weight:bold;
+margin-bottom:16px;
 
 }
 
+#matches .no-match {
+font-style:italic;
+}
 
+#matches .content {
+margin:10px 0 0 -10px;
+}
 
 #targets {
 clear:both;
-
+display:none;
 }
 
 .clearfix {
@@ -149,6 +193,8 @@ background:white;
 border-radius:5px;
 
 }
+
+
 
 div.target {
 float:left;
@@ -184,6 +230,8 @@ div img {
 float:left;
 margin:5px;
 margin-right:9px;
+
+
 }
 
 .name {
@@ -193,6 +241,8 @@ height:50px;
 float:left;
 
 }
+
+
 
 .selected {
 background:#e63028 url('../images/fwb-logo.png') no-repeat !important;
@@ -226,6 +276,7 @@ clear:both;
 background:#f2f2f2;
 height:100px;
 border-radius: 15px;
+margin-top:20px;
 }
 
 
@@ -264,8 +315,20 @@ a.visited {
 color:black;
 }
 
-#friends-selected{
-display:none;
+
+.friends-header {
+margin:20px 0 16px 14px;
+}
+
+.friends-header .title {
+font-weight:bold;
+}
+.show-all-btn {
+
+}
+
+.show-selected-btn {
+
 }
 
 .spacer {
@@ -277,8 +340,34 @@ clear:both;
 clear:both;
 background:#e63028 ;
 color:white;
-height:100px;
+overflow:auto;
+padding:10px;
+min-height:50px;
+}
+
+#footer .content {
+margin: 0 auto 0 auto;
+width:960px;
+}
+
+#footer .title {
+
+font-weight:bold;
+}
+
+#footer ul {
+list-style:none;
+margin:0 auto 0 auto;
+width:500px;
 
 }
 
+#footer li {
+float:left;
+margin:4px;
+}
+
+#footer a {
+color:white;
+}
 
