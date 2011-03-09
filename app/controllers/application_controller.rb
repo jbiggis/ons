@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
 	def current_hunter
 
 		if @current_hunter == nil
-			if cookies[:fbs_195039077183959]
-				cookie=Hash[cookies[:fbs_195039077183959].gsub('"','').split("&").map{|s| s.split("=")}]
+			if cookies[:fbs_202763786417566]
+				cookie=Hash[cookies[:fbs_202763786417566].gsub('"','').split("&").map{|s| s.split("=")}]
 				@current_hunter = Hunter.find_by_hunter_id(cookie["uid"].to_s)
 			end
 		end

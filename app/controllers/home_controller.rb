@@ -20,7 +20,7 @@ class HomeController < ApplicationController
 private
 
 	def signed_in?
-		cookies[:fbs_195039077183959]
+		cookies[:fbs_202763786417566]
 	end
 
 end

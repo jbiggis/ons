@@ -393,7 +393,7 @@ clear:both;
 clear:both;
 background:#e63028 ;
 color:white;
-overflow:auto;
+overflow:hidden;
 padding:10px;
 min-height:50px;
 }
