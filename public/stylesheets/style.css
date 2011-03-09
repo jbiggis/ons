@@ -52,8 +52,14 @@ margin-left: -8px;
 }
 
 #share {
-padding-top:12px;
+padding-top:14px;
 padding-left:20px;
+
+}
+
+#header .fb-share {
+float:left;
+margin:-14px 10px 0 12px;
 
 }
 
@@ -378,12 +384,25 @@ font-weight:bold;
 }
 .show-all-btn {
 color:#e63028;
-
+font-weight:bold;
 }
 
 .show-selected-btn {
 
 }
+
+
+.fb-share2{
+float:right;
+margin-right:10px;
+
+}
+
+.fb-share2 a {
+color:#e63028;
+margin-right:4px;
+}
+
 
 .spacer {
 height:20px;

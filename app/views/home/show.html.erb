@@ -7,7 +7,7 @@
 
 		<% if !signed_in? %>
 			<div id = 'landing'>
-				<div id='tagline'>Find out which of your friends want to be more than "just friends".</div>
+				<div id='tagline'>Find out which of your friends want to be more than "just friends"!</div>
 				<div class='content'>
 					<div class='img'>
 						<%= image_tag 'fwb-logo-red.png'%>
@@ -28,15 +28,16 @@
 				<div class='content'>
 					<div class='title'>How It Works</div>
 					<ol>
-						<li>Pick friends whom you'd like to be 'friends with benefits' with.</li>
-						<li> If your friend picks you back, an email notification will be sent to the both of you.  Otherwise, nothing is shared - all picks will remain private.</li>
+						<li>Pick friends whom you'd be interested in being 'friends with benefits' with.</li>
+						<li> If you and a friend picked each other, an email notification will be sent to the both of you.  
+<li>Nothing is shared if your friends don't pick you back.  All picks will remain private.</li>
 					</ol>
 				</div>		
 			</div>
 
 
 			<div id='matches'>
-				<div class='title'>My Friends-With-Benefits</div>
+				<div class='title'>My "Friends with Benefits"</div>
 				<div class='content'></div>
 				<%= image_tag 'fwb-logo-l.png', :id => 'matches-logo' %>
 			</div>
@@ -66,7 +67,9 @@
 				<span>Show:</span>
 				<a href='#' class='show-all-btn'>All Friends</a>
 				<span> | </span>
-				<a href='#' class='show-selected-btn'>Picks</a>		
+				<a href='#' class='show-selected-btn'>Picks</a>	
+				<% fb_share2 = image_tag 'fb_share2.png', :width => '200', :id => 'fb-share2' %>	
+				<span class='fb-share2'><a href='http://www.facebook.com/dialog/feed?app_id=202763786417566&link=http://friends-with-benefits.me&picture=http://friends-with-benefits.me/images/fwb-icon.png&name=Friends%20with%20Benefits&caption=Friends-with-Benefits.me&description=Find%20out%20which%20of%20your%20friends%20want%20you%20to%20be%20more%20than%20just%20their%20friends!&redirect_uri=http://friends-with-benefits.me'>Share this app</a> with your friends to see if they will pick you!</span>
 			</div>
 		
 			<div id='friends'>

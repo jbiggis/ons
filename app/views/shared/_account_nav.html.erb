@@ -6,14 +6,21 @@
 <% image_tag 'fwb-logo.png', :id => 'fwb-logo2'%>
 
 <div id='share'>
+
+<% fb_share = image_tag 'fb-share.png', :width => '100' %> 
+
+<span class='fb-share'><a href='http://www.facebook.com/dialog/feed?app_id=202763786417566&link=http://friends-with-benefits.me&picture=http://friends-with-benefits.me/images/fwb-icon.png&name=Friends%20with%20Benefits&caption=Friends-with-Benefits.me&description=Find%20out%20which%20of%20your%20friends%20want%20you%20to%20be%20more%20than%20just%20their%20friends!&redirect_uri=http://friends-with-benefits.me'><%=fb_share%></a></span>
+
+
 <div id='fb-like'>
-<fb:like href="one.com" layout="button_count" show_faces="true" ></fb:like>
+<fb:like href="http://www.facebook.com/pages/Friends-with-Benefits/198531800170983" layout="button_count" show_faces="true" ></fb:like>
 </div>
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 <div id='twit-share'>
 <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://one.com" data-text="Check out the new facebook app: One Night Stand Notifier" data-count="none" data-via="onsnotifier">Tweet</a>
 </a>
 </div>
+
 </div>
 
 <div id='fb-login'>
