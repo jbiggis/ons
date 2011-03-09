@@ -1,14 +1,17 @@
 body {
 margin:0;
 font-family:arial, sans-serif;
+background:#e63028;
 }
 
 #header{
 
-height:50px;
+height:52px;
 color:black;
 background:#e63028 ;
-margin-bottom:20px;
+padding-top:4px;
+
+/*margin-bottom:20px;*/
 }
 
 #header a, #header a:visited {
@@ -58,34 +61,65 @@ float:right;
 margin-right:20px;
 }
 
+#wrapper {
+background:white;
+padding-top:20px;
+overflow:hidden;
+width:100%;
+}
+
 #content {
 width:960px;
 margin:0 auto 0 auto;
+background:white;
 }
 
 #tagline {
-float:left;
-height:100px;
+height:60px;
 clear:both;
-margin-top:20px;
+margin:20px auto 10px auto;
+width:660px;
 font-weight:bold;
 font-size:18pt;
 }
 
-#how-it-works-landing {
+
+
+#landing .content {
 clear:both;
 width:960px;
-margin:0 auto 0 auto;
-background:#f2f2f2;
+
+}
+
+#landing .img {
+float:left;
+margin:0 ;
+
+}
+
+#landing img {
+margin:0 ;
+}
+
+#how-it-works-landing {
+width:460px;
+float:left;
+background:#f7f7f7;
 border-radius: 15px;
-padding:40px;
+padding:30px 40px 20px 40px;
+margin:16px 0 0 60px;
 
 }
 
 #how-it-works-landing .title {
 font-size:18pt;
-margin-bottom:40px;
+margin-bottom:20px;
 font-weight:bold;
+}
+
+#how-it-works-landing ol {
+padding:0 0 0 26px;
+
 }
 
 #how-it-works-landing li {
@@ -159,6 +193,7 @@ margin-bottom:16px;
 }
 
 #matches .no-match {
+margin:32px 0 0 10px;
 font-style:italic;
 }
 
@@ -204,8 +239,8 @@ margin:6px;
 padding:4px;
 /*background:#f7f7f7;*/
 border-radius:5px;
-background:#e63028 url('../images/fwb-logo.png') no-repeat !important;
-background-position: 150px 20px !important;
+background:#e63028 url('../images/fwb-icon-40.png') no-repeat !important;
+background-position: 180px 28px !important;
 
 font-weight:bold;
 }
@@ -245,8 +280,8 @@ float:left;
 
 
 .selected {
-background:#e63028 url('../images/fwb-logo.png') no-repeat !important;
-background-position: 150px 20px !important;
+background:#e63028 url('../images/fwb-icon-40.png') no-repeat !important;
+background-position: 180px 28px !important;
 
 }
 
@@ -324,6 +359,7 @@ margin:20px 0 16px 14px;
 font-weight:bold;
 }
 .show-all-btn {
+color:#e63028;
 
 }
 
@@ -332,7 +368,7 @@ font-weight:bold;
 }
 
 .spacer {
-height:100px;
+height:20px;
 clear:both;
 }
 

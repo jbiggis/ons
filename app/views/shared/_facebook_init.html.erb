@@ -2,15 +2,17 @@
 <%= javascript_include_tag 'helper' %>
 
 <script>
-/*
-	function logout(){
+	/*
+		function logout(){
 	
-		FB.logout(function() {
-		window.location="/sign_out";
+			FB.logout(function() {
+			window.location="/sign_out";
 	
-});
-};
-*/
+	});
+	};
+	*/
+
+
 	$(document).ready(function () {
 
 		function removeTarget(element){
@@ -43,16 +45,32 @@
 				url: '/targets',
 				data: objJSON_info,
 				success: function(data){
-					objJSON = JSON.parse(data);
 
+					credits_left = parseInt($('.credits-left').html());
+					
+					if (credits_left != 0) {
+
+						credits_left = credits_left - 1;
+			
+						if (credits_left == 1) {
+				      			 $('.credits-left').html('1 more friend');	
+				       		} else {
+							$('.credits-left').html(credits_left + " more friends");
+
+			       			}
+					}
+
+			
+					
+					objJSON = JSON.parse(data);
+					
 					switch(objJSON.statusText) {
 			
 						case 'matched':
 
-// if parent div has element div.no-match
-// element.remove
-
-$('div.no-match').remove();
+							// if parent div has element div.no-match
+							// element.remove
+							$('div.no-match').remove();
 
 
 							element.parent().addClass("selected");
@@ -92,7 +110,7 @@ $('div.no-match').remove();
 
 
 						case 'no_credits':
-							alert('Get more credits to use the One Night Stand Notifier!');
+							alert('You\'re out of Picks!');
 							break;
 
 
@@ -128,22 +146,23 @@ $('div.no-match').remove();
 
 		// Remove Target
 		$('a.target').live('click', function(e) {
-
-			//if (FB.getSession() != null){
-			removeTarget($(this));
-			//}
 			e.preventDefault();
+			if (confirm("Would you like to remove your friend from the picked list?\n(You will not longer receive notifications from this friend)")){
+				removeTarget($(this));
+			}
 		});
+
 
 		// Add Target
 		$('a.friend').live('click', function(e){
-			//if (FB.getSession() != null){
-				if (!($(this).parent().hasClass('selected'))) {
+			e.preventDefault();
+			if (!($(this).parent().hasClass('selected'))) {
+				if (confirm("Would you like to add this friend?")){
 					addTarget($(this));
 				}
-			//}
-			e.preventDefault();
+			}
 		});
+
 
 		// User clicks on a match
 		$('a.match').live('click', function(e) {
@@ -233,8 +252,10 @@ $('div.no-match').remove();
 			}
 		});
 
-
+		
 		$('.show-selected-btn').live('click', function(e) {
+			$(this).css('color','#e63028');
+			$('.show-all-btn').css('color', 'black');
 			$('#targets').show();
 			$('#friends').hide();
 			e.preventDefault();
@@ -242,19 +263,13 @@ $('div.no-match').remove();
 
 
 		$('.show-all-btn').live('click', function(e) {
+			$(this).css('color','#e63028');
+			$('.show-selected-btn').css('color', 'black');
 			$('#friends').show();
 			$('#targets').hide();
 			e.preventDefault();
 		});
 
-
 	});
 
-
-
-
-
-
 </script>
-
-
