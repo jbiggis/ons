@@ -27,13 +27,13 @@ class SessionsController < ApplicationController
 
 		## Check whether a facebook session already exists
 		if params[:status] == "connected"
+			user = Hash.new
 			user_id = sess[:uid]
 		
 		else
 			user = params[:user]
 			user_id = params[:user][:id]
 		end
-
 		## If existing user
 		if hunter = Hunter.find_by_hunter_id(user_id.to_s)
 			hunter.update_attributes(:access_token => sess[:access_token])
