@@ -1,4 +1,4 @@
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, em, img, strong, b, u, i, dl, dt, dd, ol, ul, li, form, tr, th, td, footer, header, menu, nav{
+html, body, div, span, object, iframe, h1, h2, h4, h5, h6, p, a, em, img, strong, u, i, dl, dt, dd, form, tr, th, td, footer, header, menu, nav{
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -89,7 +89,7 @@ background:white;
 height:60px;
 clear:both;
 margin:20px auto 10px auto;
-width:660px;
+width:780px;
 font-weight:bold;
 font-size:18pt;
 }
@@ -176,6 +176,7 @@ margin-bottom:2px;
 #how-it-works .title {
 font-weight:bold;
 margin-top:20px;
+margin-bottom:10px;
 }
 
 #matches {

@@ -1,5 +1,5 @@
 
-<div id='wrapper'>
+
 
 	<div id='content'>
 
@@ -7,7 +7,7 @@
 
 		<% if !signed_in? %>
 			<div id = 'landing'>
-				<div id='tagline'>Discover friends who'd like to be more than just friends.</div>
+				<div id='tagline'>Find out which of your friends want to be more than "just friends".</div>
 				<div class='content'>
 					<div class='img'>
 						<%= image_tag 'fwb-logo-red.png'%>
@@ -16,8 +16,8 @@
 						<div class='title'>How It Works:</div>	
 						<ol>
 							<li> <fb:login-button perms="email, user_birthday, offline_access">Connect To Facebook</fb:login-button></li>
-							<li> Pick friends in your network whom you'd like to be your 'friends with benefits'.</li>
-							<li> Get notified if your friend thinks the same about you.  Otherwise, nothing is shared.</li>
+<li>Pick friends in your network whom you'd be interested in being 'friends with benefits' with.</li>
+							<li>If a friend thinks the same about you, we will send you both an email.  Otherwise, your secrets will never be revealed to anyone.</li>
 						</ol>
 					</div>
 				</div>
@@ -81,5 +81,4 @@
 		<% end %>
 	</div>
 
-</div>
 
