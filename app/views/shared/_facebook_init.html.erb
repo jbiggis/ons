@@ -157,7 +157,7 @@
 		$('a.friend').live('click', function(e){
 			e.preventDefault();
 			if (!($(this).parent().hasClass('selected'))) {
-				if (confirm("Would you like to add this friend?")){
+				if (confirm("Would you like to pick this friend?")){
 					addTarget($(this));
 				}
 			}
