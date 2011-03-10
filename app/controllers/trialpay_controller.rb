@@ -26,7 +26,11 @@ puts "QUERY: "+ request.headers[:QUERY_STRING]
 
 	sig = MD5.new(request.headers[:QUERY_STRING]	+ KEY)
 
-	if (expected_sig == sig)? return true : return false
+	if expected_sig == sig 
+		return true 
+	else
+		return false
+	end
 
 end
 
