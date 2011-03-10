@@ -5,6 +5,13 @@ class FbController < ApplicationController
 
   def callback
 
+		if params[:error_code]
+			puts params[:error_code]
+			puts params[:error_message]
+			redirect_to root_url
+			return
+		end
+
 		if params[:signed_request].nil? && params[:status] == 'settled'
 			redirect_to root_url
 			return
