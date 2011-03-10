@@ -20,4 +20,17 @@ class ApplicationController < ActionController::Base
 		#@current_hunter ||= Hunter.find_by_hunter_id(session[:hunter_id]) if session[:hunter_id]
 	end
 
+def admin_signed_in?
+
+	if cookies[:fbs_202763786417566]
+		cookie=Hash[cookies[:fbs_202763786417566].gsub('"','').split("&").map{|s| s.split("=")}]
+		if cookie["uid"].to_s == ADMIN_1 || cookie["uid"].to_s == ADMIN_2
+			return true
+		else
+			return false
+		end
+	end
+
+end
+
 end
