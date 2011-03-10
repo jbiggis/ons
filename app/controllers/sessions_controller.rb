@@ -43,7 +43,7 @@ class SessionsController < ApplicationController
 
 		## First time user
 		else	
-			hunter = Hunter.create(:hunter_id => user_id.to_s, :email => user[:email], :first_name => user[:first_name], :last_name => user[:last_name], :gender => user[:gender], :DOB => user[:dob], :access_token => sess[:access_token])
+			hunter = Hunter.create(:hunter_id => user_id.to_s, :email => user[:email], :first_name => user[:first_name], :last_name => user[:last_name], :gender => user[:gender], :DOB => user[:birthday], :access_token => sess[:access_token])
 			#sign_in(hunter)
 			redirect_to root_url
 		end
