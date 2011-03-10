@@ -8,6 +8,18 @@ html, body, div, span, object, iframe, h1, h2, h4, h5, h6, p, a, em, img, strong
 	outline: none;
 }
 
+#about p {
+line-height:18pt;
+}
+
+#about .link {
+color:#e63028;
+margin-right:3px;
+}
+
+#about .two {
+margin-left:3px;
+}
 
 body {
 margin:0;
@@ -428,6 +440,10 @@ margin-right:4px;
 }
 
 
+#about {
+min-height:412px;
+}
+
 .spacer {
 height:20px;
 clear:both;
@@ -455,7 +471,7 @@ font-weight:bold;
 #footer ul {
 list-style:none;
 margin:0 auto 0 auto;
-width:500px;
+width:600px;
 
 }
 
