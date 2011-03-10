@@ -5,7 +5,7 @@ class TrialpayController < ApplicationController
 def proc
 
 puts params.inspect
-puts request.headers.inspect
+#puts request.headers.inspect
 	trialpay_order_id = params[:oid]
 	sid = params[:sid]
 
@@ -20,11 +20,11 @@ private
 
 def validation
 
-	expected_sig = request.headers[:HTTP_TRIALPAY_HMAC_MD5]
+	expected_sig = request.headers['HTTP_TRIALPAY_HMAC_MD5']
 puts "EXPECTED: "+expected_sig
-puts "QUERY: "+ request.headers[:QUERY_STRING]
+puts "QUERY: "+ request.headers['QUERY_STRING']
 
-	sig = MD5.new(request.headers[:QUERY_STRING]	+ KEY)
+	sig = MD5.new(request.headers['QUERY_STRING'] + KEY)
 
 	if expected_sig == sig 
 		return true 
