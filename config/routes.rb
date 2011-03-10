@@ -1,7 +1,7 @@
 Ons::Application.routes.draw do
 
-	root :to => "home#show"
-	#match '/show' => 'home#show'
+  root :to => "home#show"
+  #match '/show' => 'home#show'
 
   post "/targets" => "targets#create"
   get "/targets/get_targets" => "targets#get_targets"
@@ -11,12 +11,14 @@ Ons::Application.routes.draw do
 
   match "/fb/callback" => "fb#callback"
 
-	match 'sign_in' => 'sessions#create'
-	match 'sign_out' => 'sessions#destroy'
+  match 'sign_in' => 'sessions#create'
+  match 'sign_out' => 'sessions#destroy'
 
-get '/tos' => 'home#tos'
-get '/privacy_policy' => 'home#pp', :as => :pp
+  get 'about' => 'home#about'
+  get 'faq' => 'home#faq'
+  get '/tos' => 'home#tos'
+  get '/privacy_policy' => 'home#pp', :as => :pp
 
-match '/trialpay' => 'trialpay#proc', :as => :trialpay
+  match '/trialpay' => 'trialpay#proc', :as => :trialpay
 
 end
