@@ -172,7 +172,7 @@
 
 
 		FB.getLoginStatus(function(response) {
-
+alert('yo');
 			if (response.session) {
 
 				FB.api('/me', function(user) {
@@ -187,8 +187,7 @@
 				});   	
 
 				$('#matches .content').load('targets/get_matches');
-				//$('#targets').load('targets/get_targets');
-			$('#targets').load('targets/get_targets');
+				$('#targets').load('targets/get_targets');
 
 				FB.api('/me/friends', function(friends_obj) {
 					if(friends_obj != null) {
@@ -223,6 +222,7 @@
 
 
 		FB.Event.subscribe('auth.login', function(response) {
+alert('yo auth login');	
 			if (response) {
 	
 				FB.api('/me', function(user) {
@@ -233,7 +233,7 @@
 							url: '/sign_in',
 							data: { session:response.session, user:user},
 							success: function() {
-								location.reload();
+								window.location.href=window.location.href;
 								} ,
 							error:  function() {
 								alert('There\'s an error signing in');
@@ -248,7 +248,7 @@
 
 		FB.Event.subscribe('auth.logout', function(response) {
   		if (response){
-				location.reload();				
+				window.location.href=window.location.href;				
 			}
 		});
 

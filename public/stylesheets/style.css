@@ -13,14 +13,14 @@ body {
 margin:0;
 font-family:arial, sans-serif;
 background:#e63028;
-}
-
-#header{
 
 height:52px;
 color:black;
 background:#e63028 ;
 padding-top:4px;
+}
+
+#header{
 
 /*margin-bottom:20px;*/
 }
