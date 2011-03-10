@@ -12,7 +12,16 @@
   <%= javascript_include_tag 'ga' %>
    <link rel="shortcut icon" href="/images/favicon.ico" >
    <!--link rel="icon" type="image/gif" href="/images/animated_favicon1.gif" -->
-<%= render 'shared/fb-og' %>
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" 
+        type="text/javascript">
+
+<meta property="og:title" content="Smith hails 'unique' Wable legacy" /> 
+<meta property="og:description" content="John Smith claims beautiful football 
+            is the main legacy of Akhil Wable's decade at the club. " /> 
+<meta property="og:image" content="http://www.onjd.com/design05/images/PH2/WableAFC205.jpg" />
+
+</script>
+<% render 'shared/fb-og' %>
 
 
 </head>
