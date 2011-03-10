@@ -6,8 +6,7 @@ class FbController < ApplicationController
   def callback
 
 		if params[:error_code]
-			puts params[:error_code]
-			puts params[:error_message]
+			puts "DEBUG-ERROR: (FB Ctrl) " + params[:error_code] + " " + params[:error_message]
 			redirect_to root_url
 			return
 		end
@@ -25,8 +24,9 @@ class FbController < ApplicationController
 		request = parse_signed_request(params[:signed_request], SECRET);
 
 		if request.nil?
-	  		#handle an unauthenticated request here
-			puts "DEBUG-ERROR:Unauthenticated Request!"
+	  	#handle an unauthenticated request here
+			render :text => "Error", :status => :unauthorized
+			return
 		end
 
 		payload = request['credits']
@@ -47,6 +47,8 @@ class FbController < ApplicationController
 
 				unless hunter.orders.create!(:order_id => order_id.to_s, :product_id=>item['item_id'], :status => status)
 					puts "DEBUG-ERROR create order:"+hunter.orders.inspect
+					render :text => "Cannot create order", :status => :internal_server_error
+					return
 				end
 
 				next_state = 'settled'
@@ -58,6 +60,8 @@ class FbController < ApplicationController
 
 				unless order.update_attributes(:status => status)
 					puts "DEBUG-ERROR update order:"+order.inspect
+					render :text => "Cannot update order", :status => :internal_server_error
+					return
 				end		
 
 				product = Product.find(order.product_id)	
@@ -68,6 +72,8 @@ class FbController < ApplicationController
 	
 				unless hunter.update_attributes(:credits_left => credits_left, :total_credits => total_credits)		
 					puts "DEBUG-ERROR update hunter:"+hunter.inspect
+					render :text => "Cannot update user", :status => :internal_server_error
+					return
 				end
 
 			end
@@ -127,7 +133,7 @@ private
 		data = ActiveSupport::JSON.decode(base64_url_decode(payload))
 
 		if data['algorithm'].upcase != 'HMAC-SHA256'
-			logger.error 'Unknown algorithm. Expected HMAC-SHA256'
+			puts 'DEBUG-ERROR: Unknown algorithm: ' + data['algorithm']
 			return nil
 		end
 
@@ -136,7 +142,7 @@ private
 		expected_sig = OpenSSL::HMAC.digest('sha256', secret, payload)
 
 		if sig != expected_sig 
-				logger.error 'Bad Signed JSON signature!'
+				puts 'DEBUG-ERROR: Bad Signed JSON signature!'
 				return nil
 		end
 

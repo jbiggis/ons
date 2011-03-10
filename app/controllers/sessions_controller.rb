@@ -20,7 +20,8 @@ class SessionsController < ApplicationController
 		end
 		
 		if MD5.new(payload + SECRET) != sess[:sig]
-			raise "ERROR: Cannot verify user!"
+			puts "DEBUG-ERROR: Unauthorized access (session controller)"
+			raise "ERROR!"
 			return
 		end	
 		#####

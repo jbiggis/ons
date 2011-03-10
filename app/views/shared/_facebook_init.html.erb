@@ -30,7 +30,7 @@
 					$(elem).parent().removeClass('selected');
 				},
 				error: function(){
-					alert("ERROR: Failed to remove!");
+					alert("Failed to process request, please try again.");
 				}
 			});
 	
@@ -120,23 +120,23 @@
 
 
 						case 'fail_create_target':
-							alert("ERROR: An error has occurred! (#21322)");
+							alert("Failed to process request, please try again.");
 							break;
 
 
 						case 'fail_create_match':
-							alert("ERROR: An error has occurred! (#21323)");
+							alert("Failed to process request, please try again.");
 							break;
 
 
 						default:
 
-							alert("ERROR: An error has occurred! (#35635)");
+							alert("Failed to process request, please try again.");
 			
 					}
 				},
 				error: function() {
-						alert("ERROR: An error has occurred! (#65233)");
+						alert("Failed to process request, please try again.");
 				}
 		
 			});
@@ -236,7 +236,7 @@
 								window.location.href=window.location.href;
 								} ,
 							error:  function() {
-								alert('There\'s an error signing in');
+								alert('Failed to process request, please try again.');
 							} 
 						});
 					}

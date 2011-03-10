@@ -11,9 +11,11 @@ class TargetsController < ApplicationController
 			begin
 				current_hunter.save
 			rescue ActiveRecord::RecordNotUnique	
+				puts "DEBUG-ERROR: Duplicated target!"
 				render :text => ActiveSupport::JSON.encode({'statusText'=>'fail_duplicated_target'}) 
 				return
 			rescue Exception => e
+				puts "DEBUG-ERROR: Exception - create target!"
 				render :text => ActiveSupport::JSON.encode({'statusText'=>'fail_create_target'})
 				return
 			end		
@@ -30,6 +32,7 @@ class TargetsController < ApplicationController
 						target2.save!
 					end
 				rescue Exception => e
+					puts "DEBUG-ERROR: Exception - create match!"
 					render :text => ActiveSupport::JSON.encode({'statusText'=>'fail_create_match'})
 					return
 				end	
@@ -90,6 +93,7 @@ class TargetsController < ApplicationController
 			redirect_to root_url
 			return
 		else
+			puts "DEBUG-ERROR: Failed to destroy target!"
 			render :text => ActiveSupport::JSON.encode({'statusText'=>'fail_destroy'})
 			return 
 		end
