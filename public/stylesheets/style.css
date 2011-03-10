@@ -13,9 +13,17 @@ line-height:18pt;
 
 }
 
-#tos p{
-line-height:22pt;
-margin:20px 0;
+#tos p, #pp p {
+line-height:20pt;
+margin:16px 0;
+}
+
+#faq p {
+margin:10px 0;
+}
+
+#faq .separator{
+padding:10px 0;
 }
 
 #tos li {
