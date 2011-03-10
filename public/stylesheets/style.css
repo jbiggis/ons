@@ -65,11 +65,17 @@ margin:-14px 10px 0 12px;
 
 #fb-like {
 float:left;
+width:80px;
+margin-right:10px;
+overflow:hidden;
 
 }
 
 #twit-share {
 float:left;
+width:80px;
+
+overflow:hidden;
 }
 
 #fb-login {
