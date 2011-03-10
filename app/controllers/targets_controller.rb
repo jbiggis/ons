@@ -41,10 +41,10 @@ class TargetsController < ApplicationController
 
 
 				subject = 'One of your friends wants to be your "friend with benefits"'
-				text = 'Congratulations, a friend of yours wants to be more than just friends!\nLog in<a href="http://friends-with-benefits.me">here</a> to find out who it is.\n\nThe "friends-with-benefits" team' 
+				fbml = 'Congratulations, a friend of yours wants to be more than just a friend!<br/><br/>Log in <a href="http://friends-with-benefits.me">here</a> to find out who it is.<br/><br/>The "Friends with Benefits" team' 
 
-				uri1 = 'https://api.facebook.com/method/notifications.sendEmail?recipients='+current_hunter.hunter_id+'&subject='+subject+'&text='+text+'&access_token='+token1+'&format=json'
-				uri2 = 'https://api.facebook.com/method/notifications.sendEmail?recipients='+hunter2.hunter_id+'&subject='+subject+'&text='+text+'&access_token='+token2+'&format=json'
+				uri1 = 'https://api.facebook.com/method/notifications.sendEmail?recipients='+current_hunter.hunter_id+'&subject='+subject+'&fbml='+fbml+'&access_token='+token1+'&format=json'
+				uri2 = 'https://api.facebook.com/method/notifications.sendEmail?recipients='+hunter2.hunter_id+'&subject='+subject+'&fbml='+fbml+'&access_token='+token2+'&format=json'
 
 				render :text => ActiveSupport::JSON.encode({'statusText'=>'matched', 'uri_1'=> uri1, 'uri_2'=> uri2}) 
 				return
