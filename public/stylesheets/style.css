@@ -26,6 +26,10 @@ margin:10px 0;
 padding:10px 0;
 }
 
+#faq .link {
+color:#e63028;
+}
+
 #tos li {
 line-height:22pt;
 margin:10px 0;
