@@ -1,8 +1,8 @@
 class TrialpayController < ApplicationController
 
 def proc
-puts request.host.inspect
-puts params.inspect
+puts request.inspect
+#puts params.inspect
 trialpay_order_id = params[:oid]
 sid = params[:sid]
 
