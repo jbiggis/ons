@@ -172,7 +172,7 @@
 
 
 		FB.getLoginStatus(function(response) {
-alert('yo');
+
 			if (response.session) {
 
 				FB.api('/me', function(user) {
@@ -222,7 +222,7 @@ alert('yo');
 
 
 		FB.Event.subscribe('auth.login', function(response) {
-alert('yo auth login');	
+
 			if (response) {
 	
 				FB.api('/me', function(user) {
