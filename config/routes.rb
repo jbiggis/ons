@@ -17,4 +17,6 @@ Ons::Application.routes.draw do
 get '/tos' => 'home#tos'
 get '/privacy_policy' => 'home#pp', :as => :pp
 
+post '/trialpay' => 'trialpay#process', :as => :trialpay
+
 end
