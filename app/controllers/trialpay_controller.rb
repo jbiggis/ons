@@ -1,6 +1,8 @@
 class TrialpayController < ApplicationController
 
-def process
+def proc
+
+render :text => '1'
 
 end
 
