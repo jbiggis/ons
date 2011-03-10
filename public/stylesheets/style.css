@@ -126,11 +126,13 @@ width:960px;
 #landing .img {
 float:left;
 margin:0 ;
+margin-top:10px;
 
 }
 
 #landing img {
 margin:0 ;
+margin-bottom:-10px;
 }
 
 #how-it-works-landing {
@@ -141,7 +143,7 @@ border-radius:15px;
 -moz-border-radius:15px;
 -webkit-border-radius:15px;
 padding:30px 40px 20px 30px;
-margin:4px 0 0 60px;
+margin:4px 0 0 40px;
 
 }
 
