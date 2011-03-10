@@ -78,6 +78,8 @@ float:right;
 margin-right:20px;
 }
 
+
+
 #wrapper {
 background:white;
 padding-top:20px;
@@ -85,17 +87,24 @@ padding-top:20px;
 width:100%;
 }
 
+
+
 #content {
 width:960px;
 margin:0 auto 0 auto;
 background:white;
+
+}
+
+.clear {
+clear:both;
 }
 
 #tagline {
 height:60px;
 clear:both;
 margin:20px auto 10px auto;
-width:780px;
+width:860px;
 font-weight:bold;
 font-size:18pt;
 }
