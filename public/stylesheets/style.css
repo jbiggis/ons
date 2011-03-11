@@ -149,7 +149,7 @@ clear:both;
 height:60px;
 clear:both;
 margin:20px auto 10px auto;
-width:860px;
+width:800px;
 font-weight:bold;
 font-size:18pt;
 }
@@ -419,8 +419,24 @@ margin:10px 10px 0 0;
 width:560px;
 }
 
-.5, .10 {
+.five, .ten {
 float:left;
+}
+
+.earn-credits {
+clear:both;
+float:right;
+margin-top:4px;
+margin-right:30px;
+
+}
+
+.earn-credits a:visited {
+color:#e63028 !important;
+}
+
+.earn-credits a {
+color:#e63028;
 }
 
 a.purchase {

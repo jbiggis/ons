@@ -7,7 +7,7 @@
 
 		<% if !signed_in? %>
 			<div id = 'landing'>
-				<div id='tagline'>Find out which of your friends want you to be more than just their friends!</div>
+				<div id='tagline'>Find out which of your friends want you as more than just friends!</div>
 				<div class='content'>
 					<div class='img'>
 						<%= image_tag 'fwb-logo-red.png', :width => '360'%>
@@ -47,15 +47,17 @@
 				</div>
 		
 				<div class='purchase'>
-					<div class='5'>
+					<div class='five'>
 						<% image5 = image_tag '5-picks-btn.png'%>
 						<%= link_to image5, 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1' %>
 					</div>
 
-					<div class='10'>
+					<div class='ten'>
 						<% image10 = image_tag '10-picks-btn.png'%>
 						<%= link_to image10, 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=2' %>
 					</div>
+<!--<div class='earn-credits'>...or <%# link_to 'earn', 'http://www.facebook.com/dialog/pay?app_id=202763786417566&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1&dev_purchase_params={%22shortcut%22:%22offer%22}' %> free facebook credits with TrialPay</div>
+<div class='clear'></div>-->
 				</div>
 
 			</div>
@@ -69,7 +71,7 @@
 				<span> | </span>
 				<a href='#' class='show-selected-btn'>Picks</a>	
 				<% fb_share2 = image_tag 'fb_share2.png', :width => '200', :id => 'fb-share2' %>	
-				<span class='fb-share2'><a href='http://www.facebook.com/dialog/feed?app_id=202763786417566&link=http://friends-with-benefits.me&picture=http://friends-with-benefits.me/images/fwb-icon.png&name=Friends%20with%20Benefits&caption=Friends-with-Benefits.me&description=Find%20out%20which%20of%20your%20friends%20want%20you%20to%20be%20more%20than%20just%20their%20friends!&redirect_uri=http://friends-with-benefits.me'>Share this app</a> with your friends to see if they pick you back!</span>
+				<span class='fb-share2'><a href='http://www.facebook.com/dialog/feed?app_id=202763786417566&link=http://friends-with-benefits.me&picture=http://friends-with-benefits.me/images/fwb-icon.png&name=Friends%20with%20Benefits&caption=Friends-with-Benefits.me&description=Find%20out%20which%20of%20your%20friends%20want%20you%20as%more%20than%20just%20friends!&redirect_uri=http://friends-with-benefits.me'>Share this app</a> with your friends to see if they pick you back!</span>
 			</div>
 		
 			<div id='friends'>
