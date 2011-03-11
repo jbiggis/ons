@@ -527,3 +527,9 @@ margin:4px;
 color:white;
 }
 
+#placeholderimage{
+
+position:absolute;
+right:0;
+display:none;
+}
