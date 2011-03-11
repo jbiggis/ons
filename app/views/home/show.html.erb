@@ -54,8 +54,9 @@
 						<% image10 = image_tag '10-picks-btn.png'%>
 						<%= link_to image10, 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=2' %>
 					</div>
-<!--<div class='earn-credits'>...or <%# link_to 'earn', 'http://www.facebook.com/dialog/pay?app_id=202763786417566&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1&dev_purchase_params={%22shortcut%22:%22offer%22}' %> free facebook credits with TrialPay</div>
-<div class='clear'></div>-->
+<% trialpay = image_tag 'trialpay-btn.png' %>
+<div class='earn-credits'><%= link_to trialpay, 'http://www.facebook.com/dialog/pay?app_id=202763786417566&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1&dev_purchase_params={%22shortcut%22:%22offer%22}' %></div>
+
 				</div>
 
 			</div>
