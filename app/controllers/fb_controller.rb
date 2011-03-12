@@ -65,12 +65,10 @@ class FbController < ApplicationController
 				end		
 
 				product = Product.find(order.product_id)	
-				credits_left = hunter.credits_left 
-				total_credits = hunter.total_credits	
-				credits_left += product.credits_to_add
-				total_credits += product.credits_to_add
+				reveals = hunter.reveals 
+				reveals += product.reveals_to_add
 	
-				unless hunter.update_attributes(:credits_left => credits_left, :total_credits => total_credits)		
+				unless hunter.update_attributes(:reveals => reveals)		
 					puts "DEBUG-ERROR update hunter:"+hunter.inspect
 					render :text => "Cannot update user", :status => :internal_server_error
 					return
@@ -95,8 +93,8 @@ class FbController < ApplicationController
 	     		#		$item[$key] = 'http://'.$item[$key];
 	  		#	}
 			#}
-			item["product_url"] = "http://ons.heroku.com"
-			item["image_url"] = "http://"
+			item["product_url"] = "http://friends-with-benefits.me"
+			item["image_url"] = "http://friends-with-benefits.me/images/fwb-icon.png"
 	   		item["item_id"] = order_info
 
 		  	# prefix test-mode

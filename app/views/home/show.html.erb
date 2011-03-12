@@ -41,21 +41,21 @@
 			</div>
 
 			<div id='credits'>
-				<div class='picks-count'>You can pick <span class='credits-left'><%= pluralize(@credits, 'more friend') %></span>.
+				<div class='picks-count'>You have <span class='credits-left'><%= pluralize(@reveals, 'more reveal') %></span>.
 				</div>
 		
 				<div class='purchase'>
 					<div class='five'>
-						<% image5 = image_tag '5-picks-btn.png'%>
-						<%= link_to image5, 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1' %>
+						<!--<% image5 = image_tag '5-picks-btn.png'%> -->
+						<%= link_to 'Purchase Reveal', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1' %>
 					</div>
 
 					<div class='ten'>
-						<% image10 = image_tag '10-picks-btn.png'%>
-						<%= link_to image10, 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=2' %>
+						<% trialpay = image_tag 'trialpay-btn.png' %>
+						<div class='earn-credits'>
+							<%= link_to trialpay, 'http://www.facebook.com/dialog/pay?app_id=202763786417566&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1&dev_purchase_params={%22shortcut%22:%22offer%22}' %>
+						</div>
 					</div>
-<% trialpay = image_tag 'trialpay-btn.png' %>
-<div class='earn-credits'><%= link_to trialpay, 'http://www.facebook.com/dialog/pay?app_id=202763786417566&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1&dev_purchase_params={%22shortcut%22:%22offer%22}' %></div>
 
 				</div>
 

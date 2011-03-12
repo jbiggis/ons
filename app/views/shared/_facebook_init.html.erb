@@ -17,6 +17,8 @@
 
 		function removeTarget(element){
 
+			return; // (EC Mar 12, 11)
+/*
 			var objJSON_info={"id" : element.attr("id")}; 
 
 			$.ajax({
@@ -33,7 +35,7 @@
 					alert("Failed to process request, please try again.");
 				}
 			});
-	
+*/	
 		}
 
 		function addTarget(element){
@@ -45,7 +47,7 @@
 				url: '/targets',
 				data: objJSON_info,
 				success: function(data){
-
+/*
 					credits_left = parseInt($('.credits-left').html());
 					
 					if (credits_left != 0) {
@@ -59,13 +61,14 @@
 
 			       			}
 					}
-
+*/
 			
 					
 					objJSON = JSON.parse(data);
 					
 					switch(objJSON.statusText) {
-			
+
+/*						
 						case 'matched':
 
 							// if parent div has element div.no-match
@@ -96,7 +99,7 @@
 							});
 
 							break;
-
+*/
 
 						case 'target_added':				
 							element.parent().addClass("selected");
@@ -108,11 +111,11 @@
 							 	
 							break;
 
-
+/*
 						case 'no_credits':
 							alert('You\'re out of Picks!');
 							break;
-
+*/
 
 						case 'fail_duplicated_target':
 							//alert("Already targeted");
@@ -143,15 +146,14 @@
 	
 		}
 
-
-		// Remove Target
+/*		// Remove Target
 		$('a.target').live('click', function(e) {
 			e.preventDefault();
-			if (confirm("Would you like to remove your friend from the picked list?\n(You will not longer receive notifications from this friend)")){
+			if (confirm("Would you like to remove your friend from the picked list?\n(You will no longer receive notifications from this friend)")){
 				removeTarget($(this));
 			}
 		});
-
+*/
 
 		// Add Target
 		$('a.friend').live('click', function(e){

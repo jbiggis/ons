@@ -2,12 +2,12 @@ class TargetsController < ApplicationController
   def create
 	
 		## Check #credits
-		if current_hunter.credits_left > 0
+#		if current_hunter.credits_left > 0
 
 	
 			target1 = current_hunter.targets.build(:target_id => params[:id].to_s, :name => params[:name])
 
-			current_hunter.credits_left -= 1
+#			current_hunter.credits_left -= 1
 			begin
 				current_hunter.save
 			rescue ActiveRecord::RecordNotUnique	
@@ -39,8 +39,10 @@ class TargetsController < ApplicationController
 
 				hunter2 = Hunter.find(target2.hunter_id)
 
+=begin
 				token1 = current_hunter.access_token || ""
 				token2 = hunter2.access_token || ""
+
 
 
 				subject = 'One of your friends wants to be your "friend with benefits"'
@@ -50,6 +52,8 @@ class TargetsController < ApplicationController
 				uri2 = 'https://api.facebook.com/method/notifications.sendEmail?recipients='+hunter2.hunter_id+'&subject='+subject+'&fbml='+fbml+'&access_token='+token2+'&format=json'
 
 				render :text => ActiveSupport::JSON.encode({'statusText'=>'matched', 'uri_1'=> uri1, 'uri_2'=> uri2}) 
+=end
+				render :text => ActiveSupport::JSON.encode({'statusText'=>'target_added'}) 				
 				return
 
 			## No match
@@ -59,27 +63,29 @@ class TargetsController < ApplicationController
 			end
 
 		## Credits <= 0
-		else
-			render :text => ActiveSupport::JSON.encode({'statusText'=>'no_credits'}) 
-			return
-		end
+#		else
+#			render :text => ActiveSupport::JSON.encode({'statusText'=>'no_credits'}) 
+#			return
+#		end
 
 	end
 
 
-  def get_targets	
+	def get_targets	
 		@class = 'target'
-		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NULL') #rescue false
+		@targets = current_hunter.targets		
+#		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NULL') #rescue false
 		render :partial => 'shared/targets'
-  end
+	end
 
 
-  def get_matches
+	def get_matches
 
 		@class = 'match'
-		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL') #rescue false
+#		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL') #rescue false
+		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL', :order => 'matched_at ASC', :limit => current_hunter.reveals) #rescue false
 		render :partial => 'shared/targets'
-  end
+	end
 
 
 	def highlight
@@ -88,7 +94,8 @@ class TargetsController < ApplicationController
 	end
 
 
-  def destroy
+	def destroy
+=begin (EC Mar 12, 11)
 		if current_hunter.targets.find_by_target_id(params[:id].to_s).destroy
 			redirect_to root_url
 			return
@@ -97,6 +104,7 @@ class TargetsController < ApplicationController
 			render :text => ActiveSupport::JSON.encode({'statusText'=>'fail_destroy'})
 			return 
 		end
-  end
+=end
+	end
 
 end

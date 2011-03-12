@@ -1,16 +1,23 @@
 
 class MatchMailer < ActionMailer::Base
-	      default :from =>"jscchiu@gmail.com" 
-def match_email(email)
+
+  default :from =>"jscchiu@gmail.com" 
+
+  def match_email(email)
 
 	@email = email
 
-	mail(:to=> email, :subject => "You have a match at ONS notifier!")
+	mail(:to=> email, :subject => "Someone wants to be your Friend with Benefits!")
 
+  end
 
-##https://api.facebook.com/method/notifications.sendEmail?recipients=565445939&subject=idiot&text=test&access_token=195039077183959|2.7U3OwOr2p6_0_eLIVe98OQ__.3600.1299182400-28118863|GkXQf2kcsB_qRO8swkkXnWhYjLM&format=json
+def invite_email(email)
+	
+	@email = email
+
+	mail(:to=> email, :subject => "Your friend has invited you to check out friends-with-benefits.me")
+	mail(:to=> email, :subject => "Your friend is interested in being your Friend with Benefits")
 end
-
 #handle_asynchronously :match_email
 
 end
