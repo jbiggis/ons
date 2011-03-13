@@ -59,6 +59,23 @@
 
 				</div>
 
+<%= link_to 'Send Invite', '#', :id => 'invite-btn' %>
+
+<div id='invite-form'>
+<%= form_tag invite_path, :remote => true do %>
+<h4>Invite a friend! Send an email to your friend through our app and remain anonymous.</h4>
+
+<%= label_tag :name%><br/>
+<%= text_field_tag :name %><br/>
+
+<%= label_tag :email %><br/>
+<%= text_field_tag :email %><br/>
+
+<%= submit_tag 'Send', :id => 'invite-btn-submit'%>
+<% end %>
+</div>
+
+
 			</div>
 
 			<div class='highlight'>

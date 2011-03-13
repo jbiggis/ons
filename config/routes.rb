@@ -1,5 +1,7 @@
 Ons::Application.routes.draw do
 
+  get "invite/create"
+
   root :to => "home#show"
   #match '/show' => 'home#show'
 
@@ -20,5 +22,7 @@ Ons::Application.routes.draw do
   get '/privacy_policy' => 'home#pp', :as => :pp
 
   match '/trialpay' => 'trialpay#proc', :as => :trialpay
+
+  post '/invite' => 'invite#create', :as => :invite
 
 end

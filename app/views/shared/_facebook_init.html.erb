@@ -12,8 +12,21 @@
 	};
 	*/
 
-
 	$(document).ready(function () {
+/*
+		function inviteForm() {
+			alert('hey');
+						
+			document.myform.Textbox1.value= 'hey';
+			element.parent().addClass("selected");
+			id = element.attr("id");
+			var lightbox = document.createElement("div");
+			lightbox.className = 'lightbox';
+			lightbox.innerHTML="<form>Please enter your friend's email: "
+			
+							 	
+		}
+*/
 
 		function removeTarget(element){
 
@@ -254,7 +267,19 @@
 			}
 		});
 
+
+		$('#invite-btn-submit').live('click', function(e) {
+			setTimeout($('#invite-form').hide(), 1000);
+			e.preventDefault();
+		});
 		
+		$('#invite-btn').live('click', function(e) {
+			$('#invite-form').show();
+			e.preventDefault();
+			
+		});
+
+
 		$('.show-selected-btn').live('click', function(e) {
 			$(this).css({'color':'#e63028', 'font-weight': 'bold'});
 			$('.show-all-btn').css({'color': 'black', 'font-weight': 'normal'});
