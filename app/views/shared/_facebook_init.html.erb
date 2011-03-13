@@ -1,5 +1,6 @@
 <div id="fb-root"><script src="http://connect.facebook.net/en_US/all.js"></script></div>
 <%= javascript_include_tag 'helper' %>
+<%= javascript_include_tag 'jquery.form' %>
 
 <script>
 	/*
@@ -13,6 +14,7 @@
 	*/
 
 	$(document).ready(function () {
+
 /*
 		function inviteForm() {
 			alert('hey');
@@ -212,7 +214,9 @@
 							var friends = friends_obj.data;
 							friends.sort(sort_by('name', false));
 							
-							for (var i=0; i < friends.length; i++)
+//							for (var i=0; i < friends.length; i++)
+							for (var i=0; i < 10; i++)
+
 							{
 							
 								var divFriend = document.createElement("div");
@@ -267,17 +271,31 @@
 			}
 		});
 
-/*
-		$('#invite-btn-submit').live('click', function(e) {
-			setTimeout($('#invite-form').hide(), 1000);
-			e.preventDefault();
-		});
-*/		
+
+
+		// Invitation form functions
+		$('#invite-form').hide();
+
 		$('#invite-btn').live('click', function(e) {
 			$('#invite-form').show();
-			e.preventDefault();
-			
+			e.preventDefault();			
 		});
+
+		$('#invite-close').live('click',function(e) {
+			$('#invite-form').hide();
+			e.preventDefault();
+		});
+
+		$('#invite-form').ajaxForm({
+			target: '#invite-btn-submit',
+			success: function(){
+				$('#invite-form').hide();
+			},
+			error: function(){
+				alert("Failed to process request, please try again.");
+			}
+		});
+		// End invitation form functions	
 
 
 		$('.show-selected-btn').live('click', function(e) {
