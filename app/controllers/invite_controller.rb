@@ -4,7 +4,7 @@ class InviteController < ApplicationController
 	#FwbMailer.invite_email(params[:email])
 
 	FwbMailer.invite_email('jscchiu@gmail.com', 'yo').deliver
-	render :nothing => true
+	redirect_to root_url
   end
 
   
