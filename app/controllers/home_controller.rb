@@ -3,9 +3,10 @@ class HomeController < ApplicationController
 	def show
 
 		if signed_in?
-				
-		@reveals = current_hunter.reveals if current_hunter != nil
-
+			if current_hunter != nil
+				@reveals = current_hunter.reveals 
+				@invites = current_hunter.invites
+			end
 		end
 	end
 

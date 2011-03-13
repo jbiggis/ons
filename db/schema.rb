@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110312080313) do
+ActiveRecord::Schema.define(:version => 20110313144515) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20110312080313) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "reveals",      :default => 0, :null => false
+    t.integer  "invites",      :default => 5, :null => false
   end
 
   add_index "hunters", ["hunter_id"], :name => "index_hunters_on_hunter_id", :unique => true

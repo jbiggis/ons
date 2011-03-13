@@ -5,9 +5,7 @@
 
 		<% if !signed_in? %>
 			<div id = 'landing'>
-				<div id='tagline'>
-					Find out which of your friends wants you to be more than just a friend!
-				</div>
+				<div id='tagline'>Find out which of your friends wants you to be more than just a friend!</div>
 				<div class='content'>
 					<div class='img'>
 						<%= image_tag 'fwb-logo-red.png', :width => '360'%>
@@ -26,9 +24,7 @@
 		<% else %>
 			<div id='how-it-works'>
 				<div class='content'>
-					<div class='title'>
-						How It Works
-					</div>
+					<div class='title'>How It Works</div>
 					<ol>
 						<li>Pick friends whom you'd be interested in being 'friends with benefits' with.</li>
 						<li> If you and a friend picked each other, an email notification will be sent to the both of you.  
@@ -39,47 +35,62 @@
 
 
 			<div id='matches'>
-				<div class='title'>
-					My Friends with Benefits
-				</div>
-				
+				<div class='title'>My Friends with Benefits</div>
 				<div class='reveals'>
-					<div class='reveals-count'>You have <%= pluralize(@reveals, 'reveal') %></div>.
-					<%= link_to 'Purchase Reveal', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1' %>
-				</div>	
+						<!--<% image5 = image_tag '5-picks-btn.png'%> -->
+						<%= link_to 'Purchase Reveal', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1' %>
+					</div>	
 
-				<div class='content'></div>
+			<div class='content'></div>
 				<%= image_tag 'fwb-logo-l.png', :id => 'matches-logo' %>
 			</div>
 
+			<!--<div id='credits'>
+				<div class='picks-count'>You have <span class='credits-left'><%# pluralize(@reveals, 'more reveal') %></span>.
+				</div>-->
+
 			<div id='invites'>
-				You have <span class='invites-left'><%= pluralize(@invites, 'invite') %>&nbsp;</span>left.
-			</div>
-
-			
-			<%= link_to 'Send Invite', '#', :id => 'invite-btn' %>
-
-			<%= link_to 'What are Invites?', '#' %>
-
-			<div id='invite-form'>
-				<div id='invite-handle'>
-					<a href='#' id='invite-close'>[x]</a>
+				<div class='invite-counts'>You have <span class='invites-left'><%= pluralize(@invites, 'invite') %> left</span>.
 				</div>
-				<div id='invite-content'>
-					<%= form_tag invite_path, :remote => true do %>
-						<h4>Invite a friend! Send an email to your friend through our app and remain anonymous.</h4>
+		<!--
+				<div class='purchase'>
+					<div class='five'>
+						<!--<% image5 = image_tag '5-picks-btn.png'%> -->
+						<%= link_to 'Purchase Reveal', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1' %>
+					</div>
 
-						<%= label_tag :name%><br/>
-						<%= text_field_tag :name %><br/>
-
-						<%= label_tag :email %><br/>
-						<%= text_field_tag :email %><br/>
-
-						<%= submit_tag 'Send', :id => 'invite-btn-submit'%>
-					<% end %>
+					<div class='ten'>
+						<% trialpay = image_tag 'trialpay-btn.png' %>
+						<div class='earn-credits'>
+							<%= link_to trialpay, 'http://www.facebook.com/dialog/pay?app_id=202763786417566&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1&dev_purchase_params={%22shortcut%22:%22offer%22}' %>
+						</div>
+					</div>
+-->
 				</div>
-			</div>
 
+<%= link_to 'Send Invite', '#', :id => 'invite-btn' %>
+
+<div id='invite-form'>
+	<div id='invite-handle'>
+		<a href='#' id='invite-close'>[x]</a>
+	</div>
+	<div id='invite-content'>
+		<%= form_tag invite_path, :remote => true do %>
+			<h4>Invite a friend! Send an email to your friend through our app and remain anonymous.</h4>
+
+			<%= label_tag :name%><br/>
+			<%= text_field_tag :name %><br/>
+
+			<%= label_tag :email %><br/>
+			<%= text_field_tag :email %><br/>
+
+			<%= submit_tag 'Send', :id => 'invite-btn-submit'%>
+		<% end %>
+	</div>
+</div>
+
+
+			</div>
 
 			<div class='highlight'>
 			</div>
@@ -105,5 +116,5 @@
 		<% end %>
 	</div>
 
-<div id='curtain'></div>
+
 

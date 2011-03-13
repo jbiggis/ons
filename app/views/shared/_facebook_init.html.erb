@@ -3,37 +3,13 @@
 <%= javascript_include_tag 'jquery.form' %>
 
 <script>
-	/*
-		function logout(){
-	
-			FB.logout(function() {
-			window.location="/sign_out";
-	
-	});
-	};
-	*/
-
 	$(document).ready(function () {
 
 /*
-		function inviteForm() {
-			alert('hey');
-						
-			document.myform.Textbox1.value= 'hey';
-			element.parent().addClass("selected");
-			id = element.attr("id");
-			var lightbox = document.createElement("div");
-			lightbox.className = 'lightbox';
-			lightbox.innerHTML="<form>Please enter your friend's email: "
-			
-							 	
-		}
-*/
-
 		function removeTarget(element){
 
 			return; // (EC Mar 12, 11)
-/*
+
 			var objJSON_info={"id" : element.attr("id")}; 
 
 			$.ajax({
@@ -50,9 +26,25 @@
 					alert("Failed to process request, please try again.");
 				}
 			});
-*/	
+	
 		}
+*/
+/*		function minusInvite () {
+			invites_left = parseInt($('.invites-left').html());
+			alert(invites_left);
+			if (invites_left != 0) {
 
+				invites_left = invites_left - 1;
+
+				if (invites_left == 1) {
+		      			 $('.invites-left').html("1 invite");	
+		       		} else {
+					$('.invites-left').html(invites_left + " invites");
+
+	       			}
+			}
+		}
+*/
 		function addTarget(element){
 
 			var objJSON_info={"id" : element.attr("id"), "name" : element.attr("name")}; 
@@ -63,16 +55,16 @@
 				data: objJSON_info,
 				success: function(data){
 /*
-					credits_left = parseInt($('.credits-left').html());
+					invites_left = parseInt($('.credits-left').html());
 					
-					if (credits_left != 0) {
+					if (invites_left != 0) {
 
-						credits_left = credits_left - 1;
+						invites_left = invites_left - 1;
 			
-						if (credits_left == 1) {
+						if (invites_left == 1) {
 				      			 $('.credits-left').html('1 more friend');	
 				       		} else {
-							$('.credits-left').html(credits_left + " more friends");
+							$('.credits-left').html(invites_left + " more friends");
 
 			       			}
 					}
@@ -275,21 +267,35 @@
 
 		// Invitation form functions
 		$('#invite-form').hide();
+		$('#curtain').hide();
 
 		$('#invite-btn').live('click', function(e) {
-			$('#invite-form').show();
-			e.preventDefault();			
+			invites_left = parseInt($('.invites-left').html());
+			//alert(invites_left);
+			if (invites_left != 0) {
+				$('#invite-form').show();
+				$('#curtain').show();
+				e.preventDefault();
+			} else {
+				alert("You're out of invites!");
+			}			
 		});
-
+/*
 		$('#invite-close').live('click',function(e) {
 			$('#invite-form').hide();
+			$('#curtain').hide();
 			e.preventDefault();
 		});
-
+*/
 		$('#invite-form').ajaxForm({
 			target: '#invite-btn-submit',
 			success: function(){
-				$('#invite-form').hide();
+								
+				//$('#invite-form').hide();
+				$('#curtain').hide();
+alert('suc');
+				//minusInvite();
+
 			},
 			error: function(){
 				alert("Failed to process request, please try again.");

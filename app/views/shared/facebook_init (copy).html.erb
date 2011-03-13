@@ -1,20 +1,39 @@
 <div id="fb-root"><script src="http://connect.facebook.net/en_US/all.js"></script></div>
 <%= javascript_include_tag 'helper' %>
+<%= javascript_include_tag 'jquery.form' %>
 
 <script>
-/*
-	function logout(){
+	/*
+		function logout(){
 	
-		FB.logout(function() {
-		window.location="/sign_out";
+			FB.logout(function() {
+			window.location="/sign_out";
 	
-});
-};
-*/
+	});
+	};
+	*/
+
 	$(document).ready(function () {
+
+/*
+		function inviteForm() {
+			alert('hey');
+						
+			document.myform.Textbox1.value= 'hey';
+			element.parent().addClass("selected");
+			id = element.attr("id");
+			var lightbox = document.createElement("div");
+			lightbox.className = 'lightbox';
+			lightbox.innerHTML="<form>Please enter your friend's email: "
+			
+							 	
+		}
+*/
 
 		function removeTarget(element){
 
+			return; // (EC Mar 12, 11)
+/*
 			var objJSON_info={"id" : element.attr("id")}; 
 
 			$.ajax({
@@ -28,10 +47,10 @@
 					$(elem).parent().removeClass('selected');
 				},
 				error: function(){
-					alert("ERROR: Failed to remove!");
+					alert("Failed to process request, please try again.");
 				}
 			});
-	
+*/	
 		}
 
 		function addTarget(element){
@@ -43,15 +62,34 @@
 				url: '/targets',
 				data: objJSON_info,
 				success: function(data){
-					objJSON = JSON.parse(data);
+/*
+					credits_left = parseInt($('.credits-left').html());
+					
+					if (credits_left != 0) {
 
-					switch(objJSON.statusText) {
+						credits_left = credits_left - 1;
 			
+						if (credits_left == 1) {
+				      			 $('.credits-left').html('1 more friend');	
+				       		} else {
+							$('.credits-left').html(credits_left + " more friends");
+
+			       			}
+					}
+*/
+			
+					
+					objJSON = JSON.parse(data);
+					
+					switch(objJSON.statusText) {
+
+/*						
 						case 'matched':
 
 							// if parent div has element div.no-match
 							// element.remove
 							$('div.no-match').remove();
+
 
 							element.parent().addClass("selected");
 							id = element.attr("id");
@@ -62,7 +100,7 @@
 							$("#matches .content").append(divMatch);
 				
 							alert('Congratulations!! We have a match!');						
-			/*	
+				
 							$.ajax({
 								type: 'GET',
 								url: objJSON.uri_1,
@@ -74,9 +112,9 @@
 								url: objJSON.uri_2,
 								dataType: "script"	
 							});
-*/
-							break;
 
+							break;
+*/
 
 						case 'target_added':				
 							element.parent().addClass("selected");
@@ -88,11 +126,11 @@
 							 	
 							break;
 
-
+/*
 						case 'no_credits':
-							alert('Get more credits to use the One Night Stand Notifier!');
+							alert('You\'re out of Picks!');
 							break;
-
+*/
 
 						case 'fail_duplicated_target':
 							//alert("Already targeted");
@@ -100,48 +138,48 @@
 
 
 						case 'fail_create_target':
-							alert("ERROR: An error has occurred! (#21322)");
+							alert("Failed to process request, please try again.");
 							break;
 
 
 						case 'fail_create_match':
-							alert("ERROR: An error has occurred! (#21323)");
+							alert("Failed to process request, please try again.");
 							break;
 
 
 						default:
 
-							alert("ERROR: An error has occurred! (#35635)");
+							alert("Failed to process request, please try again.");
 			
 					}
 				},
 				error: function() {
-						alert("ERROR: An error has occurred! (#65233)");
+						alert("Failed to process request, please try again.");
 				}
 		
 			});
 	
 		}
 
-
-		// Remove Target
+/*		// Remove Target
 		$('a.target').live('click', function(e) {
 			e.preventDefault();
-			if (confirm("Would you like to remove your friend from the picked list?\n(You will not longer receive notifications from this friend)")){
+			if (confirm("Would you like to remove your friend from the picked list?\n(You will no longer receive notifications from this friend)")){
 				removeTarget($(this));
 			}
 		});
-
+*/
 
 		// Add Target
 		$('a.friend').live('click', function(e){
 			e.preventDefault();
 			if (!($(this).parent().hasClass('selected'))) {
-				if (confirm("Would you like to add this friend?")){
+				if (confirm("Would you like to pick this friend?")){
 					addTarget($(this));
 				}
 			}
 		});
+
 
 		// User clicks on a match
 		$('a.match').live('click', function(e) {
@@ -166,8 +204,7 @@
 				});   	
 
 				$('#matches .content').load('targets/get_matches');
-				//$('#targets').load('targets/get_targets');
-			$('#targets').load('targets/get_targets');
+				$('#targets').load('targets/get_targets');
 
 				FB.api('/me/friends', function(friends_obj) {
 					if(friends_obj != null) {
@@ -177,7 +214,9 @@
 							var friends = friends_obj.data;
 							friends.sort(sort_by('name', false));
 							
-							for (var i=0; i < friends.length; i++)
+//							for (var i=0; i < friends.length; i++)
+							for (var i=0; i < 10; i++)
+
 							{
 							
 								var divFriend = document.createElement("div");
@@ -202,6 +241,7 @@
 
 
 		FB.Event.subscribe('auth.login', function(response) {
+
 			if (response) {
 	
 				FB.api('/me', function(user) {
@@ -212,10 +252,10 @@
 							url: '/sign_in',
 							data: { session:response.session, user:user},
 							success: function() {
-								location.reload();
+								window.location.href=window.location.href;
 								} ,
 							error:  function() {
-								alert('There\'s an error signing in');
+								alert('Failed to process request, please try again.');
 							} 
 						});
 					}
@@ -227,12 +267,45 @@
 
 		FB.Event.subscribe('auth.logout', function(response) {
   		if (response){
-				location.reload();				
+				window.location.href=window.location.href;				
 			}
 		});
 
 
+
+		// Invitation form functions
+		$('#invite-form').hide();
+		$('#curtain').hide();
+
+		$('#invite-btn').live('click', function(e) {
+			$('#invite-form').show();
+			$('#curtain').show();
+			e.preventDefault();			
+		});
+
+		$('#invite-close').live('click',function(e) {
+			$('#invite-form').hide();
+			$('#curtain').hide();
+			e.preventDefault();
+		});
+
+		$('#invite-form').ajaxForm({
+			target: '#invite-btn-submit',
+			success: function(){
+				$('#invite-form').hide();
+				$('#curtain').hide();
+
+			},
+			error: function(){
+				alert("Failed to process request, please try again.");
+			}
+		});
+		// End invitation form functions	
+
+
 		$('.show-selected-btn').live('click', function(e) {
+			$(this).css({'color':'#e63028', 'font-weight': 'bold'});
+			$('.show-all-btn').css({'color': 'black', 'font-weight': 'normal'});
 			$('#targets').show();
 			$('#friends').hide();
 			e.preventDefault();
@@ -240,19 +313,13 @@
 
 
 		$('.show-all-btn').live('click', function(e) {
+			$(this).css({'color':'#e63028' , 'font-weight': 'bold'});
+			$('.show-selected-btn').css({'color': 'black', 'font-weight': 'normal'});
 			$('#friends').show();
 			$('#targets').hide();
 			e.preventDefault();
 		});
 
-
 	});
 
-
-
-
-
-
 </script>
-
-
