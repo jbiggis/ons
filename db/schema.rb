@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110313144515) do
+ActiveRecord::Schema.define(:version => 20110314141318) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20110313144515) do
     t.string   "access_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "reveals",      :default => 0, :null => false
+    t.integer  "keys",         :default => 0, :null => false
     t.integer  "invites",      :default => 5, :null => false
   end
 

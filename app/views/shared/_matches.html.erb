@@ -1,0 +1,52 @@
+	
+	<div class='header'>
+					<div class='title'>
+						Your Friends with Benefits
+					</div>
+					<%= image_tag 'key.png'%>
+					<%= @keys %>
+
+					<%= link_to 'Purchase Keys', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1' %>
+
+				<%= link_to 'What are Keys?', '#', :id => 'what-are-keys' %>
+		
+	</div> 
+
+	<% if @targets.empty? %>
+		<div class='no-match'>You don't have any Friends with Benefits yet.</div>
+
+	<% else %>
+		<% @targets.first(current_hunter.keys).each do |target| %> 
+			<div class='<%= @class %>'>
+				<a href = '#' class='<%= @class %> <%= target.target_id %>' id = '<%= target.target_id %>'>
+					<%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %>
+					<span class='name'>
+						<%= target.name %>
+						<span class='mark'>
+						</span>
+					</span>
+				</a>
+			</div>
+		<% end %>
+		<% (@targets.count - current_hunter.keys).times do %>
+			<div class='<%= @class %> unrevealed'>
+				<a href = '#' class='<%= @class %> unrevealed' id = 'unrevealed'>
+					<%= image_tag "logo-question-m.png", :id => 'logo-question' %>
+					<%= link_to 'Waiting to be unlocked', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1', :id => 'reveal-btn'%>
+				</a>
+			</div>
+		<% end %>
+		<% if current_hunter.keys < @targets.count %>
+			<div id='matches-waiting'>
+				You have <%= pluralize( @targets.count - current_hunter.keys , 'friend') %> waiting for you!
+				<br/>
+					<%= link_to 'Purchase', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1' %> more keys to unlock your Friends with Benefits.
+			</div>
+
+		<% end %>
+
+	<% end %>
+
+
+
+

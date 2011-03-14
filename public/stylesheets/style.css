@@ -290,11 +290,23 @@ bottom:-10px;
 right:10px;
 }
 
+#matches .header {
+height:40px;
+}
+
 #matches .title {
 font-size:14pt;
 font-weight:bold;
 margin-bottom:16px;
+float:left;
+width:260px;
 
+}
+
+#matches-count {
+float:left;
+margin-left:40px;
+padding-top:10px;
 }
 
 #matches .no-match {
@@ -584,7 +596,7 @@ margin-left:14px;
 */
 
 #logo-question {
-margin-left:12px;
+margin-left:8px;
 margin-top:0px;
 }
 
@@ -614,7 +626,7 @@ font-size:15pt;
 color:white;
 
 position:absolute;
-left:72px;
+left:68px;
 top:16px;
 font-size:14pt;
 }

@@ -4,9 +4,9 @@ class HomeController < ApplicationController
 
 		if signed_in?
 			if current_hunter != nil
-				@reveals = current_hunter.reveals 
+				#@reveals = current_hunter.reveals 
 				@invites = current_hunter.invites
-				@matches = current_hunter.targets.all(:conditions => 'matched_at IS NOT NULL').count	
+				#@waits = current_hunter.targets.all(:conditions => 'matched_at IS NOT NULL').count	
 			end
 		end
 	end
