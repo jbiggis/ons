@@ -5,30 +5,6 @@
 <script>
 	$(document).ready(function () {
 
-/*
-		function removeTarget(element){
-
-			return; // (EC Mar 12, 11)
-
-			var objJSON_info={"id" : element.attr("id")}; 
-
-			$.ajax({
-				type: 'POST',
-				url: '/targets/destroy',
-				data: objJSON_info,
-				success: function(data){
-					id = element.attr("id");			
-					element.parent().remove();
-					elem = 'a.friend.'+id;	
-					$(elem).parent().removeClass('selected');
-				},
-				error: function(){
-					alert("Failed to process request, please try again.");
-				}
-			});
-	
-		}
-*/
 /*		function minusInvite () {
 			invites_left = parseInt($('.invites-left').html());
 			alert(invites_left);
@@ -153,14 +129,6 @@
 	
 		}
 
-/*		// Remove Target
-		$('a.target').live('click', function(e) {
-			e.preventDefault();
-			if (confirm("Would you like to remove your friend from the picked list?\n(You will no longer receive notifications from this friend)")){
-				removeTarget($(this));
-			}
-		});
-*/
 
 		// Add Target
 		$('a.friend').live('click', function(e){
@@ -270,32 +238,29 @@
 		$('#curtain').hide();
 
 		$('#invite-btn').live('click', function(e) {
-			invites_left = parseInt($('.invites-left').html());
+//			invites_left = parseInt($('.invites-left').html());
 			//alert(invites_left);
-			if (invites_left != 0) {
+//			if (invites_left > 0) {
 				$('#invite-form').show();
 				$('#curtain').show();
 				e.preventDefault();
-			} else {
-				alert("You're out of invites!");
-			}			
+//			} else {
+//				alert("You're out of invites!");
+//			}			
 		});
-/*
+
 		$('#invite-close').live('click',function(e) {
 			$('#invite-form').hide();
 			$('#curtain').hide();
 			e.preventDefault();
 		});
-*/
-		$('#invite-form').ajaxForm({
+
+		$('#invite-content').ajaxForm({
 			target: '#invite-btn-submit',
 			success: function(){
-								
-				//$('#invite-form').hide();
-				$('#curtain').hide();
-alert('suc');
+//				$('#invite-form').hide();
+//				$('#curtain').hide();
 				//minusInvite();
-
 			},
 			error: function(){
 				alert("Failed to process request, please try again.");

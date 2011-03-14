@@ -1,8 +1,6 @@
+	<div id='curtain'></div>
 
 	<div id='content'>
-
-
-
 		<% if !signed_in? %>
 			<div id = 'landing'>
 				<div id='tagline'>
@@ -13,10 +11,12 @@
 						<%= image_tag 'fwb-logo-red.png', :width => '360'%>
 					</div>
 					<div id = 'how-it-works-landing'>
-						<div class='title'>How It Works:</div>	
+						<div class='title'>
+							How It Works:
+						</div>	
 						<ol>
 							<li> <fb:login-button perms="email, offline_access">Connect To Facebook</fb:login-button></li>
-<li>Pick friends in your network whom you'd be interested in being 'friends with benefits' with.</li>
+							<li>Pick friends in your network whom you'd be interested in being 'friends with benefits' with.</li>
 							<li>If a friend picks you back, we will send you both an email.  Your picks will never be revealed otherwise.</li>
 						</ol>
 					</div>
@@ -31,8 +31,8 @@
 					</div>
 					<ol>
 						<li>Pick friends whom you'd be interested in being 'friends with benefits' with.</li>
-						<li> If you and a friend picked each other, an email notification will be sent to the both of you.  
-<li>No picks are shared unless a friend picks you back - choose in secret.</li>
+						<li>If you and a friend picked each other, an email notification will be sent to the both of you.</li>
+						<li>No picks are shared unless a friend picks you back - choose in secret.</li>
 					</ol>
 				</div>		
 			</div>
@@ -44,16 +44,20 @@
 				</div>
 				
 				<div class='reveals'>
-					<div class='reveals-count'>You have <%= pluralize(@reveals, 'reveal') %></div>.
+					<div class='reveals-count'>
+						You have <%= pluralize(@reveals, 'reveal') %>.
+					</div>
 					<%= link_to 'Purchase Reveal', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1' %>
 				</div>	
 
-				<div class='content'></div>
+				<div class='content'>
+				</div>
+
 				<%= image_tag 'fwb-logo-l.png', :id => 'matches-logo' %>
 			</div>
 
 			<div id='invites'>
-				You have <span class='invites-left'><%= pluralize(@invites, 'invite') %>&nbsp;</span>left.
+				You have <span class='invites-left'><%= pluralize(@invites, 'invite')%></span> left.
 			</div>
 
 			
@@ -69,11 +73,11 @@
 					<%= form_tag invite_path, :remote => true do %>
 						<h4>Invite a friend! Send an email to your friend through our app and remain anonymous.</h4>
 
-						<%= label_tag :name%><br/>
-						<%= text_field_tag :name %><br/>
+						<%= label_tag :name%><br />
+						<%= text_field_tag :name %><br />
 
-						<%= label_tag :email %><br/>
-						<%= text_field_tag :email %><br/>
+						<%= label_tag :email %><br />
+						<%= text_field_tag :email %><br />
 
 						<%= submit_tag 'Send', :id => 'invite-btn-submit'%>
 					<% end %>
@@ -105,5 +109,4 @@
 		<% end %>
 	</div>
 
-<div id='curtain'></div>
-
+</div>
