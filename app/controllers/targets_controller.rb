@@ -73,7 +73,7 @@ class TargetsController < ApplicationController
 
 	def get_targets	
 		@class = 'target'
-		@targets = current_hunter.targets		
+		@targets = current_hunter.targets.all(:order => 'name ASC')
 #		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NULL') #rescue false
 		render :partial => 'shared/targets'
 	end
@@ -83,7 +83,8 @@ class TargetsController < ApplicationController
 
 		@class = 'match'
 #		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL') #rescue false
-		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL', :order => 'matched_at ASC', :limit => current_hunter.reveals) #rescue false
+#		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL', :order => 'matched_at ASC', :limit => current_hunter.reveals)
+		@targets = current_hunter.targets.all(:conditions => 'matched_at IS NOT NULL', :order => 'matched_at ASC')
 		render :partial => 'shared/targets'
 	end
 

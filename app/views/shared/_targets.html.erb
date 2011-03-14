@@ -9,17 +9,46 @@
 
 <%# end %>
 
-<% if @targets.empty? && @class == 'match' %>
+<% if @class == 'match' %>
+	<% if @targets.empty? %>
+		<div class='no-match'>You don't have any Friends with Benefits yet.</div>
 
-<div class='no-match'>You don't have any Friends with Benefits yet.</div>
+	<% else %>
+		<% @targets.first(current_hunter.reveals).each do |target| %> 
+			<div class='<%= @class %>'>
+				<a href = '#' class='<%= @class %> <%= target.target_id %>' id = '<%= target.target_id %>'>
+					<%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %>
+					<span class='name'>
+						<%= target.name %>
+						<span class='mark'>
+						</span>
+					</span>
+				</a>
+			</div>
+		<% end %>
+		<% (@targets.count - current_hunter.reveals).times do %>
+			<div class='<%= @class %>'>
+				<a href = '#' class='<%= @class %> unrevealed' id = 'unrevealed'>
+					<%= image_tag "/images/favicon.png" %>
+				</a>
+			</div>
+		<% end %>
+	<% end %>
+	
+<% else %>
+
+	<% @targets.each do |target| %> 
+		<div class='<%= @class %>'>
+			<a href = '#' class='<%= @class %> <%= target.target_id %>' id = '<%= target.target_id %>'>
+				<%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %>
+				<span class='name'>
+					<%= target.name %>
+					<span class='mark'>
+					</span>
+				</span>
+			</a>
+		</div>
+	<% end %>
 
 <% end %>
-
- <% @targets.each do |target| %> 
-
-	<div class='<%= @class %>'><a href = '#' class='<%= @class %> <%= target.target_id %>' id = '<%= target.target_id %>'><%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %><span class='name'><%= target.name %><span class='mark'></span></span></a></div>
-
-
-<% end %>
-
 
