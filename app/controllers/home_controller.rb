@@ -6,6 +6,7 @@ class HomeController < ApplicationController
 			if current_hunter != nil
 				@reveals = current_hunter.reveals 
 				@invites = current_hunter.invites
+				@matches = current_hunter.targets.all(:conditions => 'matched_at IS NOT NULL').count	
 			end
 		end
 	end

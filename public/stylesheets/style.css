@@ -415,7 +415,7 @@ margin-top:20px;
 }
 */
 
-#credits {
+#invites {
 width:960px;
 clear:both;
 background:#f2f2f2;
@@ -424,8 +424,30 @@ border-radius:15px;
 -moz-border-radius:15px;
 -webkit-border-radius:15px;
 margin-top:20px;
+position:relative;
 }
 
+
+
+#invite-btn {
+position:absolute;
+top:10px;
+left:20px;
+}
+
+.invites-count {
+font-size:20pt;
+position:absolute;
+top:34px;
+left:390px;
+}
+
+#what-are-invites {
+position:absolute;
+top:43px;
+right:24px;
+color:#e63028;
+}
 
 #credits a {
 color:blue;
@@ -554,4 +576,54 @@ color:white;
 position:absolute;
 right:0;
 display:none;
+}
+/*
+#logo-question {
+margin-left:14px;
+}
+*/
+
+#logo-question {
+margin-left:12px;
+margin-top:0px;
+}
+
+/*
+#reveal-btn {
+position:absolute;
+background:#1fb231;
+color:white;
+font-weight:bold;
+padding:8px;
+border-radius:5px;
+top:10px;
+
+}
+*/
+/*
+#reveal-btn {
+color:white;
+
+position:absolute;
+left:77px;
+top:16px;
+font-size:15pt;
+}
+*/
+#reveal-btn {
+color:white;
+
+position:absolute;
+left:72px;
+top:16px;
+font-size:14pt;
+}
+
+
+.unrevealed {
+background:#1fb231 !important;
+border:white 6px solid;
+height:48px !important;
+text-align:center;
+position:relative;
 }

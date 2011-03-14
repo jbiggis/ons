@@ -47,10 +47,12 @@
 				</div>
 				
 				<div class='reveals'>
-					<div class='reveals-count'>
-						You have <%= pluralize(@reveals, 'reveal') %>.
+					<% if @matches %>
+					<div class='matches-count'>
+						You have <%= pluralize(@matches, 'match') %>.
 					</div>
-					<%= link_to 'Purchase Reveal', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1' %>
+					<% end %>
+					<%# link_to 'Purchase Reveal', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1' %>
 				</div>	
 
 				<div class='content'>
@@ -60,13 +62,17 @@
 			</div>
 
 			<div id='invites'>
-				You have <span class='invites-left'><%= pluralize(@invites, 'invite')%></span> left.
+			
+				<% invite_btn = image_tag 'invite-btn.png' %>
+				<%= link_to invite_btn, '#', :id => 'invite-btn' %>
+				<div class='invites-count'>You have <span class='invites-left'><%= pluralize(@invites, 'anonymous invite')%></span> left.</div>
+				<%= link_to 'What are Invites?', '#', :id => 'what-are-invites' %>
 			</div>
 
 			
-			<%= link_to 'Send Invite', '#', :id => 'invite-btn' %>
 
-			<%= link_to 'What are Invites?', '#' %>
+
+
 
 			<div id='invite-form'>
 				<div id='invite-handle'>

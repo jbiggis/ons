@@ -27,9 +27,10 @@
 			</div>
 		<% end %>
 		<% (@targets.count - current_hunter.reveals).times do %>
-			<div class='<%= @class %>'>
+			<div class='<%= @class %> unrevealed'>
 				<a href = '#' class='<%= @class %> unrevealed' id = 'unrevealed'>
-					<%= image_tag "/images/favicon.png" %>
+					<%= image_tag "logo-question-m.png", :id => 'logo-question' %>
+					<%= link_to 'Purchase Reveal', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1', :id => 'reveal-btn'%>
 				</a>
 			</div>
 		<% end %>
