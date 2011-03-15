@@ -89,6 +89,12 @@ margin-left:10px;
 
 }
 
+#purchase .handle .title{
+
+margin-left:20px;
+
+}
+
 .close-icon {
 float:right;
 margin-top:-32px;
@@ -636,7 +642,7 @@ font-size:10pt;
 #purchase{
 position:fixed;
 width:800px;
-height:400px;
+height:420px;
 top:50%;
 left:50%;
 margin-top:-200px;
@@ -660,6 +666,7 @@ margin:10px;
 border-radius:5px;
 -moz-border-radius:5px;
 -webkit-border-radius:5px;
+position:relative;
 }
 
 #purchase .product.two {
@@ -671,9 +678,16 @@ margin-top:6px;
 }
 
 #purchase .number {
-float:left;
-margin-right:-50px;
-
+position:absolute;
+top:0;
+left:0;
+width:24px;
+height:24px;
+background:#22b24b;
+color:white;
+font-weight:bold;
+text-align:center;
+border-radius:5px;
 }
 
 
@@ -682,6 +696,7 @@ margin-right:-50px;
 float:left;
 width:560px;
 padding-left:20px;
+
 }
 /*
 #purchase .buy-btns {
@@ -709,6 +724,11 @@ margin-left:20px;
 margin-bottom:10px;
 color:white;
 font-weight:bold;
+}
+
+
+#purchase .or-spacer {
+margin-left:14px;
 }
 
 #purchase .expiration {
