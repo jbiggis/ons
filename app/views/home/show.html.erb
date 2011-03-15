@@ -34,7 +34,7 @@
 					</div>
 					<ol>
 						<li>Pick friends whom you'd be interested in being 'friends with benefits' with.</li>
-						<li>If you and a friend picked each other, an email notification will be sent to the both of you.</li>
+						<li>If you and a friend picked each other, both of you will be sent an email notification.</li>
 						<li>No picks are shared unless a friend picks you back - choose in secret.</li>
 					</ol>
 				</div>		
@@ -42,46 +42,74 @@
 
 
 			<div id='matches'>
-				<div class='title'>
-					My Friends with Benefits
-				</div>
-				
-				<div class='reveals'>
-					<div class='reveals-count'>
-						You have <%= pluralize(@reveals, 'reveal') %>.
-					</div>
-					<%= link_to 'Purchase Reveal', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1' %>
-				</div>	
-
 				<div class='content'>
 				</div>
-
 				<%= image_tag 'fwb-logo-l.png', :id => 'matches-logo' %>
 			</div>
+			<%= render 'shared/purchase' %>
 
-			<div id='invites'>
-				You have <span class='invites-left'><%= pluralize(@invites, 'invite')%></span> left.
+			<div id='what-are-keys'>
+				<div id='what-are-keys-handle' class = 'handle'>
+				<span class='title'>What are keys?</span>
+					<% cross = image_tag 'close-icon.png', :width => '22px'%>
+					<%= link_to cross, '#', :id => 'what-are-keys-close',:class => 'close-icon' %>	
+				</div>
+				<div id='what-are-keys-content' class='popup-content'>
+					<p>Whenever we match a "Friend with Benefits" for you (i.e. you and your friend both picked each other as a "Friend with Benefits"), your friend is placed in the "Your Friends with Benefits" section.</p>
+					<br/>
+					<p>To reveal your "Friend with Benefits", simply purchase a Key to unlock his/her identity!</p>
+				</div>
 			</div>
 
-			
-			<%= link_to 'Send Invite', '#', :id => 'invite-btn' %>
 
-			<%= link_to 'What are Invites?', '#' %>
+			<div id='invites'>			
+				<% invite_btn = image_tag 'invite-btn.png' %>
+				<%= link_to invite_btn, '#', :id => 'invite-btn' %>
+				<div class='invites-count'>
+					You have <span class='invites-left'><%= pluralize(@invites, 'anonymous invite')%></span> left.
+				</div>
+				<%= link_to "What's this?", '#', :id => 'what-are-invites-link' %>
+			</div>
+
+			<div id='what-are-invites'>
+				<div id='what-are-invites-handle' class = 'handle'>
+				<span class='title'>What are anonymous invites?</span>
+					<% cross = image_tag 'close-icon.png', :width => '22px'%>
+					<%= link_to cross, '#', :id => 'what-are-invites-close',:class => 'close-icon' %>	
+				</div>
+				<div id='what-are-invites-content' class='popup-content'>
+					<p>The more of your friends use friends-with-benefits.me, the higher the chance you get picked!</p>
+					<br />
+					<p>An anonymous invite allows you to send an email invitation to your friends to join friends-with-benefits.me without exposing your identity, so they will never know who invited them.</p>
+					<br/>		
+					<p>Send them an invitation to join friends-with-benefits.me now!
+					</p>
+<br/>			
+	<!--	<p>
+						We will be using our name ('From The Friends with Benefits Team') instead of yours to your identity a secret.
+					</p>
+			-->
+				</div>
+			</div>
 
 			<div id='invite-form'>
-				<div id='invite-handle'>
-					<a href='#' id='invite-close'>[x]</a>
-				</div>
-				<div id='invite-content'>
-					<%= form_tag invite_path, :remote => true do %>
-						<h4>Invite a friend! Send an email to your friend through our app and remain anonymous.</h4>
+				<div id='invite-handle' class = 'handle'>
+				<span class='title'>Invite a friend anonymously</span>
+					<% cross = image_tag 'close-icon.png', :width => '22px'%>
+					<%= link_to cross, '#', :id => 'invite-close',:class => 'close-icon' %>					
 
-						<%= label_tag :name%><br />
+				</div>
+				<div id='invite-content' class='popup-content'>
+
+					<%= form_tag invite_path, :remote => true do %>
+					
+						<%= label_tag :name, "Your friend's name"%><br />
 						<%= text_field_tag :name %><br />
 
-						<%= label_tag :email %><br />
+						<%= label_tag :email, "Your friend's email" %><br />
 						<%= text_field_tag :email %><br />
 
+						<p>*Names and emails are used for this one-time purpose only and they will not be stored.</p>
 						<%= submit_tag 'Send', :id => 'invite-btn-submit'%>
 					<% end %>
 				</div>
@@ -97,7 +125,7 @@
 				<span> | </span>
 				<a href='#' class='show-selected-btn'>Picks</a>	
 				<% fb_share2 = image_tag 'fb_share2.png', :width => '200', :id => 'fb-share2' %>	
-				<span class='fb-share2'><a href='http://www.facebook.com/dialog/feed?app_id=202763786417566&link=http://friends-with-benefits.me&picture=http://friends-with-benefits.me/images/fwb-icon.png&name=Friends%20with%20Benefits&caption=Friends-with-Benefits.me&description=Find%20out%20which%20of%20your%20friends%20wants%20you%20to%20be%20more%20than%20just%20a%20friend!&redirect_uri=http://friends-with-benefits.me'>Share this app</a> with your friends to see if they pick you back!</span>
+			<!--	<span class='fb-share2'><a href='http://www.facebook.com/dialog/feed?app_id=202763786417566&link=http://friends-with-benefits.me&picture=http://friends-with-benefits.me/images/fwb-icon.png&name=Friends%20with%20Benefits&caption=Friends-with-Benefits.me&description=Find%20out%20which%20of%20your%20friends%20wants%20you%20to%20be%20more%20than%20just%20a%20friend!&redirect_uri=http://friends-with-benefits.me'>Share this app</a> with your friends to see if they pick you back!</span> -->
 			</div>
 		
 			<div id='friends'>

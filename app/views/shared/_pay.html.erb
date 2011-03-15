@@ -1,0 +1,21 @@
+	<div id='pay'>
+		<div id='pay-handle'>
+			<a href='#' id='pay-close'>X</a>
+		</div>
+		<div id='pay-content'>
+
+					1. Buy 1 Key for 100 Facebook Credits.
+					   Buy 1 Key for 50 Facebook Credits only! (50% off)*
+					
+					<%= link_to 'Buy', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1', :id => 'reveal-btn'%>
+
+					2. Buy 3 Keys for 300 Facebook Credits.
+					   Buy 3 Keys for 150 Facebook Credits, + get 2 Keys for free! (70% off)*
+					
+					<%= link_to 'Buy', 'http://www.facebook.com/dialog/pay?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=2', :id => 'reveal-btn'%>
+
+*Promotion lasts until May 31st, 2011.
+		
+		</div>
+	</div>
+

@@ -1,0 +1,58 @@
+	<div id='purchase'>
+		<div id='purchase-handle' class = 'handle'>
+				<span class='title'>Purchase keys</span>
+					<% cross = image_tag 'close-icon.png', :width => '22px'%>
+					<%= link_to cross, '#', :id => 'purchase-close', :class => 'close-icon' %>		
+		</div>
+		<div id='purchase-content' class='popup-content'>
+
+					
+					<div class='product'>
+
+						<div class='descriptions'>
+							<div class='line-through'>
+								Get 1 Key for 100 Facebook Credits.
+							</div>
+							<div class='promo'>
+								Get 1 Key for 50 Facebook Credits only! (50% off)*					
+							</div>
+						</div>					
+
+						<div class='btn-wrapper'>
+							<%= link_to 'Purchase', 'http://www.facebook.com/dialog/purchase?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=1', :class => 'buy-btn'%>
+						</div>
+
+					</div>
+
+
+					<div class='product two'>
+
+
+						<div class='descriptions'>			
+				
+							<div class='line-through'>
+								Get 3 Keys for 300 Facebook Credits.
+							</div>
+
+							<div class='promo'>
+								Get 3 Keys for 150 Facebook Credits, and receive 2 Keys FREE! (70% off)*
+							</div>
+
+						</div>
+
+						<div class='btn-wrapper'>
+							<%= link_to 'Purchase', 'http://www.facebook.com/dialog/purchase?app_id='+APP_ID+'&redirect_uri=http://friends-with-benefits.me/fb/callback&credits_purchase=false&order_info=2', :class => 'buy-btn'%>
+						</div>
+
+					</div>
+						
+
+			</div>
+
+					<div class='expiration'>
+						* Special promotion ends May 31st, 2011.
+					</div>
+				
+	
+	</div>
+

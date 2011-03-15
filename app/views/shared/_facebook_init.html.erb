@@ -5,9 +5,8 @@
 <script>
 	$(document).ready(function () {
 
-/*		function minusInvite () {
+		function minusInvite () {
 			invites_left = parseInt($('.invites-left').html());
-			alert(invites_left);
 			if (invites_left != 0) {
 
 				invites_left = invites_left - 1;
@@ -20,7 +19,7 @@
 	       			}
 			}
 		}
-*/
+
 		function addTarget(element){
 
 			var objJSON_info={"id" : element.attr("id"), "name" : element.attr("name")}; 
@@ -30,25 +29,8 @@
 				url: '/targets',
 				data: objJSON_info,
 				success: function(data){
-/*
-					invites_left = parseInt($('.credits-left').html());
 					
-					if (invites_left != 0) {
-
-						invites_left = invites_left - 1;
-			
-						if (invites_left == 1) {
-				      			 $('.credits-left').html('1 more friend');	
-				       		} else {
-							$('.credits-left').html(invites_left + " more friends");
-
-			       			}
-					}
-*/
-			
-					
-					objJSON = JSON.parse(data);
-					
+					objJSON = JSON.parse(data);					
 					switch(objJSON.statusText) {
 
 /*						
@@ -231,6 +213,29 @@
 			}
 		});
 
+		$('#curtain').live('click', function(e) {
+			$('#purchase').hide();
+			$('#invite-form').hide();
+			$('#what-are-keys').hide();
+			$('#what-are-invites').hide();	
+			$('#curtain').hide();
+		});
+
+		// Purchase
+		$('#purchase').hide();
+
+		$('#purchase-link').live('click', function(e) {
+			$('#purchase').show();
+			$('#curtain').show();
+			e.preventDefault();
+		});
+
+		$('#purchase-close').live('click',function(e) {
+			$('#purchase').hide();
+			$('#curtain').hide();
+			e.preventDefault();
+		});
+		// End
 
 
 		// Invitation form functions
@@ -238,15 +243,14 @@
 		$('#curtain').hide();
 
 		$('#invite-btn').live('click', function(e) {
-//			invites_left = parseInt($('.invites-left').html());
-			//alert(invites_left);
-//			if (invites_left > 0) {
+			invites_left = parseInt($('.invites-left').html());
+			if (invites_left > 0) {
 				$('#invite-form').show();
 				$('#curtain').show();
 				e.preventDefault();
-//			} else {
-//				alert("You're out of invites!");
-//			}			
+			} else {
+				alert("You're out of invites!");
+			}
 		});
 
 		$('#invite-close').live('click',function(e) {
@@ -258,15 +262,49 @@
 		$('#invite-content').ajaxForm({
 			target: '#invite-btn-submit',
 			success: function(){
-//				$('#invite-form').hide();
-//				$('#curtain').hide();
-				//minusInvite();
+				$('#invite-form').hide();
+				$('#curtain').hide();
+				minusInvite();
 			},
 			error: function(){
 				alert("Failed to process request, please try again.");
 			}
 		});
 		// End invitation form functions	
+
+
+		// What are keys
+		$('#what-are-keys').hide();
+
+		$('#what-are-keys-link').live('click', function(e) {
+			$('#what-are-keys').show();
+			$('#curtain').show();
+			e.preventDefault();
+		});
+
+		$('#what-are-keys-close').live('click',function(e) {
+			$('#what-are-keys').hide();
+			$('#curtain').hide();
+			e.preventDefault();
+		});
+		// End
+
+
+		// What are invites
+		$('#what-are-invites').hide();
+
+		$('#what-are-invites-link').live('click', function(e) {
+			$('#what-are-invites').show();
+			$('#curtain').show();
+			e.preventDefault();
+		});
+
+		$('#what-are-invites-close').live('click',function(e) {
+			$('#what-are-invites').hide();
+			$('#curtain').hide();
+			e.preventDefault();
+		});
+		// End
 
 
 		$('.show-selected-btn').live('click', function(e) {

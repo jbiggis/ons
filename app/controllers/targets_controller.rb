@@ -85,7 +85,8 @@ class TargetsController < ApplicationController
 #		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL') #rescue false
 #		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL', :order => 'matched_at ASC', :limit => current_hunter.reveals)
 		@targets = current_hunter.targets.all(:conditions => 'matched_at IS NOT NULL', :order => 'matched_at ASC')
-		render :partial => 'shared/targets'
+		@keys = current_hunter.keys
+	render :partial => 'shared/matches'
 	end
 
 
