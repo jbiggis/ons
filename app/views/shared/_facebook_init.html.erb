@@ -213,6 +213,29 @@
 			}
 		});
 
+		$('#curtain').live('click', function(e) {
+			$('#purchase').hide();
+			$('#invite-form').hide();
+			$('#what-are-keys').hide();
+			$('#what-are-invites').hide();	
+			$('#curtain').hide();
+		});
+
+		// Purchase
+		$('#purchase').hide();
+
+		$('#purchase-link').live('click', function(e) {
+			$('#purchase').show();
+			$('#curtain').show();
+			e.preventDefault();
+		});
+
+		$('#purchase-close').live('click',function(e) {
+			$('#purchase').hide();
+			$('#curtain').hide();
+			e.preventDefault();
+		});
+		// End
 
 
 		// Invitation form functions

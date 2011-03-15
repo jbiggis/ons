@@ -62,17 +62,80 @@ z-index:10;
 #invite-form {
 
 position:fixed;
-width:400px;
-height:300px;
+width:350px;
+height:330px;
 background:red;
 top:50%;
 left:50%;
 margin-top:-150px;
 margin-left:-200px;
 z-index:20;
+border-radius:15px;
+padding:20px;
+background:white;
+font-size:14pt;
 }
 
+.handle {
+height:40px;
+padding-top:20px;
+}
 
+.handle .title{
+
+font-weight:bold;
+font-size:16pt;
+margin-left:10px;
+
+}
+
+.close-icon {
+float:right;
+margin-top:-32px;
+margin-right:-12px;
+
+}
+
+.popup-content {
+clear:both;
+margin-top:20px;
+margin-left:10px;
+}
+
+label {
+clear:both;
+margin:10px;
+}
+
+input {
+margin:10px;
+}
+
+input#name, input#email {
+width:300px;
+height:30px;
+font-size:14pt;
+padding-left:6px;
+
+}
+
+#invite-content p {
+font-size:10pt;
+font-style:italic;
+margin-left:10px;
+}
+
+input#invite-btn-submit {
+padding:6px 10px ;
+margin-right:22px;
+background:#22b24b;
+color:white;
+border-radius:5px;
+font-size:14pt;
+font-weight:bold;
+float:right;
+
+}
 body {
 margin:0;
 font-family:arial, sans-serif;
@@ -327,11 +390,7 @@ float:left;
 }
 
 
-#what-are-keys {
-padding:4px;
-float:left;
-font-size:10pt;
-}
+
 
 .purchase-keys-btn {
 background:#22b24b;
@@ -348,7 +407,7 @@ margin-top:-6px;
 
 #logo-question {
 margin-left:8px;
-margin-top:0px;
+margin-top:-4px;
 }
 
 
@@ -417,6 +476,13 @@ font-size:14pt;
 .unrevealed {
 text-align:center;
 position:relative;
+color:#e63028;
+font-size:14pt;
+}
+
+
+.unrevealed p {
+margin-top:8px;
 }
 
 
@@ -565,28 +631,126 @@ color:#e63028;
 font-size:10pt;
 }
 
+#purchase{
+position:fixed;
+width:800px;
+height:400px;
+top:50%;
+left:50%;
+margin-top:-200px;
+margin-left:-400px;
+z-index:20;
+border-radius:15px;
+-moz-border-radius:15px;
+-webkit-border-radius:15px;
+padding:20px;
+background:white;
+font-size:14pt;
+}
+
+#purchase .product {
+background:#f7f7f7;
+width:740px;
+height:60px;
+padding:10px;
+padding-top:30px;
+margin:10px;
+border-radius:5px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+}
+
+#purchase .product.two {
+height:80px;
+}
+
+#purchase .product.two .btn-wrapper {
+margin-top:6px;
+}
+
+#purchase .number {
+float:left;
+margin-right:-50px;
+
+}
+
+
+
+#purchase .descriptions {
+float:left;
+width:560px;
+padding-left:20px;
+}
+/*
+#purchase .buy-btns {
+width:100px;
+float:left;
+color:#e63028;
+padding-top:20px;
+}
+*/
+#purchase .btn-wrapper {
+background:#22b24b;
+height:24px;
+width:90px;
+padding:10px 20px;
+text-align:center;
+border-radius:5px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+float:left;
+margin-left:20px;
+}
+
+#purchase .buy-btn {
+
+margin-bottom:10px;
+color:white;
+font-weight:bold;
+}
+
+#purchase .expiration {
+clear:both;
+margin-left:30px;
+margin-top:30px;
+}
+
+
+
 #what-are-keys{
 position:fixed;
-width:400px;
-height:300px;
+width:600px;
+height:260px;
 background:red;
 top:50%;
 left:50%;
 margin-top:-150px;
-margin-left:-200px;
+margin-left:-300px;
 z-index:20;
+border-radius:15px;
+-moz-border-radius:15px;
+-webkit-border-radius:15px;
+padding:20px;
+background:white;
+font-size:14pt;
+
 }
 
 #what-are-invites{
 position:fixed;
-width:400px;
-height:300px;
-background:red;
+width:600px;
+height:290px;
 top:50%;
 left:50%;
 margin-top:-150px;
-margin-left:-200px;
+margin-left:-300px;
 z-index:20;
+border-radius:15px;
+-moz-border-radius:15px;
+-webkit-border-radius:15px;
+padding:20px;
+background:white;
+font-size:14pt;
 }
 
 #credits a {
@@ -723,4 +887,13 @@ margin-left:14px;
 }
 */
 
+.line-through {
+text-decoration:line-through;
+color:black;
+}
+
+.promo {
+text-decoration:none;
+color:red;
+}
 

@@ -46,13 +46,18 @@
 				</div>
 				<%= image_tag 'fwb-logo-l.png', :id => 'matches-logo' %>
 			</div>
+			<%= render 'shared/purchase' %>
 
 			<div id='what-are-keys'>
-				<div id='what-are-keys-handle'>
-					<a href='#' id='what-are-keys-close'>X</a>
+				<div id='what-are-keys-handle' class = 'handle'>
+				<span class='title'>What are keys?</span>
+					<% cross = image_tag 'close-icon.png', :width => '22px'%>
+					<%= link_to cross, '#', :id => 'what-are-keys-close',:class => 'close-icon' %>	
 				</div>
-				<div id='what-are-keys-content'>
-					U use keys to screw people... duh!
+				<div id='what-are-keys-content' class='popup-content'>
+					<p>Whenever we match a "Friend with Benefits" for you (i.e. you and your friend both picked each other as a "Friend with Benefits"), your friend is placed in the "Your Friends with Benefits" section.</p>
+					<br/>
+					<p>To reveal your "Friend with Benefits", simply purchase a Key to unlock his/her identity!</p>
 				</div>
 			</div>
 
@@ -67,28 +72,44 @@
 			</div>
 
 			<div id='what-are-invites'>
-				<div id='what-are-invites-handle'>
-					<a href='#' id='what-are-invites-close'>X</a>
+				<div id='what-are-invites-handle' class = 'handle'>
+				<span class='title'>What are anonymous invites?</span>
+					<% cross = image_tag 'close-icon.png', :width => '22px'%>
+					<%= link_to cross, '#', :id => 'what-are-invites-close',:class => 'close-icon' %>	
 				</div>
-				<div id='what-are-invites-content'>
-					U use invites to invite people.. duh!
+				<div id='what-are-invites-content' class='popup-content'>
+					<p>The more of your friends use friends-with-benefits.me, the higher the chance you get picked!</p>
+					<br />
+					<p>An anonymous invite allows you to send an email invitation to your friends to join friends-with-benefits.me without exposing your identity, so they will never know who invited them.</p>
+					<br/>		
+					<p>Send them an invitation to join friends-with-benefits.me now!
+					</p>
+<br/>			
+	<!--	<p>
+						We will be using our name ('From The Friends with Benefits Team') instead of yours to your identity a secret.
+					</p>
+			-->
 				</div>
 			</div>
 
 			<div id='invite-form'>
-				<div id='invite-handle'>
-					<a href='#' id='invite-close'>X</a>
-				</div>
-				<div id='invite-content'>
-					<%= form_tag invite_path, :remote => true do %>
-						<h4>Invite a friend! Send an email to your friend through our app and remain anonymous.</h4>
+				<div id='invite-handle' class = 'handle'>
+				<span class='title'>Invite a friend anonymously</span>
+					<% cross = image_tag 'close-icon.png', :width => '22px'%>
+					<%= link_to cross, '#', :id => 'invite-close',:class => 'close-icon' %>					
 
-						<%= label_tag :name%><br />
+				</div>
+				<div id='invite-content' class='popup-content'>
+
+					<%= form_tag invite_path, :remote => true do %>
+					
+						<%= label_tag :name, "Your friend's name"%><br />
 						<%= text_field_tag :name %><br />
 
-						<%= label_tag :email %><br />
+						<%= label_tag :email, "Your friend's email" %><br />
 						<%= text_field_tag :email %><br />
 
+						<p>*Names and emails are used for this one-time purpose only and they will not be stored.</p>
 						<%= submit_tag 'Send', :id => 'invite-btn-submit'%>
 					<% end %>
 				</div>
