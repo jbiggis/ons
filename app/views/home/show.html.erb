@@ -6,26 +6,43 @@
 		<% if !signed_in? %>
 			<div id = 'landing'>
 				<div id='tagline'>
-					Find out which of your friends wants you to be more than just a friend!
+					<!--Find out which of your friends wants you to be more than just a friend!-->
+					Some friends are more than just friends.
 				</div>
 				<div class='content'>
+<!--					
 					<div class='img'>
-						<%= image_tag 'fwb-logo-red.png', :width => '360'%>
+						<%# image_tag 'fwb-logo-red.png', :width => '360'%>
 					</div>
+
+-->	
 					<div id = 'how-it-works-landing'>
 						<div class='title'>
 							How It Works:
 						</div>	
+
+<!--
 						<ol>
-							<li> <fb:login-button perms="email, offline_access">Connect To Facebook</fb:login-button></li>
-							<li>Pick friends in your network whom you'd be interested in being 'friends with benefits' with.</li>
-							<li>If a friend picks you back, we will send you both an email.  Your picks will never be revealed otherwise.</li>
+							
+							<li> <fb:login-button perms="email">Connect To Facebook</fb:login-button></li>
+							<li>Pick friends in your network whom you'd be interested in being 'friends with benefits' with</li>
+							<li>If a friend picks you back, we will send you both an email.  Your picks will never be revealed otherwise</li>
 						</ol>
+-->
+						<ol>
+							<li> <fb:login-button perms="email">Connect To Facebook</fb:login-button></li>
+							<li>Choose friends in your network whom you'd like to be 'friends with benefits' with</li>
+							<li>If a friend chooses you back, you get notified. </li>
+							<li>Use Keys to reveal their identities and take those relationships to the next level</li>
+						</ol>
+
 					</div>
+					
 				</div>
 			</div>
 
-
+			<div class='spacer-landing'>
+			</div>
 		<% else %>
 			<div id='how-it-works'>
 				<div class='content'>
@@ -33,9 +50,9 @@
 						How It Works
 					</div>
 					<ol>
-						<li>Pick friends whom you'd be interested in being 'friends with benefits' with.</li>
-						<li>If you and a friend picked each other, both of you will be sent an email notification.</li>
-						<li>No picks are shared unless a friend picks you back - choose in secret.</li>
+						<li>Choose friends in your network whom you'd like to be 'friends with benefits' with.</li>
+						<li>If your friends choose you back, they will show up in the 'Your Friends with Benefits' box. </li>
+						<li>Use Keys to reveal their identities and take those relationships to the next level</li>
 					</ol>
 				</div>		
 			</div>
@@ -55,9 +72,9 @@
 					<%= link_to cross, '#', :id => 'what-are-keys-close',:class => 'close-icon' %>	
 				</div>
 				<div id='what-are-keys-content' class='popup-content'>
-					<p>Whenever we match a "Friend with Benefits" for you (i.e. you and your friend both picked each other as a "Friend with Benefits"), your friend is placed in the "Your Friends with Benefits" section.</p>
+					<p>Whenever we find a match for you (i.e. you and your friend both choose each other as a Friend with Benefits), your friend is placed in the 'Your Friends with Benefits' box.</p>
 					<br/>
-					<p>To reveal your "Friend with Benefits", simply purchase a Key to unlock his/her identity!</p>
+					<p>To reveal them, simply purchase Keys to unlock their identities.</p>
 				</div>
 			</div>
 
@@ -78,11 +95,11 @@
 					<%= link_to cross, '#', :id => 'what-are-invites-close',:class => 'close-icon' %>	
 				</div>
 				<div id='what-are-invites-content' class='popup-content'>
-					<p>The more of your friends use friends-with-benefits.me, the higher the chance you get picked!</p>
+					<p>The more friends you can get to use friends-with-benefits.me, the higher the chance of you getting chosen.</p>
 					<br />
-					<p>An anonymous invite allows you to send an email invitation to your friends to join friends-with-benefits.me without exposing your identity, so they will never know who invited them.</p>
+					<p>An anonymous invite allows you to send an email invitation to your friends asking them to join friends-with-benefits.me without exposing your identity, so they will never know who invited them.</p>
 					<br/>		
-					<p>Send them an invitation to join friends-with-benefits.me now!</p>
+					<p>Send them an anonymous invitation to join friends-with-benefits.me now!</p>
 <br/>			
 	<!--	<p>
 						We will be using our name ('From The Friends with Benefits Team') instead of yours to your identity a secret.
@@ -119,13 +136,17 @@
 			</div>
 
 			<div class='friends-header'>
+				<div class='title'>
+					Choose your Friends with Benefits: <span class='friends-warning'>(Choose carefully - once they're chosen, you cannot remove them from your list)</span>
+				</div>
 				<span>Show:</span>
 				<a href='#' class='show-all-btn'>All Friends</a>
 				<span> | </span>
-				<a href='#' class='show-selected-btn'>Picks</a>	
+				<a href='#' class='show-selected-btn'>Selected Friends Only</a>	
 				<% fb_share2 = image_tag 'fb_share2.png', :width => '200', :id => 'fb-share2' %>	
 			<!--	<span class='fb-share2'><a href='http://www.facebook.com/dialog/feed?app_id=202763786417566&link=http://friends-with-benefits.me&picture=http://friends-with-benefits.me/images/fwb-icon.png&name=Friends%20with%20Benefits&caption=Friends-with-Benefits.me&description=Find%20out%20which%20of%20your%20friends%20wants%20you%20to%20be%20more%20than%20just%20a%20friend!&redirect_uri=http://friends-with-benefits.me'>Share this app</a> with your friends to see if they pick you back!</span> -->
 			</div>
+			
 		
 			<div id='friends'>
 			</div>
