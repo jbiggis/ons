@@ -1,7 +1,7 @@
 
 class FwbMailer < ActionMailer::Base
 
-  default :from =>"jscchiu@gmail.com" 
+  default :from => "Facebook FWB App" 
 
   def match_email(email, name)
 
@@ -12,15 +12,14 @@ class FwbMailer < ActionMailer::Base
 
   end
 
-def invite_email(email, name)
+	def invite_email(email, name)
 	
-	@email = email
-	@name = name
+		@email = email
+		@name = name
 
-	#mail(:to=> email, :subject => "Your friend has invited you to check out friends-with-benefits.me")
-	mail(:to=> email, :subject => "Your friend is interested in being your Friend with Benefits") 
+		mail(:to=> email, :subject => "Hey "+@name+", one of your Facebook friends has invited you to play the Friends with Benefits game") 
 
-end
+	end
 
 	#handle_asynchronously :invite_email
 

@@ -8,7 +8,7 @@
 			<div class='keys-count'>						
 				<%= image_tag 'key.png'%>
 				<div class='count'>				
-					<%= @keys %>
+					<%= (@keys>@count)?(@keys-@count):'0' %>
 				</div>
 			</div>
 			<%= link_to "What's this?", '#', :id => 'what-are-keys-link' %>
@@ -20,34 +20,34 @@
 	</div> 
 
 	<div class='inner'>
-	<% if @targets.empty? %>
-		<div class='no-match'>You don't have any Friends with Benefits yet.</div>
+		<% if @targets.empty? %>
+			<div class='no-match'>You don't have any Friends with Benefits yet.</div>
 
-	<% else %>
-		<% @targets.first(current_hunter.keys).each do |target| %> 
-			<div class='<%= @class %>'>
-				<a href = '#' class='<%= @class %> <%= target.target_id %>' id = '<%= target.target_id %>'>
-					<%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %>
-					<span class='name'>
-						<%= target.name %>
-						<span class='mark'>
+		<% else %>
+			<% @targets.first(@keys).each do |target| %> 
+				<div class='<%= @class %>'>
+					<a href = '#' class='<%= @class %> <%= target.target_id %>' id = '<%= target.target_id %>'>
+						<%= image_tag "http://graph.facebook.com/#{target.target_id.to_s}/picture" %>
+						<span class='name'>
+							<%= target.name %>
+							<span class='mark'>
+							</span>
 						</span>
-					</span>
-				</a>
-			</div>
-		<% end %>
-		<% (@targets.count - current_hunter.keys).times do %>
-			<div class='<%= @class %> unrevealed'>
-					<%= image_tag "logo-question-m-red.png", :id => 'logo-question' %>
-					<p>Waiting to be unlocked</p>
+					</a>
+				</div>
+			<% end %>
+			<% (@count - @keys).times do %>
+				<div class='<%= @class %> unrevealed'>
+						<%= image_tag "logo-question-m-red.png", :id => 'logo-question' %>
+						<p>Waiting to be unlocked</p>
 
+				</div>
+			<% end %>
+			<% if @keys < @count %>
 			</div>
-		<% end %>
-		<% if current_hunter.keys < @targets.count %>
-		</div>
 	
 			<div id='matches-waiting'>
-				You have <%= pluralize( @targets.count - current_hunter.keys , 'Friend') %> with Benefits waiting for you!&nbsp;&nbsp;Purchase more keys to unlock them.
+				You have <%= pluralize( @count - @keys , 'Friend') %> with Benefits waiting for you!&nbsp;&nbsp;Purchase more keys to unlock them.
 			</div>
 
 

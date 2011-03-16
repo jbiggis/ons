@@ -11,7 +11,7 @@ def proc
 
 	trialpay_order_id = params[:oid]
 	sid = params[:sid]
-
+	## Check other stuff here
 
 
 	render :text => '1'

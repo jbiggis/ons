@@ -95,10 +95,10 @@ class FbController < ApplicationController
 			#}
 			item["product_url"] = "http://friends-with-benefits.me"
 			item["image_url"] = "http://friends-with-benefits.me/images/fwb-icon.png"
-	   		item["item_id"] = order_info
+   		item["item_id"] = order_info
 
-		  	# prefix test-mode
-		  	if payload['test_mode'] != nil
+	  	# prefix test-mode
+	  	if payload['test_mode'] != nil
 				#$update_keys = array('title', 'description');
 				#foreach ($update_keys as $key) {
 		  		#		$item[$key] = '[Test Mode] '.$item[$key];
