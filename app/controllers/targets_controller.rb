@@ -1,6 +1,6 @@
 class TargetsController < ApplicationController
 
-  def create
+  	def create
 	
 		## Check #credits
 #		if current_hunter.credits_left > 0
@@ -50,8 +50,9 @@ class TargetsController < ApplicationController
 				uri2 = 'https://api.facebook.com/method/notifications.sendEmail?recipients='+hunter2.hunter_id+'&subject='+subject+'&fbml='+fbml+'&access_token='+token2+'&format=json'
 
 				render :text => ActiveSupport::JSON.encode({'statusText'=>'matched', 'uri_1'=> uri1, 'uri_2'=> uri2}) 
-=end
+
 				return
+=end			
 			end
 
 			render :text => ActiveSupport::JSON.encode({'statusText'=>'target_added'})
@@ -72,7 +73,7 @@ class TargetsController < ApplicationController
 
 		@class = 'match'
 #		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL') #rescue false
-		@targets = current_hunter.targets.all(:conditions => 'matched_at IS NOT NULL', :order => 'matched_at ASC')
+		@targets = current_hunter.targets.all(:conditions => 'matched_at IS NOT NULL and notified_at IS NOT NULL', :order => 'matched_at ASC')
 		@count = @targets.count
 		@keys = current_hunter.keys
 		render :partial => 'shared/matches'

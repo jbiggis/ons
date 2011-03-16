@@ -65,10 +65,10 @@ class FbController < ApplicationController
 				end		
 
 				product = Product.find(order.product_id)	
-				reveals = hunter.reveals 
-				reveals += product.reveals_to_add
+				keys = hunter.keys 
+				keys += product.keys_to_add
 	
-				unless hunter.update_attributes(:reveals => reveals)		
+				unless hunter.update_attributes(:keys => keys)		
 					puts "DEBUG-ERROR update hunter:"+hunter.inspect
 					render :text => "Cannot update user", :status => :internal_server_error
 					return
