@@ -7,8 +7,13 @@
 		<div id='keys'>
 			<div class='keys-count'>						
 				<%= image_tag 'key.png'%>
-				<div class='count'>				
-					<%= (@keys>@count)?(@keys-@count):'0' %>
+				<div class='count'>			
+					<% if @keys>@count %>
+						<%= (@keys-@count).to_s %>
+					<% else %>
+						<%= '0' %>
+					<% end %>	
+					<%#= (@keys>@count)?(@keys-@count):'0' %>
 				</div>
 			</div>
 			<%= link_to "What's this?", '#', :id => 'what-are-keys-link' %>
