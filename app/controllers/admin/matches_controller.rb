@@ -1,5 +1,5 @@
 class Admin::MatchesController < ApplicationController
-	before_filter :admin_signed_in?
+	before_filter :admin_logged_in?
 
 	def show
 		@targets = Target.all(:conditions => 'matched_at IS NOT NULL and notified_at IS NULL or notified_at =""')
@@ -26,5 +26,15 @@ target.notified_at = Time.now
 		end
 		redirect_to show_admin_matches_path
 	end
+
+private
+
+def admin_logged_in?
+	if !admin_signed_in?
+		redirect_to root_url
+	end
+end
+
+
 
 end
