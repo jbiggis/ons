@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110314141318) do
+ActiveRecord::Schema.define(:version => 20110316100113) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20110314141318) do
     t.datetime "updated_at"
     t.integer  "keys",         :default => 0, :null => false
     t.integer  "invites",      :default => 5, :null => false
+    t.datetime "last_login"
+    t.integer  "login_count",  :default => 0, :null => false
   end
 
   add_index "hunters", ["hunter_id"], :name => "index_hunters_on_hunter_id", :unique => true
@@ -59,9 +61,9 @@ ActiveRecord::Schema.define(:version => 20110314141318) do
 
   create_table "products", :force => true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.integer  "price"
-    t.integer  "reveals_to_add"
+    t.integer  "keys_to_add"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

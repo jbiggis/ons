@@ -1,0 +1,22 @@
+<div>
+
+	<table id='match_notifications'>
+		<tr>
+			<td>HunterID</td>
+			<td>TargetID</td>
+			<td>TargetName</td>
+			<td>MatchedAt</td>
+		</tr>
+		<% @targets.each do |t| %>
+			<tr>
+				<td><%= t.hunter_id %></td>
+				<td><%= t.target_id %></td>
+				<td><%= t.name %></td>
+				<td><%= t.matched_at %></td>
+			</tr>
+		<% end %>
+	</table>
+
+	<%= button_to 'Send Notification Emails', update_admin_matches_path, :method => :put%>
+
+</div>

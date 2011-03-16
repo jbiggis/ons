@@ -30,26 +30,30 @@ class SessionsController < ApplicationController
 		if params[:status] == "connected"
 			user = Hash.new
 			user_id = sess[:uid]
+			login_count = 0
 		
 		else
 			user = params[:user]
 			user_id = params[:user][:id]
+			login_count = 1
 		end
 
 		## If existing user
 		if hunter = Hunter.find_by_hunter_id(user_id.to_s)
-			hunter.update_attributes(:access_token => sess[:access_token])
+			if login_count == 1
+				login_count += hunter.login_count
+				hunter.update_attributes(:access_token => sess[:access_token], :login_count => login_count, :last_login => Time.now)
+			else
+				hunter.update_attributes(:access_token => sess[:access_token])
+			end
 	
-			#sign_in(hunter)
-			redirect_to root_url
-
 		## First time user
 		else	
-			hunter = Hunter.create(:hunter_id => user_id.to_s, :email => user[:email], :first_name => user[:first_name], :last_name => user[:last_name], :gender => user[:gender], :DOB => user[:birthday], :access_token => sess[:access_token])
-			#sign_in(hunter)
-			redirect_to root_url
+			hunter = Hunter.create(:hunter_id => user_id.to_s, :email => user[:email], :first_name => user[:first_name], :last_name => user[:last_name], :gender => user[:gender], :DOB => user[:birthday], :access_token => sess[:access_token], :login_count => 1, :last_login => Time.now)
 		end
 
+render :text => :nothing
+#		redirect_to root_url
 	end
 
 	def destroy

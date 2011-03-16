@@ -11,8 +11,8 @@ task :cron => :environment do
     targets = Target.find(:all, :conditions => 'matched_at IS NOT NULL and notified_at IS NULL')
 
     targets.each do |target|
-	h = target.hunter
-      	if Matchmailer.match_mail(h.email, h.name).deliver
+			h = target.hunter
+      if Matchmailer.match_mail(h.email, h.name).deliver
 				target.update_attributes(:notified_at => Time.now)
       else
 				puts "DEBUG-ERROR: Cron email"

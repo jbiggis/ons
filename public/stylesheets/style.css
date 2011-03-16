@@ -944,3 +944,12 @@ color:red;
 display:none;
 }
 
+
+table#match_notification {
+margin:100px;
+font-family:arial, sans-serif;
+color:black;
+padding:100px;
+border:1px black;
+}
+

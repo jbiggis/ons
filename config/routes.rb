@@ -25,4 +25,14 @@ Ons::Application.routes.draw do
 
   post '/invite' => 'invite#create', :as => :invite
 
+  
+scope '/admin', :module => 'admin', :as => 'admin' do
+
+	resource :matches, :only => [] do
+		get :show, :path =>'/', :as => 'show'
+		put :update, :as => 'update'
+	end
+
+end
+
 end
