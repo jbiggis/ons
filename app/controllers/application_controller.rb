@@ -8,16 +8,16 @@ class ApplicationController < ActionController::Base
 	#	session[:hunter_id]= hunter.hunter_id
 	#end
 
-	def signed_in?
-		cookies[:fbs_200426483308435]
-	end
 
+	def signed_in?
+		cookies[:fbs_202763786417566]
+	end
 
 	def current_hunter
 
 		if @current_hunter == nil
-			if cookies[:fbs_200426483308435]
-				cookie=Hash[cookies[:fbs_200426483308435].gsub('"','').split("&").map{|s| s.split("=")}]
+			if cookies[:fbs_202763786417566]
+				cookie=Hash[cookies[:fbs_202763786417566].gsub('"','').split("&").map{|s| s.split("=")}]
 				@current_hunter = Hunter.find_by_hunter_id(cookie["uid"].to_s)
 			end
 		end
@@ -28,8 +28,8 @@ class ApplicationController < ActionController::Base
 
 	def admin_signed_in?
 
-		if cookies[:fbs_200426483308435]
-			cookie=Hash[cookies[:fbs_200426483308435].gsub('"','').split("&").map{|s| s.split("=")}]
+		if cookies[:fbs_202763786417566]
+			cookie=Hash[cookies[:fbs_202763786417566].gsub('"','').split("&").map{|s| s.split("=")}]
 			if cookie["uid"].to_s == ADMIN_1 || cookie["uid"].to_s == ADMIN_2
 				return true
 			else
