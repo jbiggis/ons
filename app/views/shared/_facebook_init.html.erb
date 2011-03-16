@@ -77,7 +77,7 @@
 		$('a.friend').live('click', function(e){
 			e.preventDefault();
 			if (!($(this).parent().hasClass('selected'))) {
-				if (confirm("Would you like to pick this friend?")){
+				if (confirm("Would you like to choose this friend?")){
 					addTarget($(this));
 				}
 			}
@@ -89,7 +89,10 @@
 			e.preventDefault();
 		});
 
-
+		// User clicks on a selected friend
+		$('a.target').live('click', function(e) {
+			e.preventDefault();
+		});
 
 		FB.getLoginStatus(function(response) {
 

@@ -89,6 +89,12 @@ margin-left:10px;
 
 }
 
+#purchase .handle .title{
+
+margin-left:20px;
+
+}
+
 .close-icon {
 float:right;
 margin-top:-32px;
@@ -237,7 +243,7 @@ clear:both;
 height:60px;
 clear:both;
 margin:20px auto 10px auto;
-width:820px;
+width:500px;
 font-weight:bold;
 font-size:18pt;
 }
@@ -263,14 +269,15 @@ margin-bottom:-10px;
 }
 
 #how-it-works-landing {
-width:470px;
-float:left;
+width:670px;
+
 background:#f7f7f7;
 border-radius:15px;
 -moz-border-radius:15px;
 -webkit-border-radius:15px;
 padding:30px 40px 20px 30px;
-margin:4px 0 0 40px;
+/*margin:4px 0 0 40px;*/
+margin:0 auto;
 
 }
 
@@ -333,7 +340,7 @@ margin-bottom:10px;
 
 #matches {
 clear:both;
-width:880px;
+width:890px;
 background:#e63028;
 background-position:830px 10px;
 border-radius:15px;
@@ -345,6 +352,7 @@ color:white;
 min-height:100px;
 position:relative;
 margin-top:20px;
+min-height:140px;
 }
 
 #matches-logo {
@@ -373,7 +381,7 @@ height:10px;
 }
 
 .keys-count {
-margin:0 2px 0 300px;
+margin:0 2px 0 310px;
 float:left;
 height:28px;
 margin-top:-4px;
@@ -395,12 +403,12 @@ float:left;
 .purchase-keys-btn {
 background:#22b24b;
 border-radius:5px;
-width:120px;
+width:126px;
 height:25px;
 float:right;
 font-weight:bold;
-padding-top:5px;
-padding-left:8px;
+padding-top:8px;
+padding-left:10px;
 margin-top:-6px;
 }
 
@@ -412,7 +420,7 @@ margin-top:-4px;
 
 
 #matches .no-match {
-margin:32px 0 0 10px;
+margin:32px 0 0 0px;
 font-style:italic;
 }
 
@@ -634,7 +642,7 @@ font-size:10pt;
 #purchase{
 position:fixed;
 width:800px;
-height:400px;
+height:420px;
 top:50%;
 left:50%;
 margin-top:-200px;
@@ -658,6 +666,7 @@ margin:10px;
 border-radius:5px;
 -moz-border-radius:5px;
 -webkit-border-radius:5px;
+position:relative;
 }
 
 #purchase .product.two {
@@ -669,9 +678,16 @@ margin-top:6px;
 }
 
 #purchase .number {
-float:left;
-margin-right:-50px;
-
+position:absolute;
+top:0;
+left:0;
+width:24px;
+height:24px;
+background:#22b24b;
+color:white;
+font-weight:bold;
+text-align:center;
+border-radius:5px;
 }
 
 
@@ -680,6 +696,7 @@ margin-right:-50px;
 float:left;
 width:560px;
 padding-left:20px;
+
 }
 /*
 #purchase .buy-btns {
@@ -709,6 +726,11 @@ color:white;
 font-weight:bold;
 }
 
+
+#purchase .or-spacer {
+margin-left:14px;
+}
+
 #purchase .expiration {
 clear:both;
 margin-left:30px;
@@ -720,7 +742,7 @@ margin-top:30px;
 #what-are-keys{
 position:fixed;
 width:600px;
-height:260px;
+height:240px;
 background:red;
 top:50%;
 left:50%;
@@ -733,6 +755,11 @@ border-radius:15px;
 padding:20px;
 background:white;
 font-size:14pt;
+
+}
+
+#what-are-keys-link{
+font-size:10pt;
 
 }
 
@@ -818,6 +845,17 @@ font-weight:bold;
 
 }
 
+.friends-header .title {
+margin-bottom:20px;
+}
+
+.friends-warning {
+font-style:italic;
+margin-left:10px;
+margin-bottom:20px;
+font-weight:normal;
+}
+
 
 .fb-share2{
 float:right;
@@ -837,6 +875,11 @@ min-height:412px;
 
 .spacer {
 height:20px;
+clear:both;
+}
+
+.spacer-landing {
+height:60px;
 clear:both;
 }
 
