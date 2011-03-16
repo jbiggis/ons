@@ -66,7 +66,7 @@
 				<% invite_btn = image_tag 'invite-btn.png' %>
 				<%= link_to invite_btn, '#', :id => 'invite-btn' %>
 				<div class='invites-count'>
-					You have <span class='invites-left'><%= pluralize(@invites, 'anonymous invite')%></span> left.
+					You have <span class='invites-left'><%= pluralize(current_hunter.invites, 'anonymous invite')%></span> left.
 				</div>
 				<%= link_to "What's this?", '#', :id => 'what-are-invites-link' %>
 			</div>
@@ -83,11 +83,7 @@
 					<p>An anonymous invite allows you to send an email invitation to your friends to join friends-with-benefits.me without exposing your identity, so they will never know who invited them.</p>
 					<br/>		
 					<p>Send them an invitation to join friends-with-benefits.me now!</p>
-<br/>			
-	<!--	<p>
-						We will be using our name ('From The Friends with Benefits Team') instead of yours to your identity a secret.
-					</p>
-			-->
+					<br/>			
 				</div>
 			</div>
 

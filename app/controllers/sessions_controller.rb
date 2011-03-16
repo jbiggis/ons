@@ -35,6 +35,7 @@ class SessionsController < ApplicationController
 			user = params[:user]
 			user_id = params[:user][:id]
 		end
+
 		## If existing user
 		if hunter = Hunter.find_by_hunter_id(user_id.to_s)
 			hunter.update_attributes(:access_token => sess[:access_token])

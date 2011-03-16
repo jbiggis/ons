@@ -33,39 +33,6 @@
 					objJSON = JSON.parse(data);					
 					switch(objJSON.statusText) {
 
-/*						
-						case 'matched':
-
-							// if parent div has element div.no-match
-							// element.remove
-							$('div.no-match').remove();
-
-
-							element.parent().addClass("selected");
-							id = element.attr("id");
-							var divMatch = document.createElement("div");
-							divMatch.className = 'match';
-							divMatch.innerHTML="<a class='match "+id+"' id='"+id+"' href='javascript;'><img src='http://graph.facebook.com/"+id+"/picture'><span class='name'>"+element.attr("name")+"</span></a>";
-
-							$("#matches .content").append(divMatch);
-				
-							alert('Congratulations!! We have a match!');						
-				
-							$.ajax({
-								type: 'GET',
-								url: objJSON.uri_1,
-								dataType: "script"	
-							});
-
-							$.ajax({
-								type: 'GET',
-								url: objJSON.uri_2,
-								dataType: "script"	
-							});
-
-							break;
-*/
-
 						case 'target_added':				
 							element.parent().addClass("selected");
 							id = element.attr("id");
@@ -75,12 +42,6 @@
 							$("#targets").append(divTarget);
 							 	
 							break;
-
-/*
-						case 'no_credits':
-							alert('You\'re out of Picks!');
-							break;
-*/
 
 						case 'fail_duplicated_target':
 							//alert("Already targeted");
@@ -262,6 +223,8 @@
 		$('#invite-content').ajaxForm({
 			target: '#invite-btn-submit',
 			success: function(){
+				$('input#email').val("");
+				$('input#name').val("");
 				$('#invite-form').hide();
 				$('#curtain').hide();
 				minusInvite();

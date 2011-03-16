@@ -1,9 +1,9 @@
 class TargetsController < ApplicationController
+
   def create
 	
 		## Check #credits
 #		if current_hunter.credits_left > 0
-
 	
 			target1 = current_hunter.targets.build(:target_id => params[:id].to_s, :name => params[:name])
 
@@ -37,13 +37,11 @@ class TargetsController < ApplicationController
 					return
 				end	
 
+=begin
 				hunter2 = Hunter.find(target2.hunter_id)
 
-=begin
 				token1 = current_hunter.access_token || ""
 				token2 = hunter2.access_token || ""
-
-
 
 				subject = 'One of your friends wants to be your "friend with benefits"'
 				fbml = 'Congratulations, a friend of yours wants to be more than just a friend!<br/><br/>Log in <a href="http://friends-with-benefits.me">here</a> to find out who it is.<br/><br/>The "Friends with Benefits" team' 
@@ -53,20 +51,11 @@ class TargetsController < ApplicationController
 
 				render :text => ActiveSupport::JSON.encode({'statusText'=>'matched', 'uri_1'=> uri1, 'uri_2'=> uri2}) 
 =end
-				render :text => ActiveSupport::JSON.encode({'statusText'=>'target_added'}) 				
-				return
-
-			## No match
-			else
-				render :text => ActiveSupport::JSON.encode({'statusText'=>'target_added'})
 				return
 			end
 
-		## Credits <= 0
-#		else
-#			render :text => ActiveSupport::JSON.encode({'statusText'=>'no_credits'}) 
-#			return
-#		end
+			render :text => ActiveSupport::JSON.encode({'statusText'=>'target_added'})
+			return
 
 	end
 
@@ -83,10 +72,10 @@ class TargetsController < ApplicationController
 
 		@class = 'match'
 #		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL') #rescue false
-#		@targets = current_hunter.targets.find(:all, :conditions => 'matched_at IS NOT NULL', :order => 'matched_at ASC', :limit => current_hunter.reveals)
 		@targets = current_hunter.targets.all(:conditions => 'matched_at IS NOT NULL', :order => 'matched_at ASC')
+		@count = @targets.count
 		@keys = current_hunter.keys
-	render :partial => 'shared/matches'
+		render :partial => 'shared/matches'
 	end
 
 
