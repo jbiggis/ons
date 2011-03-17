@@ -20,6 +20,7 @@ Ons::Application.routes.draw do
   get 'faq' => 'home#faq', :as => :faq
   get '/tos' => 'home#tos'
   get '/privacy_policy' => 'home#pp', :as => :pp
+  get '/disclaimer' => 'home#disclaimer'
 
   match '/trialpay' => 'trialpay#proc', :as => :trialpay
 

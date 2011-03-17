@@ -6,29 +6,36 @@
 		<% if !signed_in? %>
 			<div id = 'landing'>
 				<div id='tagline'>
-					<!--Find out which of your friends wants you to be more than just a friend!-->
-					Some friends are more than just friends.
+					<!--Some friends are more than just friends.-->
 				</div>
 				<div class='content'>
+
+<a href='http://fwb-movie.com/' target= '_blank'><div id='trailer-link'><p>Watch the Offical<br/> Movie Trailer</p></div></a>
+<div id='landing-logo-wrapper'>
+<%= image_tag 'landing-logo.png', :id => 'landing-logo' %>
+</div>
+<div id ='fb-login-wrapper'><fb:login-button perms="email" size ='xlarge'>Play</fb:login-button></div>
+
 <!--					
 					<div class='img'>
 						<%# image_tag 'fwb-logo-red.png', :width => '360'%>
 					</div>
 
 -->	
+<!--
 					<div id = 'how-it-works-landing'>
 						<div class='title'>
 							How It Works:
 						</div>	
 
-<!--
+
 						<ol>
 							
 							<li> <fb:login-button perms="email">Connect To Facebook</fb:login-button></li>
 							<li>Pick friends in your network whom you'd be interested in being 'friends with benefits' with</li>
 							<li>If a friend picks you back, we will send you both an email.  Your picks will never be revealed otherwise</li>
 						</ol>
--->
+
 						<ol>
 							<li> <fb:login-button perms="email">Connect To Facebook</fb:login-button></li>
 							<li>Choose friends in your network whom you'd like to be Friends with Benefits with</li>
@@ -37,13 +44,17 @@
 						</ol>
 
 					</div>
-					
+-->					
 				</div>
 			</div>
 
 			<div class='spacer-landing'>
 			</div>
 		<% else %>
+<div id='header'>
+<%= render 'shared/account_nav' %>
+</div>
+
 			<div id='how-it-works'>
 				<div class='content'>
 					<div class='title'>
@@ -61,7 +72,7 @@
 			<div id='matches'>
 				<div class='content'>
 				</div>
-				<%= image_tag 'fwb-logo-l.png', :id => 'matches-logo' %>
+				<%# image_tag 'fwb-logo-l.png', :id => 'matches-logo' %>
 			</div>
 			<%= render 'shared/purchase' %>
 

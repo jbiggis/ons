@@ -8,150 +8,17 @@ html, body, div, span, object, iframe, h1, h2, h4, h5, h6, p, a, em, img, strong
 	outline: none;
 }
 
-#about p {
-line-height:18pt;
 
-}
-
-#tos p, #pp p {
-line-height:20pt;
-margin:16px 0;
-}
-
-#faq p {
-margin:10px 0;
-}
-
-#faq .separator{
-padding:10px 0;
-}
-
-#faq .link {
-color:#e63028;
-}
-
-#tos li {
-line-height:22pt;
-margin:10px 0;
-}
-
-#tos b {
-
-}
-
-#about .link {
-color:#e63028;
-margin-right:3px;
-}
-
-#about .two {
-margin-left:3px;
-}
-
-
-#curtain {
-background:black;
-opacity:0.6;
-position:fixed;
-top:0;
-width:100%;
-height:100%;
-z-index:10;
-}
-
-#invite-form {
-
-position:fixed;
-width:350px;
-height:330px;
-background:red;
-top:50%;
-left:50%;
-margin-top:-150px;
-margin-left:-200px;
-z-index:20;
-border-radius:15px;
-padding:20px;
-background:white;
-font-size:14pt;
-}
-
-.handle {
-height:40px;
-padding-top:20px;
-}
-
-.handle .title{
-
-font-weight:bold;
-font-size:16pt;
-margin-left:10px;
-
-}
-
-#purchase .handle .title{
-
-margin-left:20px;
-
-}
-
-.close-icon {
-float:right;
-margin-top:-32px;
-margin-right:-12px;
-
-}
-
-.popup-content {
-clear:both;
-margin-top:20px;
-margin-left:10px;
-}
-
-label {
-clear:both;
-margin:10px;
-}
-
-input {
-margin:10px;
-}
-
-input#name, input#email {
-width:300px;
-height:30px;
-font-size:14pt;
-padding-left:6px;
-
-}
-
-#invite-content p {
-font-size:10pt;
-font-style:italic;
-margin-left:10px;
-}
-
-input#invite-btn-submit {
-padding:6px 10px ;
-margin-right:22px;
-background:#22b24b;
-color:white;
-border-radius:5px;
-font-size:14pt;
-font-weight:bold;
-float:right;
-
-}
 body {
 margin:0;
 font-family:arial, sans-serif;
-background:#e63028;
-
+background:black;
 height:52px;
 color:black;
-background:#e63028 ;
+
 padding-top:4px;
 }
+
 
 #header{
 
@@ -204,6 +71,25 @@ overflow:hidden;
 
 }
 
+#trailer-link {
+width:259px;
+height:36px;
+background: url('../images/trailer-btn.jpg');
+color:white;
+font-weight:bold;
+font-size:10pt;
+text-align:center;
+padding-top:8px;
+}
+
+#trailer-link p {
+margin-left:20px;
+}
+
+#trailer-link:hover {
+background-position:0 44px;
+}
+
 #twit-share {
 float:left;
 width:80px;
@@ -220,7 +106,7 @@ margin-right:20px;
 
 
 #wrapper {
-background:white;
+
 padding-top:20px;
 
 width:100%;
@@ -231,7 +117,7 @@ width:100%;
 #content {
 width:960px;
 margin:0 auto 0 auto;
-background:white;
+
 
 }
 
@@ -248,11 +134,25 @@ font-weight:bold;
 font-size:18pt;
 }
 
+#landing-logo-wrapper {
+width:595px;
+margin:0 auto;
+}
 
+#landing-logo {
+
+
+}
+
+#landing #fb-login-wrapper {
+margin:0 auto;
+width:108px;
+}
 
 #landing .content {
 clear:both;
 width:960px;
+
 
 }
 
@@ -271,7 +171,7 @@ margin-bottom:-10px;
 #how-it-works-landing {
 width:670px;
 
-background:#f7f7f7;
+background:white;
 border-radius:15px;
 -moz-border-radius:15px;
 -webkit-border-radius:15px;
@@ -308,7 +208,7 @@ margin-bottom:20px;
 #how-it-works {
 width:880px;
 clear:both;
-background:#f2f2f2;
+background:white;
 height:140px;
 border-radius:15px;
 -moz-border-radius:15px;
@@ -341,7 +241,7 @@ margin-bottom:10px;
 #matches {
 clear:both;
 width:890px;
-background:#e63028;
+background:#ff7800;
 background-position:830px 10px;
 border-radius:15px;
 -moz-border-radius:15px;
@@ -401,7 +301,7 @@ float:left;
 
 
 .purchase-keys-btn {
-background:#22b24b;
+background:#5d76aa;
 border-radius:5px;
 width:126px;
 height:25px;
@@ -473,7 +373,7 @@ font-size:15pt;
 }
 */
 #reveal-btn {
-color:#e63028;
+color:#ff7800;
 position:absolute;
 left:68px;
 top:12px;
@@ -484,7 +384,7 @@ font-size:14pt;
 .unrevealed {
 text-align:center;
 position:relative;
-color:#e63028;
+color:#ff7800;
 font-size:14pt;
 }
 
@@ -532,11 +432,10 @@ width:220px;
 height:60px;
 margin:6px;
 padding:4px;
-/*background:#f7f7f7;*/
 border-radius:5px;
 -moz-border-radius:5px;
 -webkit-border-radius:5px;
-background:#e63028 url('../images/fwb-icon-40.png') no-repeat !important;
+background:#ff7800 !important;
 background-position: 180px 28px !important;
 
 font-weight:bold;
@@ -554,7 +453,7 @@ height:60px;
 margin:6px;
 padding:4px;
 position:relative;
-background:#f7f7f7;
+background:white;
 border-radius:5px;
 -moz-border-radius:5px;
 -webkit-border-radius:5px;
@@ -579,7 +478,7 @@ float:left;
 
 
 .selected {
-background:#e63028 url('../images/fwb-icon-40.png') no-repeat !important;
+background:#ff7800 !important;
 background-position: 180px 28px !important;
 
 }
@@ -607,7 +506,7 @@ margin-top:20px;
 #invites {
 width:960px;
 clear:both;
-background:#f2f2f2;
+background:white;
 height:100px;
 border-radius:15px;
 -moz-border-radius:15px;
@@ -635,7 +534,7 @@ left:410px;
 position:absolute;
 top:45px;
 right:40px;
-color:#e63028;
+color:#ff7800;
 font-size:10pt;
 }
 
@@ -702,7 +601,7 @@ padding-left:20px;
 #purchase .buy-btns {
 width:100px;
 float:left;
-color:#e63028;
+color:#ff7800;
 padding-top:20px;
 }
 */
@@ -831,13 +730,18 @@ color:black;
 
 .friends-header {
 margin:20px 0 16px 14px;
+color:white;
+}
+
+.friends-header a {
+color:white;
 }
 
 .friends-header .title {
 font-weight:bold;
 }
-.show-all-btn {
-color:#e63028;
+a.show-all-btn {
+color:#ff7800 ;
 font-weight:bold;
 }
 
@@ -864,7 +768,7 @@ margin-right:10px;
 }
 
 .fb-share2 a {
-color:#e63028;
+color:#ff7800;
 margin-right:4px;
 }
 
@@ -885,7 +789,7 @@ clear:both;
 
 #footer {
 clear:both;
-background:#e63028 ;
+background:black;
 color:white;
 overflow:hidden;
 padding:10px;
@@ -940,6 +844,145 @@ text-decoration:none;
 color:red;
 }
 
+
+
+#about p {
+line-height:18pt;
+
+}
+
+#tos p, #pp p {
+line-height:20pt;
+margin:16px 0;
+}
+
+#faq p {
+margin:10px 0;
+}
+
+#faq .separator{
+padding:10px 0;
+}
+
+#faq .link {
+color:#ff7800;
+}
+
+#tos li {
+line-height:22pt;
+margin:10px 0;
+}
+
+#tos b {
+
+}
+
+#about .link {
+color:#ff7800;
+margin-right:3px;
+}
+
+#about .two {
+margin-left:3px;
+}
+
+
+#curtain {
+background:black;
+opacity:0.6;
+position:fixed;
+top:0;
+width:100%;
+height:100%;
+z-index:10;
+}
+
+#invite-form {
+
+position:fixed;
+width:350px;
+height:330px;
+background:red;
+top:50%;
+left:50%;
+margin-top:-150px;
+margin-left:-200px;
+z-index:20;
+border-radius:15px;
+padding:20px;
+background:white;
+font-size:14pt;
+}
+
+.handle {
+height:40px;
+padding-top:20px;
+}
+
+.handle .title{
+
+font-weight:bold;
+font-size:16pt;
+margin-left:10px;
+
+}
+
+#purchase .handle .title{
+
+margin-left:20px;
+
+}
+
+.close-icon {
+float:right;
+margin-top:-32px;
+margin-right:-12px;
+
+}
+
+.popup-content {
+clear:both;
+margin-top:20px;
+margin-left:10px;
+}
+
+label {
+clear:both;
+margin:10px;
+}
+
+input {
+margin:10px;
+}
+
+input#name, input#email {
+width:300px;
+height:30px;
+font-size:14pt;
+padding-left:6px;
+
+}
+
+#invite-content p {
+font-size:10pt;
+font-style:italic;
+margin-left:10px;
+}
+
+input#invite-btn-submit {
+padding:6px 10px ;
+margin-right:22px;
+background:#22b24b;
+color:white;
+border-radius:5px;
+font-size:14pt;
+font-weight:bold;
+float:right;
+
+}
+
+
+
 #curtain, #purchase, #invite-form, #what-are-keys, #what-are-invites {
 display:none;
 }
@@ -952,4 +995,9 @@ color:black;
 padding:100px;
 border:1px black;
 }
+
+
+
+
+
 
