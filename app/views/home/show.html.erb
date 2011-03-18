@@ -5,14 +5,14 @@
 
 		<% if !signed_in? %>
 			<div id = 'landing'>
-				<div id='tagline'>
-					<!--Some friends are more than just friends.-->
-				</div>
+				<!--<div id='tagline'>
+					Some friends are more than just friends.
+				</div>-->
 				<div class='content'>
 
 					<a href='http://fwb-movie.com/' target= '_blank'>
 						<div id='trailer-link'>
-							<p>Watch the Offical<br/> Movie Trailer</p>
+							<p>Watch the Offical<br/>FWB Movie Trailer</p>
 						</div>
 					</a>
 
@@ -63,19 +63,33 @@
 <%= render 'shared/account_nav' %>
 </div>
 
+			<div id='intro-line'>
+				<!--<span class='one'>Have a friend in mind you'd like to be FWB with,</span>-->
+				<!--<span class='one'>Want to be FWB with a friend,</span>-->
+				<span class='one'>Have someone you'd like to be FWB with,</span>
+				<br/>
+				<span class='two'>but not sure if they feel the same about you?</span>
+				<br/>
+				<span class='three'>We can help.</span>
+			</div>
+
+
 			<div id='how-it-works'>
 				<div class='content'>
-					<div>Have a friend in mind whom you'd like to be Friends with Benefits with, but don't know if they feel the same about you?  We are here to help.</div>
+
 					<div class='title'>
-						How It Works
+						The Rules
 					</div>
 					<ol>
-						<li>Pick a friend whom you'd like to be your FWB.</li>
-						<li>Use the 'Anonymous Invites' to invite the other person to play the game. </li>
-						<li>If your friend picks you back, you'll be notified.  You can then use a Key to reveal your FWB's identity and take the relationship to the next level.</li>
-						<li>You can pick as many friends as you want.</li>
-						<li>No picks will be revealed unless they pick you back. Your secret is safe with us.</li>
+						<li>Pick friends you'd like to be FWB with.</li>
+						<li>Use 'Anonymous Invites' to invite those friends to play the game. </li>
+						<li>If any of your friends pick you back, you'll be notified.</li>
+						<li>Use Keys to reveal their identities and take the relationships to the next level.</li>
+						
 					</ol>
+						No picks will be revealed unless they pick you back. Your secret is safe with us.
+
+
 				</div>		
 			</div>
 
@@ -105,7 +119,8 @@
 
 			<div id='invites'>			
 				<% invite_btn = image_tag 'invite-btn.png' %>
-				<%= link_to invite_btn, '#', :id => 'invite-btn' %>
+				<%# link_to invite_btn, '#', :id => 'invite-btn' %>
+				<div id='invite-btn'>Invite a Friend</div>
 				<div class='invites-count'>
 					You have <span class='invites-left'><%= pluralize(current_hunter.invites, 'anonymous invite')%></span> left.
 				</div>

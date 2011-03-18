@@ -32,7 +32,7 @@ color:black;
 #account-nav{
 width:960px;
 height:50px;
-margin:0 auto 0 auto;
+margin:0 auto 20px auto;
 
 }
 
@@ -80,6 +80,10 @@ font-weight:bold;
 font-size:10pt;
 text-align:center;
 padding-top:8px;
+margin:40px 0 60px 0;
+position:absolute;
+right:100px;
+top:40px;
 }
 
 #trailer-link p {
@@ -135,8 +139,9 @@ font-size:18pt;
 }
 
 #landing-logo-wrapper {
-width:595px;
-margin:0 auto;
+width:570px;
+margin:160px auto 40px;;
+height:224px;
 }
 
 #landing-logo {
@@ -145,7 +150,7 @@ margin:0 auto;
 }
 
 #landing #fb-login-wrapper {
-margin:0 auto;
+margin:0 auto 60px;
 width:108px;
 }
 
@@ -167,6 +172,10 @@ padding-top:10px;
 margin:0 ;
 margin-bottom:-10px;
 }
+
+
+/************************************ HOW IT WORKS LANDING ************************************/
+
 
 #how-it-works-landing {
 width:670px;
@@ -199,22 +208,44 @@ margin-bottom:20px;
 
 
 
+/************************************ HOW IT WORKS ************************************/
 
-.selected a, .selected a:visited {
+#intro-line {
+text-align:center;
+font-size:24pt;
+margin-bottom:40px;
+margin-top:40px;
+padding:20px;
+color:white;
+display:none;
+}
+
+#intro-line .one, #intro-line .two, #intro-line .three{
+
 
 
 }
 
+#intro-line .two, #intro-line .three {
+margin-top:-10px;
+}
+
+
 #how-it-works {
-width:880px;
+width:680px;
 clear:both;
-background:white;
-height:140px;
+background:black;
+
+color:white;
+height:200px;
+font-size:14pt;
+/*
 border-radius:15px;
 -moz-border-radius:15px;
 -webkit-border-radius:15px;
+*/
 padding:2px 40px 0 40px;
-
+margin:140px auto 220px;
 
 }
 
@@ -236,19 +267,26 @@ margin-bottom:2px;
 font-weight:bold;
 margin-top:20px;
 margin-bottom:10px;
+font-size:16pt;
 }
+
+
+/************************************ MATCHES ************************************/
+
 
 #matches {
 clear:both;
 width:890px;
 background:#ff7800;
 background-position:830px 10px;
+/*
 border-radius:15px;
 -moz-border-radius:15px;
 -webkit-border-radius:15px;
+*/
 padding:20px 30px 30px 40px;
 overflow:hidden;
-color:white;
+color:black;
 min-height:100px;
 position:relative;
 margin-top:20px;
@@ -263,7 +301,7 @@ right:10px;
 
 #matches .header {
 height:40px;
-color:white;
+
 
 }
 
@@ -274,6 +312,10 @@ margin-bottom:16px;
 float:left;
 width:280px;
 }
+
+
+/************************************ KEYS ************************************/
+
 
 #keys {
 
@@ -301,7 +343,8 @@ float:left;
 
 
 .purchase-keys-btn {
-background:#5d76aa;
+/*background:#5d76aa;*/
+background:black;
 border-radius:5px;
 width:126px;
 height:25px;
@@ -506,7 +549,7 @@ margin-top:20px;
 #invites {
 width:960px;
 clear:both;
-background:white;
+color:white;
 height:100px;
 border-radius:15px;
 -moz-border-radius:15px;
@@ -606,7 +649,7 @@ padding-top:20px;
 }
 */
 #purchase .btn-wrapper {
-background:#22b24b;
+/*background:#22b24b;*/
 height:24px;
 width:90px;
 padding:10px 20px;
