@@ -10,11 +10,19 @@
 				</div>
 				<div class='content'>
 
-<a href='http://fwb-movie.com/' target= '_blank'><div id='trailer-link'><p>Watch the Offical<br/> Movie Trailer</p></div></a>
-<div id='landing-logo-wrapper'>
-<%= image_tag 'landing-logo.png', :id => 'landing-logo' %>
-</div>
-<div id ='fb-login-wrapper'><fb:login-button perms="email" size ='xlarge'>Play</fb:login-button></div>
+					<a href='http://fwb-movie.com/' target= '_blank'>
+						<div id='trailer-link'>
+							<p>Watch the Offical<br/> Movie Trailer</p>
+						</div>
+					</a>
+
+					<div id='landing-logo-wrapper'>
+						<%= image_tag 'landing-logo.png', :id => 'landing-logo' %>
+					</div>
+
+					<div id ='fb-login-wrapper'>
+						<fb:login-button perms="email" size ='xlarge'>Play</fb:login-button>
+					</div>
 
 <!--					
 					<div class='img'>
@@ -57,13 +65,16 @@
 
 			<div id='how-it-works'>
 				<div class='content'>
+					<div>Have a friend in mind whom you'd like to be Friends with Benefits with, but don't know if they feel the same about you?  We are here to help.</div>
 					<div class='title'>
 						How It Works
 					</div>
 					<ol>
-						<li>Choose friends in your network whom you'd like to be Friends with Benefits with.</li>
-						<li>If your friends choose you back, they will show up in the 'Your Friends with Benefits' box. </li>
-						<li>Use Keys to reveal their identities and take those relationships to the next level</li>
+						<li>Pick a friend whom you'd like to be your FWB.</li>
+						<li>Use the 'Anonymous Invites' to invite the other person to play the game. </li>
+						<li>If your friend picks you back, you'll be notified.  You can then use a Key to reveal your FWB's identity and take the relationship to the next level.</li>
+						<li>You can pick as many friends as you want.</li>
+						<li>No picks will be revealed unless they pick you back. Your secret is safe with us.</li>
 					</ol>
 				</div>		
 			</div>
@@ -149,7 +160,6 @@
 				<span> | </span>
 				<a href='#' class='show-selected-btn'>Selected Friends Only</a>	
 				<% fb_share2 = image_tag 'fb_share2.png', :width => '200', :id => 'fb-share2' %>	
-			<!--	<span class='fb-share2'><a href='http://www.facebook.com/dialog/feed?app_id=202763786417566&link=http://friends-with-benefits.me&picture=http://friends-with-benefits.me/images/fwb-icon.png&name=Friends%20with%20Benefits&caption=Friends-with-Benefits.me&description=Find%20out%20which%20of%20your%20friends%20wants%20you%20to%20be%20more%20than%20just%20a%20friend!&redirect_uri=http://friends-with-benefits.me'>Share this app</a> with your friends to see if they pick you back!</span> -->
 			</div>
 			
 		
