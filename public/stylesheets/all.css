@@ -33,6 +33,12 @@ color:black;
 width:960px;
 height:50px;
 margin:0 auto 20px auto;
+position:fixed;
+top:0;
+z-index:1;
+padding-top:4px;
+padding-bottom:4px;
+background:black;
 
 }
 
@@ -271,6 +277,34 @@ font-size:16pt;
 }
 
 
+#play-btn {
+
+width:100px;
+height:22px;
+border-radius:5px;
+background:#ff7800;
+color:white;
+padding-top:4px;
+text-align:center;
+font-size:12pt;
+font-weight:bold;
+position:absolute;
+bottom:140px;
+right:380px;
+}
+
+#play-btn:hover {
+background:#ffbf00;
+}
+
+
+.spacer-1 {
+height:600px;
+}
+
+#jump-to {
+height:80px;
+}
 /************************************ MATCHES ************************************/
 
 
@@ -475,9 +509,11 @@ width:220px;
 height:60px;
 margin:6px;
 padding:4px;
+/*
 border-radius:5px;
 -moz-border-radius:5px;
 -webkit-border-radius:5px;
+*/
 background:#ff7800 !important;
 background-position: 180px 28px !important;
 
@@ -496,10 +532,13 @@ height:60px;
 margin:6px;
 padding:4px;
 position:relative;
-background:white;
+background:black;
+color:white;
+/*
 border-radius:5px;
 -moz-border-radius:5px;
 -webkit-border-radius:5px;
+*/
 }
 
 div img {
@@ -515,6 +554,7 @@ margin-top:4px;
 width:150px;
 height:50px;
 float:left;
+color:white;
 
 }
 
@@ -564,7 +604,19 @@ position:relative;
 position:absolute;
 top:10px;
 left:30px;
+background:#111111;
+width:220px;
+height:40px;
+font-weight:bold;
+text-align:center;
+padding-top:20px;
+border-radius:5px;
 }
+
+#invite-btn:hover {
+background:gray;
+}
+
 
 .invites-count {
 font-size:20pt;
@@ -821,7 +873,7 @@ min-height:412px;
 }
 
 .spacer {
-height:20px;
+height:80px;
 clear:both;
 }
 
