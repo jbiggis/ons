@@ -12,7 +12,7 @@
 
 
 			<div class='keys-count'>						
-				<%= image_tag 'key.png'%>
+				<%= image_tag 'key.png', :alt => 'Number of Keys left'%>
 				<div class='count'>			
 					<% if @keys>@count %>
 						<%= (@keys-@count).to_s %>
