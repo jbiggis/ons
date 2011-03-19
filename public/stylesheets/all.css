@@ -61,15 +61,34 @@ padding-left:20px;
 
 #header .fb-share {
 float:left;
-margin:-14px 10px 0 12px;
+
+margin:0px 20px 0 102px;
+
 }
 
 #fb-like {
 float:left;
 width:50px;
-margin-right:10px;
+margin:4px 24px 0 0;
 overflow:hidden;
 }
+
+
+#twit-share {
+float:left;
+width:80px;
+margin:4px 20px 0 0;
+overflow:hidden;
+}
+
+#fb-login {
+
+float:right;
+margin:4px 20px 0 0;
+}
+
+
+
 
 #trailer-link {
 width:259px;
@@ -94,17 +113,6 @@ margin-left:20px;
 background-position:0 44px;
 }
 
-#twit-share {
-float:left;
-width:80px;
-
-overflow:hidden;
-}
-
-#fb-login {
-float:right;
-margin-right:20px;
-}
 
 #wrapper {
 padding-top:20px;
@@ -222,7 +230,7 @@ margin-top:-10px;
 width:680px;
 clear:both;
 background:black;
-
+position:relative;
 color:white;
 height:200px;
 font-size:14pt;
@@ -270,8 +278,8 @@ text-align:center;
 font-size:12pt;
 font-weight:bold;
 position:absolute;
-bottom:140px;
-right:380px;
+bottom:-100px;
+right:80px;
 }
 
 #play-btn:hover {
@@ -507,16 +515,20 @@ clear:both;
 
 div.match {
 float:left;
-width:220px;
+width:205px;
 height:60px;
 margin:6px;
 padding:4px;
-background:white;
-border-radius:5px;
--moz-border-radius:5px;
--webkit-border-radius:5px;
+background:black;
+border-radius:4px;
+
 }
 
+.match .name {
+color:#ff7800;
+font-weight:bold;
+width:136px;
+}
 
 
 div.target {
@@ -537,8 +549,8 @@ font-weight:bold;
 }
 
 div.target .name {
-color:white;
-width:100px;
+color:black;
+width:150px;
 }
 
 div.friend {
@@ -566,9 +578,9 @@ margin-right:9px;
 }
 
 .name {
-margin-top:4px;
+margin-top:5px;
 width:150px;
-height:50px;
+height:51px;
 float:left;
 color:white;
 
@@ -583,9 +595,10 @@ background-position: 180px 28px !important;
 }
 
 .selected .name {
-color:white;
+color:black;
 font-weight:bold;
-width:100px;
+width:150px;
+
 }
 
 .selected img {
@@ -619,8 +632,8 @@ position:relative;
 
 
 #invite-btn {
-margin-top:-30px;
-
+margin-top:-26px;
+margin-right:5px;
 color:white;
 float:right;
 background:black;
@@ -993,7 +1006,7 @@ color:black;
 
 
 .friends-header {
-margin:60px 0 46px 14px;
+margin:60px 0 46px 5px;
 color:white;
 }
 
@@ -1001,9 +1014,7 @@ color:white;
 color:white;
 }
 
-.friends-header .title {
-font-weight:bold;
-}
+
 a.show-all-btn {
 color:#ff7800 ;
 font-weight:bold;
