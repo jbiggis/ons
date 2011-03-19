@@ -5,6 +5,12 @@
 		</div>
 
 		<div id='keys'>
+
+			<div class='purchase-keys-btn'>
+				<%= link_to 'Purchase Keys', '#', :id => 'purchase-link' %>
+			</div>
+
+
 			<div class='keys-count'>						
 				<%= image_tag 'key.png'%>
 				<div class='count'>			
@@ -16,11 +22,14 @@
 					<%#= (@keys>@count)?(@keys-@count):'0' %>
 				</div>
 			</div>
-			<%= link_to "What's this?", '#', :id => 'what-are-keys-link' %>
+	
+			<!--
 
-			<div class='purchase-keys-btn'>
-				<%= link_to 'Purchase Keys', '#', :id => 'purchase-link' %>
-			</div>
+				<%= link_to "What's this?", '#', :id => 'what-are-keys-link' %>
+			
+			-->
+
+
 		</div>
 	</div> 
 

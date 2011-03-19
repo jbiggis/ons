@@ -124,24 +124,31 @@
 					<p>Keys will automatically be used to unlock any of your Friends with Benefits that have not yet been unlocked, any surplus is indicated by the number next to the Key icon.</p>
 				</div>
 			</div>
+<!--
 
-
-			<div id='invites'>			
+			<div id='invites'>
+				
+						
 				<div class='invites-count'>
 					You have <span class='invites-left'><%= pluralize(current_hunter.invites, 'anonymous invite')%></span> left.
 				</div>
-				<%= link_to "What's this?", '#', :id => 'what-are-invites-link' %>
-				<div id='invite-btn'>Invite a Friend</div>
+			
+				
+					<%= link_to "What's this?", '#', :id => 'what-are-invites-link' %>
+
+				
+					<a href="#"><div id='invite-btn'>Invite a Friend</div></a>
+				
 			</div>
 
 			<div id='what-are-invites'>
 				<div id='what-are-invites-handle' class = 'handle'>
 					<span class='title'>What are anonymous invites?</span>
 
-					<!--
+					
 					<% cross = image_tag 'close-icon.png', :width => '22px'%>
 					<%= link_to cross, '#', :id => 'what-are-invites-close',:class => 'close-icon' %>	
-					-->
+					
 						
 				</div>
 				<div id='what-are-invites-content' class='popup-content'>
@@ -152,15 +159,15 @@
 					<p>Send them an anonymous invitation to join friends-with-benefits.me now!</p>
 				</div>
 			</div>
-
+-->
 			<div id='invite-form'>
 				<div id='invite-handle' class = 'handle'>
 				<span class='title'>Invite a friend anonymously</span>
 				
-					<!--
+				<!--
 					<% cross = image_tag 'close-icon.png', :width => '22px'%>
 					<%= link_to cross, '#', :id => 'invite-close',:class => 'close-icon' %>					
-					-->				
+				-->				
 	
 				</div>
 				<div id='invite-content' class='popup-content'>
@@ -174,8 +181,17 @@
 						<%= text_field_tag :email %><br />
 
 						<p>*Names and emails are used for this one-time purpose only and they will not be stored.</p>
-						<%= submit_tag 'Send', :id => 'invite-btn-submit'%>
+
+						<div class='actions'>
+							<%= submit_tag 'Send', :id => 'invite-btn-submit'%>
+							<%= link_to 'View Sample', '#', :id => 'view-email-sample' %>
+						</div>						
+
+
 					<% end %>
+				<div class='invites-count'>
+					You have <span class='invites-left'><%= pluralize(current_hunter.invites, 'anonymous invite')%></span> left.
+				</div>
 				</div>
 			</div>
 
@@ -189,6 +205,10 @@
 				<span> | </span>
 				<a href='#' class='show-selected-btn'>Selected Friends Only</a>	
 				<% fb_share2 = image_tag 'fb_share2.png', :width => '200', :id => 'fb-share2' %>	
+
+			<a href="#"><div id='invite-btn'>Send an Anonymous Invite</div></a>
+
+
 			</div>
 			
 		
