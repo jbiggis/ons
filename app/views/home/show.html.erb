@@ -123,13 +123,11 @@
 
 
 			<div id='invites'>			
-				<% invite_btn = image_tag 'invite-btn.png' %>
-				<%# link_to invite_btn, '#', :id => 'invite-btn' %>
-				<div id='invite-btn'>Invite a Friend</div>
 				<div class='invites-count'>
 					You have <span class='invites-left'><%= pluralize(current_hunter.invites, 'anonymous invite')%></span> left.
 				</div>
 				<%= link_to "What's this?", '#', :id => 'what-are-invites-link' %>
+				<div id='invite-btn'>Invite a Friend</div>
 			</div>
 
 			<div id='what-are-invites'>
