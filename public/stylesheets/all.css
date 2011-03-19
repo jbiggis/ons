@@ -8,20 +8,17 @@ html, body, div, span, object, iframe, h1, h2, h4, h5, h6, p, a, img,  u, i, dl,
 	outline: none;
 }
 
-
 body {
 margin:0;
 font-family:arial, sans-serif;
 background:black;
 height:52px;
 color:black;
-
 padding-top:4px;
 }
 
 
 #header{
-
 /*margin-bottom:20px;*/
 }
 
@@ -60,13 +57,11 @@ margin-left: -8px;
 #share {
 padding-top:14px;
 padding-left:20px;
-
 }
 
 #header .fb-share {
 float:left;
 margin:-14px 10px 0 12px;
-
 }
 
 #fb-like {
@@ -74,7 +69,6 @@ float:left;
 width:50px;
 margin-right:10px;
 overflow:hidden;
-
 }
 
 #trailer-link {
@@ -108,27 +102,18 @@ overflow:hidden;
 }
 
 #fb-login {
-
 float:right;
 margin-right:20px;
 }
 
-
-
 #wrapper {
-
 padding-top:20px;
-
 width:100%;
 }
-
-
 
 #content {
 width:960px;
 margin:0 auto 0 auto;
-
-
 }
 
 .clear {
@@ -151,8 +136,6 @@ height:224px;
 }
 
 #landing-logo {
-
-
 }
 
 #landing #fb-login-wrapper {
@@ -163,8 +146,6 @@ width:108px;
 #landing .content {
 clear:both;
 width:960px;
-
-
 }
 
 #landing .img {

@@ -10,19 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110316100503) do
+ActiveRecord::Schema.define(:version => 20110319174439) do
 
   create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0
-    t.integer  "attempts",   :default => 0
-    t.text     "handler"
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "priority",   :default => 0
+    t.integer   "attempts",   :default => 0
+    t.text      "handler"
+    t.text      "last_error"
+    t.timestamp "run_at"
+    t.timestamp "locked_at"
+    t.timestamp "failed_at"
+    t.string    "locked_by"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
@@ -38,34 +38,34 @@ ActiveRecord::Schema.define(:version => 20110316100503) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "keys",         :default => 0, :null => false
-    t.integer  "invites",      :default => 5, :null => false
     t.datetime "last_login"
     t.integer  "login_count",  :default => 0, :null => false
+    t.integer  "invites_sent", :default => 0
   end
 
   add_index "hunters", ["hunter_id"], :name => "index_hunters_on_hunter_id", :unique => true
 
   create_table "orders", :id => false, :force => true do |t|
-    t.string   "order_id",              :null => false
-    t.string   "hunter_id",             :null => false
-    t.string   "product_id",            :null => false
-    t.string   "status"
-    t.string   "message"
-    t.boolean  "refund_funding_source"
-    t.string   "refund_reason"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "order_id",              :null => false
+    t.string    "hunter_id",             :null => false
+    t.string    "product_id",            :null => false
+    t.string    "status"
+    t.string    "message"
+    t.boolean   "refund_funding_source"
+    t.string    "refund_reason"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "orders", ["order_id"], :name => "index_orders_on_order_id", :unique => true
 
   create_table "products", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "price"
-    t.integer  "keys_to_add"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "title"
+    t.text      "description"
+    t.integer   "price"
+    t.integer   "keys_to_add"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "targets", :force => true do |t|
