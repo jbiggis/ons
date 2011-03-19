@@ -160,38 +160,56 @@
 				</div>
 			</div>
 -->
-			<div id='invite-form'>
-				<div id='invite-handle' class = 'handle'>
-				<span class='title'>Invite a friend anonymously</span>
-				
-				<!--
-					<% cross = image_tag 'close-icon.png', :width => '22px'%>
-					<%= link_to cross, '#', :id => 'invite-close',:class => 'close-icon' %>					
-				-->				
-	
-				</div>
-				<div id='invite-content' class='popup-content'>
+			<div id='invite-box'>
+				<div id='invite-form'>
+					<div id='invite-handle' class = 'handle'>
+						<span class='title'>Invite a friend anonymously</span>
+						<!--
+							<% cross = image_tag 'close-icon.png', :width => '22px'%>
+							<%= link_to cross, '#', :id => 'invite-close',:class => 'close-icon' %>					
+						-->				
+					</div>
+					<div id='invite-content' class='popup-content'>
 
-					<%= form_tag invite_path, :remote => true do %>
+						<%= form_tag invite_path, :remote => true do %>
 					
-						<%= label_tag :name, "Your friend's name"%><br />
-						<%= text_field_tag :name %><br />
+							<%= label_tag :name, "Your friend's name"%><br />
+							<%= text_field_tag :name %><br />
 
-						<%= label_tag :email, "Your friend's email" %><br />
-						<%= text_field_tag :email %><br />
+							<%= label_tag :email, "Your friend's email" %><br />
+							<%= text_field_tag :email %><br />
 
-						<p>*Names and emails are used for this one-time purpose only and they will not be stored.</p>
+							<p>*Names and emails are used for this one-time purpose only and they will not be stored.</p>
 
-						<div class='actions'>
-							<%= submit_tag 'Send', :id => 'invite-btn-submit'%>
-							<%= link_to 'View Sample', '#', :id => 'view-email-sample' %>
-						</div>						
+							<div class='actions'>
+								<%= submit_tag 'Send', :id => 'invite-btn-submit'%>
+								<%= link_to 'View Sample', '#', :id => 'view-sample-email-link' %>
+							</div>						
 
 
-					<% end %>
-				<div class='invites-count'>
-					You have <span class='invites-left'><%= pluralize(current_hunter.invites, 'anonymous invite')%></span> left.
+						<% end %>
+					<!--
+						<div class='invites-count'>
+							You have <span class='invites-left'><%= pluralize(current_hunter.invites, 'anonymous invite')%></span> left.
+						</div>
+					-->
+
+					</div>
 				</div>
+				<div id='sample-email'>
+					<div id='invite-handle' class = 'handle'>
+						<span class='title'>Sample Email</span>
+					</div>
+
+					<p>Hey (Name),</p>
+					<br/>
+					<p>One of your Facebook friends has invited you to play <em>The Friends with Benefits Game</em>!</p>
+					<br/>
+					<p>Play it on fwb-game.com.</p>
+					<br/>
+					<p id='signature'><em>The FWB-game Team</em></p>
+
+				<%= link_to 'Back', '#', :id => 'view-invite-form-link'%>				
 				</div>
 			</div>
 

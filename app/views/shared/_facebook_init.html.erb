@@ -178,7 +178,7 @@
 
 		$('#curtain').live('click', function(e) {
 			$('#purchase').hide();
-			$('#invite-form').hide();
+			$('#invite-box').hide();
 			$('#what-are-keys').hide();
 			$('#what-are-invites').hide();	
 			$('#curtain').hide();
@@ -225,22 +225,23 @@
 
 
 		// Invitation form functions
-		$('#invite-form').hide();
+		$('#invite-box').hide();
 		$('#curtain').hide();
 
 		$('#invite-btn').live('click', function(e) {
-			invites_left = parseInt($('.invites-left').html());
-			if (invites_left > 0) {
-				$('#invite-form').show();
+//			invites_left = parseInt($('.invites-left').html());
+
+//			if (invites_left > 0) {
+				$('#invite-box').show();
 				$('#curtain').show();
 				e.preventDefault();
-			} else {
-				alert("You're out of invites!");
-			}
+//			} else {
+//				alert("You're out of invites!");
+//			}
 		});
 
 		$('#invite-close').live('click',function(e) {
-			$('#invite-form').hide();
+			$('#invite-box').hide();
 			$('#curtain').hide();
 			e.preventDefault();
 		});
@@ -250,7 +251,7 @@
 			success: function(){
 				$('input#email').val("");
 				$('input#name').val("");
-				$('#invite-form').hide();
+				$('#invite-box').hide();
 				$('#curtain').hide();
 				minusInvite();
 			},
@@ -311,6 +312,40 @@
 			$('#targets').hide();
 			e.preventDefault();
 		});
+	
+		//$('sample-email').hide();
+		$('#view-sample-email-link').click(function(e) {
+			e.preventDefault();
+			$('#invite-form').fadeOut('slow');
+			$('#invite-box').animate(
+				{
+					width: '560px',	
+					height: '340px',
+					marginTop: '-170px',
+					marginLeft: '-280px'
+				}, 800, function() {
+					$('#sample-email').fadeIn('slow');
+				}
+			);
+		});
+
+		$('#view-invite-form-link').click(function(e) {
+			e.preventDefault();
+			$('#sample-email').fadeOut('slow');
+			$('#invite-box').animate(
+				{
+					width: '390px',	
+					height: '400px',
+					marginTop: '-200px',
+					marginLeft: '-180px'
+
+				}, 800, function() {
+					$('#invite-form').fadeIn('slow');
+				}
+			);
+		});
+
+
 
 	});
 
