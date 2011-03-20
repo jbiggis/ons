@@ -26,6 +26,23 @@ class SessionsController < ApplicationController
 		end	
 		#####
 
+		## If existing user
+		if hunter = Hunter.find_by_hunter_id(sess[:uid].to_s)
+
+			login_count = hunter.login_count + 1
+			hunter.update_attributes(:login_count => login_count, :last_login => Time.now)
+
+		## First time user
+		else	
+			user_params = params[:user]
+
+			Hunter.create(:hunter_id => user_params[:id].to_s, :email => user_params[:email], :first_name => user_params[:first_name], :last_name => user_params[:last_name], :gender => user_params[:gender], :login_count => 1, :last_login => Time.now)
+		end
+
+		render :text => :nothing
+		#		redirect_to root_url
+
+=begin
 		## Check whether a facebook session already exists
 		if params[:status] == "connected"
 			user = Hash.new
@@ -52,8 +69,9 @@ class SessionsController < ApplicationController
 			hunter = Hunter.create(:hunter_id => user_id.to_s, :email => user[:email], :first_name => user[:first_name], :last_name => user[:last_name], :gender => user[:gender], :DOB => user[:birthday], :access_token => sess[:access_token], :login_count => 1, :last_login => Time.now)
 		end
 
-render :text => :nothing
-#		redirect_to root_url
+		render :text => :nothing
+=end
+
 	end
 
 	def destroy

@@ -449,8 +449,6 @@ font-size:14pt;
 color:white;
 }
 
-
-
 /*
 #reveal-btn {
 position:absolute;
@@ -489,12 +487,9 @@ color:#ff7800;
 font-size:14pt;
 }
 
-
 .unrevealed p {
 margin-top:8px;
 }
-
-
 
 #targets {
 clear:both;
@@ -506,12 +501,9 @@ height:1px;
 clear:both;
 }
 
-
 #friends {
 clear:both;
-
 }
-
 
 div.match {
 float:left;
@@ -573,8 +565,6 @@ div img {
 float:left;
 margin:5px;
 margin-right:9px;
-
-
 }
 
 .name {
@@ -583,10 +573,7 @@ width:150px;
 height:51px;
 float:left;
 color:white;
-
 }
-
-
 
 .selected {
 background:#ff7800 !important;
@@ -706,25 +693,17 @@ border: 12px solid rgba(0,0,0,0.3);
 border-radius:10px;
 -moz-border-radius:10px;
 -webkit-border-radius:10px;
-
-
 font-size:14pt;
 
-     -moz-background-clip: border;     /* Firefox 3.6 */
-        -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
-        background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-        -moz-background-clip: padding;     /* Firefox 3.6 */
-        -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-        background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-        -moz-background-clip: content;     /* Firefox 3.6 */
-        -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
-        background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-
-
-
+-moz-background-clip: border;     /* Firefox 3.6 */
+-webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+-moz-background-clip: padding;     /* Firefox 3.6 */
+-webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+-moz-background-clip: content;     /* Firefox 3.6 */
+-webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 
 }
 
@@ -866,21 +845,15 @@ border-radius:10px;
 -moz-border-radius:10px;
 -webkit-border-radius:10px;
 
-
-
- -moz-background-clip: border;     /* Firefox 3.6 */
-        -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
-        background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-        -moz-background-clip: padding;     /* Firefox 3.6 */
-        -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-        background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-        -moz-background-clip: content;     /* Firefox 3.6 */
-        -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
-        background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-
+-moz-background-clip: border;     /* Firefox 3.6 */
+-webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+-moz-background-clip: padding;     /* Firefox 3.6 */
+-webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+-moz-background-clip: content;     /* Firefox 3.6 */
+-webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 
 
@@ -918,21 +891,15 @@ border-radius:10px;
 -moz-border-radius:10px;
 -webkit-border-radius:10px;
 
-
-
- -moz-background-clip: border;     /* Firefox 3.6 */
-        -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
-        background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-        -moz-background-clip: padding;     /* Firefox 3.6 */
-        -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-        background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-        -moz-background-clip: content;     /* Firefox 3.6 */
-        -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
-        background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-
+-moz-background-clip: border;     /* Firefox 3.6 */
+-webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+-moz-background-clip: padding;     /* Firefox 3.6 */
+-webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+-moz-background-clip: content;     /* Firefox 3.6 */
+-webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 
 #what-are-invites-handle {
@@ -1108,14 +1075,10 @@ text-decoration:line-through;
 color:black;
 }
 
-
-
 .promo {
 text-decoration:none;
 color:red;
 }
-
-
 
 #about p {
 line-height:18pt;
@@ -1145,7 +1108,6 @@ margin:10px 0;
 }
 
 #tos b {
-
 }
 
 #about .link {
@@ -1195,25 +1157,15 @@ border-radius:10px;
 -moz-border-radius:10px;
 -webkit-border-radius:10px;
 
-
-
- -moz-background-clip: border;     /* Firefox 3.6 */
-        -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
-        background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-        -moz-background-clip: padding;     /* Firefox 3.6 */
-        -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-        background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-        -moz-background-clip: content;     /* Firefox 3.6 */
-        -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
-        background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-
-
-
-
-
+-moz-background-clip: border;     /* Firefox 3.6 */
+-webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+-moz-background-clip: padding;     /* Firefox 3.6 */
+-webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+-moz-background-clip: content;     /* Firefox 3.6 */
+-webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 
 .handle {

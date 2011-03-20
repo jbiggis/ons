@@ -94,20 +94,18 @@
 			e.preventDefault();
 		});
 
+
 		FB.getLoginStatus(function(response) {
 
 			if (response.session) {
 
-				FB.api('/me', function(user) {
-					if(user != null) {
-
-						$.ajax({
-							type: 'POST',
-							url: '/sign_in',
-							data: response
-						});
-					}
-				});   	
+				if ((response.status) != 'connected'){
+					$.ajax({
+						type: 'POST',
+						url: '/sign_in',
+						data: response
+					});
+				}
 
 				$('#matches .content').load('targets/get_matches');
 				$('#targets').load('targets/get_targets');
@@ -115,28 +113,28 @@
 				FB.api('/me/friends', function(friends_obj) {
 					if(friends_obj != null) {
 
-							var divFriends = document.getElementById("friends");
+						var divFriends = document.getElementById("friends");
+					
+						var friends = friends_obj.data;
+						friends.sort(sort_by('name', false));
 						
-							var friends = friends_obj.data;
-							friends.sort(sort_by('name', false));
-							
-							for (var i=0; i < friends.length; i++)
+						for (var i=0; i < friends.length; i++)
 
-							{
-							
-								var divFriend = document.createElement("div");
-								divFriend.className = 'friend';
-								divFriend.innerHTML="<a class='friend " + friends[i].id+"' id='"+friends[i].id+"' name='"+friends[i].name+"' href='javascript;'><img src='http://graph.facebook.com/"+friends[i].id+"/picture'></img><div class='name'>"+friends[i].name+"</div></a>";
+						{
+						
+							var divFriend = document.createElement("div");
+							divFriend.className = 'friend';
+							divFriend.innerHTML="<a class='friend " + friends[i].id+"' id='"+friends[i].id+"' name='"+friends[i].name+"' href='javascript;'><img src='http://graph.facebook.com/"+friends[i].id+"/picture'></img><div class='name'>"+friends[i].name+"</div></a>";
 
-								divFriends.appendChild(divFriend);
-
-							}
-				
-						$('.highlight').load('targets/highlight');
+							divFriends.appendChild(divFriend);
 
 						}
+			
+						$('.highlight').load('targets/highlight');
 
-					}); 
+					}
+
+				}); 
 
 			} else {
 				//$.load("/sign_out");
