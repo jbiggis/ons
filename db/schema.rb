@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20110319174439) do
     t.integer  "keys",         :default => 0, :null => false
     t.datetime "last_login"
     t.integer  "login_count",  :default => 0, :null => false
-    t.integer  "invites_sent", :default => 0
+    t.integer  "invites_sent", :default => 0, :null => false
   end
 
   add_index "hunters", ["hunter_id"], :name => "index_hunters_on_hunter_id", :unique => true
