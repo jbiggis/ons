@@ -93,8 +93,8 @@ class FbController < ApplicationController
 	     		#		$item[$key] = 'http://'.$item[$key];
 	  		#	}
 			#}
-			item["product_url"] = "http://friends-with-benefits.me"
-			item["image_url"] = "http://friends-with-benefits.me/images/fwb-icon.png"
+			item["product_url"] = "http://fwb-game.com"
+			item["image_url"] = "http://fwb-game.com/images/icon.png"
    		item["item_id"] = order_info
 
 	  	# prefix test-mode
