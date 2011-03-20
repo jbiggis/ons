@@ -401,7 +401,7 @@ border:1px #555555 solid;
 	background: -moz-linear-gradient(
 		top,
 		#0a0a0a 0%,
-		#0a0a0a 45%
+		#0a0a0a 45%,
 		#1c1c1c 90%,
 		#2a2a2a);
 	background: -webkit-gradient(
@@ -652,7 +652,7 @@ border: 1px solid #404040;
 	background: -moz-linear-gradient(
 		top,
 		#000000 0%,
-		#050505 45%
+		#050505 45%,
 		#080808 90%,
 		#161616);
 	background: -webkit-gradient(
