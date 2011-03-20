@@ -240,19 +240,14 @@
 //			}
 		});
 
-		$('#invite-content').ajaxForm({
-			target: '#invite-btn-submit',
-			success: function(){
+		$('#invite-content').ajaxForm(function(){
 				$('input#email').val("");
 				$('input#name').val("");
 				$('#invite-box').hide();
 				$('#curtain').hide();
-				minusInvite();
-			},
-			error: function(){
-				alert("Failed to process request, please try again.");
-			}
 		});
+
+
 		// End invitation form functions	
 
 		$('.show-selected-btn').live('click', function(e) {
