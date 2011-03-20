@@ -1,7 +1,7 @@
 
 class FwbMailer < ActionMailer::Base
 
-  default :from => "Facebook FWB App" 
+  default :from => "Facebook FWB-Game" 
 
   def match_email(email, name)
 
