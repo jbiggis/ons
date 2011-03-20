@@ -271,7 +271,7 @@ font-size:16pt;
 #play-btn {
 
 width:100px;
-height:22px;
+height:24px;
 border-radius:5px;
 -moz-border-radius:5px;
 -webkit-border-radius:5px;
@@ -359,7 +359,7 @@ height:28px;
 margin-top:-4px;
 padding-right:8px;
 border:1px solid white;
-border-radius:3px;
+
 
 }
 
@@ -381,8 +381,8 @@ width:126px;
 height:25px;
 float:right;
 font-weight:bold;
-padding-top:8px;
-padding-left:10px;
+padding-top:7px;
+padding-left:12px;
 margin-top:-6px;
 	border: 1px solid #202020;
 	border-radius: 3px;
