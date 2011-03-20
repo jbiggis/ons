@@ -1,7 +1,11 @@
-<div>
+<div class='content'>
+<div id='match-not-wrapper'>
+<div class='title'>
+	Matched FWBs - Awaiting notifications.
+</div>
 
 	<table id='match_notifications'>
-		<tr>
+		<tr class='one'>
 			<td>HunterID</td>
 			<td>TargetID</td>
 			<td>TargetName</td>
@@ -17,6 +21,6 @@
 		<% end %>
 	</table>
 
-	<%= button_to 'Send Notification Emails', update_admin_matches_path, :method => :put%>
-
+<div id='send-not-email-btn'><%= button_to 'Send Notification Emails', update_admin_matches_path, :method => :put %></div>
+</div>
 </div>
