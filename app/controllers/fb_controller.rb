@@ -7,12 +7,12 @@ class FbController < ApplicationController
 
 		if params[:error_code]
 			puts "DEBUG-ERROR: (FB Ctrl) " + params[:error_code] + " " + params[:error_message]
-			redirect_to root_url
+			redirect_to root_url(:anchor => 'play')
 			return
 		end
 
 		if params[:signed_request].nil? && params[:status] == 'settled'
-			redirect_to root_url
+			redirect_to root_url(:anchor => 'play')
 			return
 		end
 
