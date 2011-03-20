@@ -101,8 +101,8 @@ text-align:center;
 padding-top:8px;
 margin:40px 0 60px 0;
 position:absolute;
-right:100px;
-top:40px;
+right:-40px;
+top:-140px;
 }
 
 #trailer-link p {
@@ -154,6 +154,7 @@ width:108px;
 #landing .content {
 clear:both;
 width:960px;
+position:relative;
 }
 
 #landing .img {
@@ -272,6 +273,8 @@ font-size:16pt;
 width:100px;
 height:22px;
 border-radius:5px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
 background:#ff7800;
 color:white;
 padding-top:4px;
