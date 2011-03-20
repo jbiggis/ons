@@ -1,7 +1,4 @@
-	<div id='curtain'>
-	</div>
 
-	<div id='content'>
 
 		<% if !signed_in? %>
 			<div id = 'landing'>
@@ -60,10 +57,11 @@
 			</div>
 
 		<% else %>
-			<div id='header'>
-				<%= render 'shared/account_nav' %>
-			</div>
-
+<% content_for :header do %>
+	<div id='header'>
+		<%= render 'shared/account_nav' %>
+	</div>
+<% end %>
 			<div id='intro-line'>
 				<!--<span class='one'>Have a friend in mind you'd like to be FWB with,</span>-->
 				<!--<span class='one'>Want to be FWB with a friend,</span>-->
@@ -224,6 +222,6 @@
 			</div>
 
 		<% end %>
-	</div>
+
 
 

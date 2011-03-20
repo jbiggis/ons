@@ -1,56 +1,55 @@
-<div id='content'>
+<% content_for :header do %>
+	<div id='header'>
+		<%= render 'shared/account_nav' %>
+	</div>
+<% end %>
+
 
 <div id='faq'>
 
 <div class='separator'>
 <b>How does it work?</b>
-<ol>
-<li>Log in with Facebook.</li>
-<li>Choose friends in your network whom you'd like to be 'friends with benefits' with.</li>
-<li>If a friend chooses you back, you get notified.</li>
-<li>Use a Key to reveal their identity and take the relationship to the next level.</li>
-</ol>
+	<ol>
+		<li>Pick friends you'd like to be FWB with - in secret.</li>
+		<li>Send them 'Anonymous Invites' to get them to join the game. </li>
+		<li>If any of them picks you back, you'll be notified.</li>
+		<li>Use Keys to reveal their identities and take the relationships to the next level.</li>
+	</ol>
 </div>
 
 <div class='separator'>
-<b>Will my friends know that I've chosen them as my "Friends with Benefits"?</b>
-<p>No, your friends will not know that you chose them.  You identity will only be revealed to your friends when they also choose you as their "Friend with Benefits".</p>
-</div>
+<b>Will my friends know that I've picked them as my "FWBs"?</b>
+<p>No, your friends will not know that you picked them.  Picks are only visible to you, unless they pick you back - in which case you both have the option to reveal each others' identities.</p>
+</div>  
 
 <div class='separator'>
 <b>What are Keys?</b>
-<p>Whenever we find a match for you (i.e. you and your friend both choose each other as a Friend with Benefits), your friend is placed in the 'Your Friends with Benefits' box.</p>
+<p>Whenever we find a match for you (i.e. you and your friend both picked each other as FWBs), your friend is placed in the 'Your Friends with Benefits' box.</p>
 <p>To reveal them, simply purchase Keys to unlock their identities.</p>
 </div>
 
 <div class='separator'>
-<b>Why do you need to collect my email address?</b>
-<p>We need your email address to send you email notifications only. We will never spam or share your email address. </p>
+<b>What does the number next to the Key Icon mean?</b>
+<p>That number tells you the number of Keys you have left. Every FWB reveal will subtract 1 from the Key count. Keys will automatically be used to unlock FWBs that we've matched you with.  </p>
 </div>
 
-<!--
 <div class='separator'>
-<b>Why does it ask to 'access my data anytime' when I connect with Facebook?</b>
-<p>We are using Facebook's 'Send Email Notifications' API to send emails, which requires offline access; otherwise, we won't be able to send you emails notifications when we match you up with your friends when you're offline.  We do not use that data for any other purposes, and we will not send you stuff that you don't want.</p>
+<b>Why do you need to collect my email address?</b>
+<p>We use it to notify you when we've matched you with a FWB. We will never spam or share your email address. </p>
 </div>
--->
 
 <div class='separator'>
 <b>What are anonymous invites?</b>
-<p>The more of your friends use friends-with-benefits.me, the higher the chance you get picked.</p>
-<p>An anonymous invite allows you to send an email invitation to your friends to join friends-with-benefits.me without exposing your identity, so they will never know who invited them.</p>
+<p>The more of your friends play fwb-game.com, the higher the chance you get picked.</p>
+<p>Anonymous invites give you the opportunity to invite your friends to play the game without exposing your identity.</p>
 </div>
 
 <div class='separator'>
-<b>How do I report a bug?</b>
-<p>Please use the red feedback button on the left of the screen or email us at hello [at] friends-with-benefits [dot] me.</p>
+<b>How do I report bugs or make suggestions?</b>
+<p>Please direct all inquires, concerns and suggestions to hello [at] fwb-game [dot] com. </p>
 </div>
 
-<div class='separator'>
-<b>How do I make a suggestion?</b>
-<p>Please use the red feedback button on the left of the screen or email us at hello [at] friends-with-benefits [dot] me.</p>
-</div>
 
 </div>
 <br/>
-</div>
+

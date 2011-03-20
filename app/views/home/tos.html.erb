@@ -1,4 +1,10 @@
-<div id='content'>
+<% content_for :header do %>
+	<div id='header'>
+		<%= render 'shared/account_nav' %>
+	</div>
+<% end %>
+
+
 <div id='tos'>
 <h3>Terms of Service for 'fwb-game.com' (hereafter 'Friends with Benefits')</h3>
 <br/>
@@ -104,6 +110,6 @@ For all further information please email us at hello [at] fwb-game [dot] com
 </p>
 <br/>
 </div>
-</div>
+
 <div class='spacer'></div>
 
