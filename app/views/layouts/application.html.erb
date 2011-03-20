@@ -21,7 +21,15 @@
 <body>
 
 <div id='wrapper'>
+	<div id='curtain'>
+	</div>
+
+
+	<div id='content'>
+<%= yield(:header) %>
 <%= yield %>
+
+	</div>
 <div class='clear'></div>
 </div>
 <div class='spacer'>

@@ -1,7 +1,4 @@
-	<div id='curtain'>
-	</div>
 
-	<div id='content'>
 
 		<% if !signed_in? %>
 			<div id = 'landing'>
@@ -37,10 +34,11 @@
 			</div>
 
 		<% else %>
-			<div id='header'>
-				<%= render 'shared/account_nav' %>
-			</div>
-
+<% content_for :header do %>
+	<div id='header'>
+		<%= render 'shared/account_nav' %>
+	</div>
+<% end %>
 			<div id='intro-line'>
 				<!--<span class='one'>Have a friend in mind you'd like to be FWB with,</span>-->
 				<!--<span class='one'>Want to be FWB with a friend,</span>-->
@@ -59,14 +57,12 @@
 						The Rules
 					</div>
 					<ol>
-						<li>Pick friends you'd like to be FWB with - in secret.</li>
+						<li>Pick friends you'd like to be FWBs with - in secret.</li>
 						<li>Send them 'Anonymous Invites' to get them to join the game. </li>
 						<li>If any of them picks you back, you'll be notified.</li>
 						<li>Use Keys to reveal their identities and take the relationships to the next level.</li>
 						
 					</ol>
-						Picks are only visible to you, unless they pick you back - in which case they have the option to reveal your identity.
-
 				</div>		
 			
 			<a href='#jump-to' id='play'><div id='play-btn'>Play</div></a>
@@ -173,6 +169,6 @@
 			</div>
 
 		<% end %>
-	</div>
+
 
 
